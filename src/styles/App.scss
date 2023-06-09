@@ -5,13 +5,24 @@
     // border: 2px solid black;
     width: 200px;
     height: 200px;
-    background-color: white;
+    
 }
 
-.blue{
-    background-color: blue;
+.even{
+    background-image: url('https://i.postimg.cc/2ymxgCw3/spiderduck.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
 }
 
-.red{
-    background-color: red;
+.odd{
+    background-image: url('https://i.postimg.cc/MpZGsgJ5/batman.png');
+    background-size: contain;
+    width: 200px;
+    height: 200px;
+}
+
+.hidden{
+    display:none
 }
