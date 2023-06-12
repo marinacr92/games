@@ -1,14 +1,9 @@
 /* eslint-disable default-case */
 import { useEffect, useState } from 'react';
+import Form from './Form';
 
 const TicTacToe = () => {
   const [count, setCount] = useState(0);
-
-  const [selectedCell, setSelectedCell] = useState([
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-  ]);
 
   const [player, setPlayer] = useState([
     ['', '', ''],
@@ -18,14 +13,12 @@ const TicTacToe = () => {
 
   const [winnerName, setWinnerName] = useState('');
 
-  const isSelected = (x, y) => {
-    selectedCell[x][y] = true;
-    setSelectedCell([...selectedCell]);
-  };
-
   const counter = () => {
     setCount(count + 1);
   };
+
+  const [player1, setPlayer1] = useState('');
+  const [player2, setPlayer2] = useState('');
 
   const whoPlays = (x, y) => {
     if (count % 2 === 0) {
@@ -37,56 +30,39 @@ const TicTacToe = () => {
   };
 
   const handleClick = (ev) => {
+    counter();
     switch (ev.target.id) {
       case 'A1':
-        counter();
-        isSelected(0, 0);
         whoPlays(0, 0);
         break;
       case 'A2':
-        isSelected(0, 1);
-        counter();
         whoPlays(0, 1);
         break;
       case 'A3':
-        isSelected(0, 2);
-        counter();
         whoPlays(0, 2);
         break;
       case 'B1':
-        isSelected(1, 0);
-        counter();
         whoPlays(1, 0);
         break;
       case 'B2':
-        isSelected(1, 1);
-        counter();
         whoPlays(1, 1);
         break;
       case 'B3':
-        isSelected(1, 2);
-        counter();
         whoPlays(1, 2);
         break;
       case 'C1':
-        isSelected(2, 0);
-        counter();
         whoPlays(2, 0);
         break;
       case 'C2':
-        isSelected(2, 1);
-        counter();
         whoPlays(2, 1);
         break;
       case 'C3':
-        isSelected(2, 2);
-        counter();
         whoPlays(2, 2);
         break;
     }
   };
 
-  const handleCLickNone = () => {};
+  const handleCLickNone = () => { };
 
   useEffect(() => {
     if (
@@ -140,13 +116,25 @@ const TicTacToe = () => {
     }
   }, [player]);
 
+  const updatePlayer1 = (value) => {
+    setPlayer1(value)
+  }
+  const updatePlayer2 = (value) => {
+    setPlayer2(value)
+  }
+
   return (
     <>
+      < Form
+        updatePlayer1={updatePlayer1}
+        updatePlayer2={updatePlayer2}
+        player1={player1} player2={player2}
+      />
       <table border="5">
         <tr>
           <td
             onClick={
-              selectedCell[0][0] === false ? handleClick : handleCLickNone
+              player[0][0] === '' ? handleClick : handleCLickNone
             }
             id="A1"
             className={`table ${player[0][0]}`}
@@ -155,14 +143,14 @@ const TicTacToe = () => {
             id="A2"
             className={`table ${player[0][1]}`}
             onClick={
-              selectedCell[0][1] === false ? handleClick : handleCLickNone
+              player[0][1] === '' ? handleClick : handleCLickNone
             }
           ></td>
           <td
             id="A3"
             className={`table ${player[0][2]}`}
             onClick={
-              selectedCell[0][2] === false ? handleClick : handleCLickNone
+              player[0][2] === '' ? handleClick : handleCLickNone
             }
           ></td>
         </tr>
@@ -170,21 +158,21 @@ const TicTacToe = () => {
           <td
             id="B1"
             onClick={
-              selectedCell[1][0] === false ? handleClick : handleCLickNone
+              player[1][0] === '' ? handleClick : handleCLickNone
             }
             className={`table ${player[1][0]}`}
           ></td>
           <td
             id="B2"
             onClick={
-              selectedCell[1][1] === false ? handleClick : handleCLickNone
+              player[1][1] === '' ? handleClick : handleCLickNone
             }
             className={`table ${player[1][1]}`}
           ></td>
           <td
             id="B3"
             onClick={
-              selectedCell[1][2] === false ? handleClick : handleCLickNone
+              player[1][2] === '' ? handleClick : handleCLickNone
             }
             className={`table ${player[1][2]}`}
           ></td>
@@ -193,31 +181,30 @@ const TicTacToe = () => {
           <td
             id="C1"
             onClick={
-              selectedCell[2][0] === false ? handleClick : handleCLickNone
+              player[2][0] === '' ? handleClick : handleCLickNone
             }
             className={`table ${player[2][0]}`}
           ></td>
           <td
             id="C2"
             onClick={
-              selectedCell[2][1] === false ? handleClick : handleCLickNone
+              player[2][1] === '' ? handleClick : handleCLickNone
             }
             className={`table ${player[2][1]}`}
           ></td>
           <td
             id="C3"
             onClick={
-              selectedCell[2][2] === false ? handleClick : handleCLickNone
+              player[2][2] === '' ? handleClick : handleCLickNone
             }
             className={`table ${player[2][2]}`}
           ></td>
         </tr>
       </table>
       <h2>{count}</h2>
-      <h2 className={winnerName === '' ? 'hidden' : ''}>
-        {winnerName === 'even'
-          ? 'Ha ganado el Jugador 1'
-          : 'Ha ganado el Jugador 2'}
+      <h2 className={winnerName === '' ? 'hidden' : ''}> {`Ha ganado 
+        ${winnerName === 'even'
+          ? player1 : player2}`}
       </h2>
     </>
   );
