@@ -1,5 +1,6 @@
 /* eslint-disable default-case */
 import { useEffect, useState } from 'react';
+import '../styles/TicTacToe.scss';
 import Form from './Form';
 
 const TicTacToe = () => {
@@ -29,40 +30,12 @@ const TicTacToe = () => {
     setPlayer([...player]);
   };
 
-  const handleClick = (ev) => {
-    counter();
-    switch (ev.target.id) {
-      case 'A1':
-        whoPlays(0, 0);
-        break;
-      case 'A2':
-        whoPlays(0, 1);
-        break;
-      case 'A3':
-        whoPlays(0, 2);
-        break;
-      case 'B1':
-        whoPlays(1, 0);
-        break;
-      case 'B2':
-        whoPlays(1, 1);
-        break;
-      case 'B3':
-        whoPlays(1, 2);
-        break;
-      case 'C1':
-        whoPlays(2, 0);
-        break;
-      case 'C2':
-        whoPlays(2, 1);
-        break;
-      case 'C3':
-        whoPlays(2, 2);
-        break;
+  const handleClick = (x, y) => {
+    if (player[x][y] === '') {
+      counter();
+      whoPlays(x, y);
     }
   };
-
-  const handleCLickNone = () => { };
 
   useEffect(() => {
     if (
@@ -117,94 +90,72 @@ const TicTacToe = () => {
   }, [player]);
 
   const updatePlayer1 = (value) => {
-    setPlayer1(value)
-  }
+    setPlayer1(value);
+  };
   const updatePlayer2 = (value) => {
-    setPlayer2(value)
-  }
+    setPlayer2(value);
+  };
 
   return (
     <>
-      < Form
+      <Form
         updatePlayer1={updatePlayer1}
         updatePlayer2={updatePlayer2}
-        player1={player1} player2={player2}
+        player1={player1}
+        player2={player2}
       />
       <table border="5">
         <tr>
           <td
-            onClick={
-              player[0][0] === '' ? handleClick : handleCLickNone
-            }
-            id="A1"
+            onClick={() => handleClick(0, 0)}
             className={`table ${player[0][0]}`}
           ></td>
           <td
-            id="A2"
             className={`table ${player[0][1]}`}
-            onClick={
-              player[0][1] === '' ? handleClick : handleCLickNone
-            }
+            onClick={() => handleClick(0, 1)}
           ></td>
           <td
-            id="A3"
             className={`table ${player[0][2]}`}
-            onClick={
-              player[0][2] === '' ? handleClick : handleCLickNone
-            }
+            onClick={() => handleClick(0, 2)}
           ></td>
         </tr>
         <tr>
           <td
-            id="B1"
-            onClick={
-              player[1][0] === '' ? handleClick : handleCLickNone
-            }
+            onClick={() => handleClick(1, 0)}
             className={`table ${player[1][0]}`}
           ></td>
           <td
-            id="B2"
-            onClick={
-              player[1][1] === '' ? handleClick : handleCLickNone
-            }
+            onClick={() => handleClick(1, 1)}
             className={`table ${player[1][1]}`}
           ></td>
           <td
-            id="B3"
-            onClick={
-              player[1][2] === '' ? handleClick : handleCLickNone
-            }
+            onClick={() => handleClick(1, 2)}
             className={`table ${player[1][2]}`}
           ></td>
         </tr>
         <tr>
           <td
-            id="C1"
-            onClick={
-              player[2][0] === '' ? handleClick : handleCLickNone
-            }
+            onClick={() => handleClick(2, 0)}
             className={`table ${player[2][0]}`}
           ></td>
           <td
-            id="C2"
-            onClick={
-              player[2][1] === '' ? handleClick : handleCLickNone
-            }
+            onClick={() => handleClick(2, 1)}
             className={`table ${player[2][1]}`}
           ></td>
           <td
-            id="C3"
-            onClick={
-              player[2][2] === '' ? handleClick : handleCLickNone
-            }
+            onClick={() => handleClick(2, 2)}
             className={`table ${player[2][2]}`}
           ></td>
         </tr>
       </table>
-      <h2>{count}</h2>
-      <h2 className={winnerName === '' ? 'hidden' : ''}> {`Ha ganado 
-        ${winnerName === 'even'
-          ? player1 : player2}`}
+      <h2 className={winnerName === '' ? 'hidden' : ''}>
+        {' '}
+        {`Ha ganado 
+        ${
+          winnerName === 'even'
+            ? player1 || 'Jugador 1'
+            : player2 || 'Jugador 2'
+        }`}
       </h2>
     </>
   );

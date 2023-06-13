@@ -1,8 +1,11 @@
+import '../styles/Reset.scss';
 import '../styles/App.scss';
-import TicTacToe from './TicTacToe';
+//import TicTacToe from './TicTacToe';
+import Memory from './Memory';
 
 function App() {
-  return <TicTacToe />;
+  return <Memory />;
+  //<TicTacToe />;
 }
 
 export default App;
