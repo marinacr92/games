@@ -28,17 +28,20 @@ const Memory = () => {
     FlashDuck,
     HulkDuck,
     CaptainDuck,
-  ]); //modificar array para que aparezcan por parejas
+  ]);
 
   const [foundPair, setFoundPair] = useState([]);
 
-  // crear array vacío e ir guardando el nombre de las parejas encontradas, cuando ese array llegue a 8 elementos (index 7) significa que has ganado
-
-  // classImg, empieza con una clase que es un background, al hacer click se ve el patito, cuando haces click en 2 se compara, si son iguales se pone la clase hidden y desaparecen, si son distintos vuelve la clase background y se da la vuelta la carta
+  const [isSelected, setIsSelected] = useState([]);
 
   const [click1, setClick1] = useState('');
   const [click2, setClick2] = useState('');
-  // const [classImg, setClassImg] = useState('');
+
+  // const [isActived, setIsActived] = useState('');
+
+  const [counter, setCounter] = useState(0);
+
+
 
   const shuffle = () => {
     images.sort(() => {
@@ -48,32 +51,63 @@ const Memory = () => {
   };
 
   useEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    shuffle, []
+  )
+
+  useEffect(
     () => {
       if (click1 === click2 && click1 !== '') {
         setFoundPair([...foundPair, click1])
-        console.log('3');
       }
       if (click1 !== '' && click2 !== '') {
         setClick1('');
         setClick2('');
+        // noSelected()
       }
     }, [click1, click2]
   )
 
+
+  const increment = () => {
+    setCounter(counter + 1)
+  }
+  // const noSelected = () => {
+  //   setIsActived('')
+  // }
+  // const active = () => {
+  //   setIsActived('selected')
+  // }
   const saveImg = (card) => {
     if (click1 === '') {
       setClick1(card);
-      console.log('1');
     } else if (click2 === '') {
       setClick2(card);
-      console.log(2);
+      increment()
     }
   };
+
+  const selectCard = (index) => {
+    setIsSelected([...isSelected, index])
+    if (isSelected.length === 2) {
+      setIsSelected([])
+    }
+  }
 
   const winner = () => {
     if (foundPair.length === 8) {
       return 'Has ganado'
     }
+  }
+
+
+
+  const handleReset = () => {
+    setFoundPair([]);
+    setClick1('');
+    setClick2('');
+    shuffle();
+    setCounter(0);
   }
 
   return (
@@ -83,9 +117,14 @@ const Memory = () => {
           images={images}
           saveImg={saveImg}
           foundPair={foundPair}
+          selectCard={selectCard}
+          isSelected={isSelected}
+        // active={active}
+        // isActived={isActived}
         />
       </div>
-      <button onClick={shuffle}>Reordena!</button>
+      <button onClick={handleReset}> {counter === 0 ? 'Play!' : 'Reset'}</button>
+      <p>{counter}</p>
       <h3>{winner()}</h3>
     </>
   );
