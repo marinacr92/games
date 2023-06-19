@@ -8,7 +8,7 @@ import KungFuDuck from '../images/kungfuDuck.png';
 import FlashDuck from '../images/flashduck.png';
 import HulkDuck from '../images/hulkduck.png';
 import CaptainDuck from '../images/captainduck.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Memory = () => {
   const [images, setImages] = useState([
@@ -28,33 +28,37 @@ const Memory = () => {
     FlashDuck,
     HulkDuck,
     CaptainDuck,
-  ]);
+  ]); //modificar array para que aparezcan por parejas
+
+  const [foundPair, setFoundPair] = useState([]);
+
+  // crear array vacío e ir guardando el nombre de las parejas encontradas, cuando ese array llegue a 8 elementos (index 7) significa que has ganado
+
+  // classImg, empieza con una clase que es un background, al hacer click se ve el patito, cuando haces click en 2 se compara, si son iguales se pone la clase hidden y desaparecen, si son distintos vuelve la clase background y se da la vuelta la carta
 
   const [click1, setClick1] = useState('');
   const [click2, setClick2] = useState('');
-  const [classImg, setClassImg] = useState('');
+  // const [classImg, setClassImg] = useState('');
 
   const shuffle = () => {
     images.sort(() => {
       return Math.random() - 0.5;
     });
-    console.log(images);
     setImages([...images]);
   };
 
-  const compareImg = () => {
-    if (click1 === click2 && click1 !== '') {
-      //setClick1('');
-      //setClick2('');
-      setClassImg('hidden');
-      console.log('3');
-    } else {
-      //setClick1('');
-      //setClick2('');
-      setClassImg('');
-      console.log('4');
-    }
-  };
+  useEffect(
+    () => {
+      if (click1 === click2 && click1 !== '') {
+        setFoundPair([...foundPair, click1])
+        console.log('3');
+      }
+      if (click1 !== '' && click2 !== '') {
+        setClick1('');
+        setClick2('');
+      }
+    }, [click1, click2]
+  )
 
   const saveImg = (card) => {
     if (click1 === '') {
@@ -63,8 +67,6 @@ const Memory = () => {
     } else if (click2 === '') {
       setClick2(card);
       console.log(2);
-    } else if (click1 !== '' && click2 !== '') {
-      compareImg();
     }
   };
 
@@ -74,8 +76,7 @@ const Memory = () => {
         <MemoryCards
           images={images}
           saveImg={saveImg}
-          compareImg={compareImg}
-          classImg={classImg}
+          foundPair={foundPair}
         />
       </div>
       <button onClick={shuffle}>Reordena!</button>

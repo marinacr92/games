@@ -106,6 +106,7 @@ const TicTacToe = () => {
       />
       <table border="5">
         <tr>
+          {/* eso no debería pintarse con un map? en lugar de un array de arrays como coordenadas hacer un array simple, y a la hora de pintarlo pasar como argumento el indice de la casilla donde se va a pintar */}
           <td
             onClick={() => handleClick(0, 0)}
             className={`table ${player[0][0]}`}
@@ -151,11 +152,10 @@ const TicTacToe = () => {
       <h2 className={winnerName === '' ? 'hidden' : ''}>
         {' '}
         {`Ha ganado 
-        ${
-          winnerName === 'even'
+        ${winnerName === 'even'
             ? player1 || 'Jugador 1'
             : player2 || 'Jugador 2'
-        }`}
+          }`}
       </h2>
     </>
   );
