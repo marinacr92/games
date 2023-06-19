@@ -70,6 +70,12 @@ const Memory = () => {
     }
   };
 
+  const winner = () => {
+    if (foundPair.length === 8) {
+      return 'Has ganado'
+    }
+  }
+
   return (
     <>
       <div className="board">
@@ -80,6 +86,7 @@ const Memory = () => {
         />
       </div>
       <button onClick={shuffle}>Reordena!</button>
+      <h3>{winner()}</h3>
     </>
   );
 };
