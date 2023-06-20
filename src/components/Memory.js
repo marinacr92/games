@@ -85,6 +85,7 @@ const Memory = () => {
 
   const handleReset = () => {
     setCardsMatched([]);
+    setCardsFlipped([]);
     shuffle();
     setCounter(0);
   };
