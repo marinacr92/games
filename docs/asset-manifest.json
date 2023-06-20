@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.1c397bad.css",
-    "main.js": "./static/js/main.0d24cc79.js",
+    "main.css": "./static/css/main.46e17f0d.css",
+    "main.js": "./static/js/main.2d6c234f.js",
     "static/media/batman1.png": "./static/media/batman1.c56b33eaf797a5c43668.png",
     "static/media/captainduck.png": "./static/media/captainduck.f2d9d6ab9424110aea99.png",
     "static/media/kungfuDuck.png": "./static/media/kungfuDuck.70683eecec614d7416a7.png",
@@ -10,12 +10,16 @@
     "static/media/flashduck.png": "./static/media/flashduck.73b848819eb3447bf252.png",
     "static/media/spiderduck1.png": "./static/media/spiderduck1.ae437faf501cb0ed2bb0.png",
     "static/media/hulkduck.png": "./static/media/hulkduck.9a69273bb0d3789f50ba.png",
+    "static/media/capturaMemory.png": "./static/media/capturaMemory.97ad93e4102fcff849c4.png",
+    "static/media/logo.png": "./static/media/logo.9ea6809ab41629c93dd1.png",
+    "static/media/kisspng-newspaper-newsprint-ball-papel-5ac79e07dd5244.png": "./static/media/kisspng-newspaper-newsprint-ball-papel-5ac79e07dd5244.1078719615230315599065.e682d1a9a4fd7052dcf8.png",
+    "static/media/minigameshubbig.svg": "./static/media/minigameshubbig.0eec90863f6702ad0ce0d61d8d05014c.svg",
     "index.html": "./index.html",
-    "main.1c397bad.css.map": "./static/css/main.1c397bad.css.map",
-    "main.0d24cc79.js.map": "./static/js/main.0d24cc79.js.map"
+    "main.46e17f0d.css.map": "./static/css/main.46e17f0d.css.map",
+    "main.2d6c234f.js.map": "./static/js/main.2d6c234f.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c397bad.css",
-    "static/js/main.0d24cc79.js"
+    "static/css/main.46e17f0d.css",
+    "static/js/main.2d6c234f.js"
   ]
 }
