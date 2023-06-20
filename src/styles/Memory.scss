@@ -37,9 +37,13 @@
   }
 }
 
-.selected {
+.flipped {
   transform: rotateY(0.5turn);
 }
 .hidden {
   display: none;
+}
+
+.matched{
+  background-color: green;
 }
