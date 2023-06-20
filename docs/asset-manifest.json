@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "./static/css/main.1c397bad.css",
+    "main.js": "./static/js/main.0d24cc79.js",
+    "static/media/batman1.png": "./static/media/batman1.c56b33eaf797a5c43668.png",
+    "static/media/captainduck.png": "./static/media/captainduck.f2d9d6ab9424110aea99.png",
+    "static/media/kungfuDuck.png": "./static/media/kungfuDuck.70683eecec614d7416a7.png",
+    "static/media/superduck.png": "./static/media/superduck.549c688a781ee18b039e.png",
+    "static/media/JokerDuck.png": "./static/media/JokerDuck.d3c2e1b066a1ab02e02c.png",
+    "static/media/flashduck.png": "./static/media/flashduck.73b848819eb3447bf252.png",
+    "static/media/spiderduck1.png": "./static/media/spiderduck1.ae437faf501cb0ed2bb0.png",
+    "static/media/hulkduck.png": "./static/media/hulkduck.9a69273bb0d3789f50ba.png",
+    "index.html": "./index.html",
+    "main.1c397bad.css.map": "./static/css/main.1c397bad.css.map",
+    "main.0d24cc79.js.map": "./static/js/main.0d24cc79.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1c397bad.css",
+    "static/js/main.0d24cc79.js"
+  ]
+}
