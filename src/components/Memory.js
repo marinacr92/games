@@ -33,13 +33,6 @@ const Memory = () => {
   const [cardsFlipped, setCardsFlipped] = useState([]);
   const [cardsMatched, setCardsMatched] = useState([]);
 
-  //const [isSelected, setIsSelected] = useState([]);
-
-  //const [click1, setClick1] = useState('');
-  //const [click2, setClick2] = useState('');
-
-  // const [isActived, setIsActived] = useState('');
-
   const [counter, setCounter] = useState(0);
 
   const shuffle = () => {
@@ -49,13 +42,16 @@ const Memory = () => {
     setImages([...images]);
   };
 
-  // useEffect(
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   shuffle(),
-  //   []
-  // );
+  useEffect(() => {
+    shuffle();
+  }, []);
+
+  const increment = () => {
+    setCounter(counter + 1);
+  };
 
   const flipCards = (cardId) => {
+    increment();
     if (
       cardsFlipped.length < 2 &&
       !cardsFlipped.includes(cardId) &&
@@ -71,7 +67,6 @@ const Memory = () => {
 
         if (images[card1] === images[card2]) {
           setCardsMatched([...cardsMatched, card1, card2]);
-
           setCardsFlipped([]);
         } else {
           setTimeout(() => {
@@ -82,52 +77,14 @@ const Memory = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (click1 === click2 && click1 !== '') {
-  //     setFoundPair([...foundPair, click1]);
-  //   }
-  //   if (click1 !== '' && click2 !== '') {
-  //     setClick1('');
-  //     setClick2('');
-  //     // noSelected()
-  //   }
-  // }, [click1, click2]);
-
-  // //const increment = () => {
-  //   setCounter(counter + 1);
-  // };
-  // const noSelected = () => {
-  //   setIsActived('')
-  // }
-  // const active = () => {
-  //   setIsActived('selected')
-  // }
-  // const saveImg = (card) => {
-  //   if (click1 === '') {
-  //     setClick1(card);
-  //   } else if (click2 === '') {
-  //     setClick2(card);
-  //     increment();
-  //   }
-  // };
-
-  // const selectCard = (index) => {
-  //   setIsSelected([...isSelected, index]);
-  //   if (isSelected.length === 2) {
-  //     setIsSelected([]);
-  //   }
-  // };
-
   const winner = () => {
-    if (cardsMatched.length === 8) {
-      return 'Has ganado';
+    if (cardsMatched.length === 16) {
+      return '¡Has ganado!';
     }
   };
 
   const handleReset = () => {
     setCardsMatched([]);
-    //setClick1('');
-    //setClick2('');
     shuffle();
     setCounter(0);
   };
@@ -137,21 +94,17 @@ const Memory = () => {
       <div className="board">
         <MemoryCards
           images={images}
-          //saveImg={saveImg}
           cardsMatched={cardsMatched}
           cardsFlipped={cardsFlipped}
           flipCards={flipCards}
-          //selectCard={selectCard}
-          //isSelected={isSelected}
-          // active={active}
-          // isActived={isActived}
         />
       </div>
       <button onClick={handleReset}>
         {' '}
         {counter === 0 ? 'Play!' : 'Reset'}
       </button>
-      <p>{counter}</p>
+      <p>{Math.floor(counter / 2)} movimientos</p>
+      <p>Parejas acertadas: {Math.floor(cardsMatched.length / 2)}/8</p>
       <h3>{winner()}</h3>
     </>
   );
