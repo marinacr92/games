@@ -1,5 +1,9 @@
-#root{
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 1fr 50px;
+#root {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 50px;
+}
+
+.main {
+  grid-row: 1/2;
 }

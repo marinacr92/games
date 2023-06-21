@@ -1,117 +1,109 @@
-.main{
+.main {
+  &__landing {
     background-color: rgb(155, 155, 155);
-    grid-row: 1/2;
     display: grid;
     grid-template-rows: 200px 1fr;
     padding: 0 30px;
-
-    &__title{
-        grid-row: 1/2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    &__nav{
-        grid-row: 2/3;
-    }
-}
-
-.wall{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap:25px;
-
-    &__postit {
-        width: 200px;
-        height: 200px;
-
-        &--yellow{
-            background-color: rgb(251, 251, 82);
-            transform: rotateZ(4deg);
-            box-shadow: 16px 11px 8px rgb(56, 56, 56);
-            background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
-                
-        }
-
-        &--orange{
-            background-color:lightsalmon;
-            transform: rotateZ(-1deg);
-            box-shadow: 9px 5px 11px rgb(56, 56, 56);
-            background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
-        }
-
-        &--green{
-            background-color: rgb(144, 238, 144);
-            transform: rotateZ(-3deg);
-            box-shadow: 8px 8px 8px rgb(56, 56, 56);
-            position: relative;
-            background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
-
-            &:before {
-                    box-shadow: 6px 6px 5px #4b4a4a;
-                    background-color: rgb(155, 155, 155);
-                    border-bottom: 30px solid rgb(125, 207, 125);
-                    border-bottom-right-radius: 3px;
-                    border-left: 30px solid transparent;
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    left: -1px;
-                    top: -1px;
-                }
-        }
-
-        &--blue{
-            background-color: lightblue;
-            transform: rotateZ(-3deg);
-            box-shadow: 16px 8px 9px rgb(56, 56, 56);
-            background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
-        }
-
-        &--violet{
-            background-color: #b1b1ff;
-            transform: rotateZ(4deg);
-            box-shadow: 14px 13px 9px rgb(56, 56, 56);
-            background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
-            &:before {
-                box-shadow: 3px -3px 4px #4b4a4a;
-                background-color: rgb(155, 155, 155);
-                border-top: 13px solid #aaaad8;
-                border-top-right-radius: 3px;
-                border-left: 14px solid transparent;
-                content: "";
-                display: block;
-                position: absolute;
-                left: -1px;
-                bottom: -1px;
-            }
-        }
-
-    }
-
-}
-
-.link{
-    height: 100%;
+  }
+  &__title {
+    grid-row: 1/2;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    color: #4b4a4a;
+  }
 
-    &__img{
-        width: 150px;
-        border-radius: 10px;
-    }
-
-    &__title{
-        
-        margin-top: 10px;
-    }
+  &__nav {
+    grid-row: 2/3;
+  }
 }
 
+.wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
 
+  &__postit {
+    width: 200px;
+    height: 200px;
 
+    &--yellow {
+      background-color: rgb(251, 251, 82);
+      transform: rotateZ(4deg);
+      box-shadow: 16px 11px 8px rgb(56, 56, 56);
+      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
+    }
 
+    &--orange {
+      background-color: lightsalmon;
+      transform: rotateZ(-1deg);
+      box-shadow: 9px 5px 11px rgb(56, 56, 56);
+      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
+    }
+
+    &--green {
+      background-color: rgb(144, 238, 144);
+      transform: rotateZ(-3deg);
+      box-shadow: 8px 8px 8px rgb(56, 56, 56);
+      position: relative;
+      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
+
+      &:before {
+        box-shadow: 6px 6px 5px #4b4a4a;
+        background-color: rgb(155, 155, 155);
+        border-bottom: 30px solid rgb(125, 207, 125);
+        border-bottom-right-radius: 3px;
+        border-left: 30px solid transparent;
+        content: "";
+        display: block;
+        position: absolute;
+        left: -1px;
+        top: -1px;
+      }
+    }
+
+    &--blue {
+      background-color: lightblue;
+      transform: rotateZ(-3deg);
+      box-shadow: 16px 8px 9px rgb(56, 56, 56);
+      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
+    }
+
+    &--violet {
+      background-color: #b1b1ff;
+      transform: rotateZ(4deg);
+      box-shadow: 14px 13px 9px rgb(56, 56, 56);
+      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
+      &:before {
+        box-shadow: 3px -3px 4px #4b4a4a;
+        background-color: rgb(155, 155, 155);
+        border-top: 13px solid #aaaad8;
+        border-top-right-radius: 3px;
+        border-left: 14px solid transparent;
+        content: "";
+        display: block;
+        position: absolute;
+        left: -1px;
+        bottom: -1px;
+      }
+    }
+  }
+}
+
+.link {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #4b4a4a;
+
+  &__img {
+    width: 150px;
+    border-radius: 10px;
+  }
+
+  &__title {
+    margin-top: 10px;
+  }
+}

@@ -91,7 +91,7 @@ const Memory = () => {
   };
 
   return (
-    <>
+    <main className='main'>
       <div className="board">
         <MemoryCards
           images={images}
@@ -107,7 +107,7 @@ const Memory = () => {
       <p>{Math.floor(counter / 2)} movimientos</p>
       <p>Parejas acertadas: {Math.floor(cardsMatched.length / 2)}/8</p>
       <h3>{winner()}</h3>
-    </>
+    </main>
   );
 };
 

@@ -7,9 +7,9 @@ import '../styles/Landing.scss';
 
 const Landing = () => {
   return (
-    <main className="main">
+    <main className="main main__landing">
       <section className="main__title">
-        <img width="200px" src={Logo} alt="" />
+        <img width="200px" src={Logo} alt="logo pato" />
         <img src={LogoTitle} alt="" />
       </section>
       <nav className="main__nav">

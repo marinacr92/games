@@ -3,14 +3,15 @@ import { useEffect, useState } from 'react';
 import '../styles/TicTacToe.scss';
 import Form from './Form';
 
+
 const TicTacToe = () => {
+
+  const [board, setBoard] = useState(Array(9).fill(''));
+
   const [count, setCount] = useState(0);
 
-  const [player, setPlayer] = useState([
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
-  ]);
+  const [player1, setPlayer1] = useState('');
+  const [player2, setPlayer2] = useState('');
 
   const [winnerName, setWinnerName] = useState('');
 
@@ -18,76 +19,43 @@ const TicTacToe = () => {
     setCount(count + 1);
   };
 
-  const [player1, setPlayer1] = useState('');
-  const [player2, setPlayer2] = useState('');
+  const renderSquare = board.map((square, index) => {
+    return (
+      <div key={index} id={index} className={`board__square board__square--${index} ${square}`} >
+      </div>
+    )
+  })
 
-  const whoPlays = (x, y) => {
+  const whoPlays = (index) => {
+    counter();
     if (count % 2 === 0) {
-      player[x][y] = 'even';
+      board[index] = 'spiderduck';
     } else {
-      player[x][y] = 'odd';
+      board[index] = 'batduck';
     }
-    setPlayer([...player]);
+    setBoard([...board]);
+
   };
 
-  const handleClick = (x, y) => {
-    if (player[x][y] === '') {
-      counter();
-      whoPlays(x, y);
-    }
-  };
-
-  useEffect(() => {
-    if (
-      player[0][0] === player[0][1] &&
-      player[0][1] === player[0][2] &&
-      player[0][0] !== ''
-    ) {
-      setWinnerName(player[0][0]);
-    } else if (
-      player[1][0] === player[1][1] &&
-      player[1][1] === player[1][2] &&
-      player[1][0] !== ''
-    ) {
-      setWinnerName(player[1][0]);
-    } else if (
-      player[2][0] === player[2][1] &&
-      player[2][1] === player[2][2] &&
-      player[2][0] !== ''
-    ) {
-      setWinnerName(player[2][0]);
-    } else if (
-      player[0][0] === player[1][0] &&
-      player[1][0] === player[2][0] &&
-      player[0][0] !== ''
-    ) {
-      setWinnerName(player[0][0]);
-    } else if (
-      player[0][1] === player[1][1] &&
-      player[1][1] === player[2][1] &&
-      player[0][1] !== ''
-    ) {
-      setWinnerName(player[0][1]);
-    } else if (
-      player[0][2] === player[1][2] &&
-      player[1][2] === player[2][2] &&
-      player[0][2] !== ''
-    ) {
-      setWinnerName(player[0][2]);
-    } else if (
-      player[0][0] === player[1][1] &&
-      player[1][1] === player[2][2] &&
-      player[0][0] !== ''
-    ) {
-      setWinnerName(player[0][0]);
-    } else if (
-      player[0][2] === player[1][1] &&
-      player[1][1] === player[2][0] &&
-      player[0][2] !== ''
-    ) {
-      setWinnerName(player[0][2]);
-    }
-  }, [player]);
+  useEffect(
+    () => {
+      const winnerLines = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+      ]
+      for (let i = 0; i < winnerLines.length; i++) {
+        const [a, b, c] = winnerLines[i];
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+          setWinnerName(board[a])
+        }
+      }
+    }, [board])
 
   const updatePlayer1 = (value) => {
     setPlayer1(value);
@@ -97,67 +65,26 @@ const TicTacToe = () => {
   };
 
   return (
-    <>
+    <main className='main'>
       <Form
         updatePlayer1={updatePlayer1}
         updatePlayer2={updatePlayer2}
         player1={player1}
         player2={player2}
       />
-      <table border="5">
-        <tr>
-          {/* eso no debería pintarse con un map? en lugar de un array de arrays como coordenadas hacer un array simple, y a la hora de pintarlo pasar como argumento el indice de la casilla donde se va a pintar */}
-          <td
-            onClick={() => handleClick(0, 0)}
-            className={`table ${player[0][0]}`}
-          ></td>
-          <td
-            className={`table ${player[0][1]}`}
-            onClick={() => handleClick(0, 1)}
-          ></td>
-          <td
-            className={`table ${player[0][2]}`}
-            onClick={() => handleClick(0, 2)}
-          ></td>
-        </tr>
-        <tr>
-          <td
-            onClick={() => handleClick(1, 0)}
-            className={`table ${player[1][0]}`}
-          ></td>
-          <td
-            onClick={() => handleClick(1, 1)}
-            className={`table ${player[1][1]}`}
-          ></td>
-          <td
-            onClick={() => handleClick(1, 2)}
-            className={`table ${player[1][2]}`}
-          ></td>
-        </tr>
-        <tr>
-          <td
-            onClick={() => handleClick(2, 0)}
-            className={`table ${player[2][0]}`}
-          ></td>
-          <td
-            onClick={() => handleClick(2, 1)}
-            className={`table ${player[2][1]}`}
-          ></td>
-          <td
-            onClick={() => handleClick(2, 2)}
-            className={`table ${player[2][2]}`}
-          ></td>
-        </tr>
-      </table>
-      <h2 className={winnerName === '' ? 'hidden' : ''}>
-        {' '}
-        {`Ha ganado 
-        ${winnerName === 'even'
+      <div className='tictactoe__board' onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}>
+        {renderSquare}
+      </div>
+      < h2 className={winnerName === '' ? 'hidden' : ''}>
+        {
+          `Ha ganado 
+        ${winnerName === 'spiderduck'
             ? player1 || 'Jugador 1'
             : player2 || 'Jugador 2'
-          }`}
-      </h2>
-    </>
+          }`
+        }
+      </h2 >
+    </main >
   );
 };
 
