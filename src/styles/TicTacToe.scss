@@ -1,16 +1,38 @@
-.main__tictactoe {
+.tictactoe {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  background-image: url(../images/notebook.jpg);
+  padding: 25px;
+  &__backBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__box {
+    border: solid 1px black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__reset {
+    border-radius: 10px;
+    padding: 5px;
+  }
+  &__board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    width: 600px;
+    height: 600px;
+  }
 }
 
-.tictactoe__board {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 20px;
-  width: 600px;
-  height: 600px;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .board__square {
   padding: 20px;

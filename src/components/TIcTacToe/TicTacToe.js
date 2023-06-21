@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import '../../styles/TicTacToe.scss';
 import Form from './Form';
+import { Link } from 'react-router-dom';
 
 
 const TicTacToe = () => {
@@ -57,6 +58,14 @@ const TicTacToe = () => {
       }
     }, [board])
 
+  const handleReset = () => {
+    setWinnerName('');
+    setCount(0);
+    setBoard(Array(9).fill(''));
+    setPlayer1('');
+    setPlayer2('');
+  }
+
   const updatePlayer1 = (value) => {
     setPlayer1(value);
   };
@@ -65,25 +74,36 @@ const TicTacToe = () => {
   };
 
   return (
-    <main className='main main__tictactoe'>
-      <Form
-        updatePlayer1={updatePlayer1}
-        updatePlayer2={updatePlayer2}
-        player1={player1}
-        player2={player2}
-      />
+    <main className='main 
+    tictactoe'>
+      <Link to='/' className='tictactoe__backBtn'>Volver</Link>
+      <div className='tictactoe__box'>
+
+        <Form
+          updatePlayer1={updatePlayer1}
+          updatePlayer2={updatePlayer2}
+          player1={player1}
+          player2={player2}
+        />
+        <button
+          onClick={handleReset}
+          className='tictactoe__reset'
+        >Jugar de nuevo</button>
+        < h2 className={winnerName === '' ? 'hidden' : ''}>
+          {
+            `Ha ganado
+          ${winnerName === 'spiderduck'
+              ? player1 || 'Jugador 1'
+              : player2 || 'Jugador 2'
+            }`
+          }
+        </h2 >
+
+      </div>
       <div className='tictactoe__board' onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}>
         {renderSquare}
       </div>
-      < h2 className={winnerName === '' ? 'hidden' : ''}>
-        {
-          `Ha ganado 
-        ${winnerName === 'spiderduck'
-            ? player1 || 'Jugador 1'
-            : player2 || 'Jugador 2'
-          }`
-        }
-      </h2 >
+
     </main >
   );
 };

@@ -9,7 +9,7 @@ const Form = ({ updatePlayer1, updatePlayer2, player1, player2 }) => {
   };
 
   return (
-    <form onSubmit={(ev) => ev.preventDefault()}>
+    <form onSubmit={(ev) => ev.preventDefault()} className='form'>
       <label htmlFor="player1">
         Jugador 1:
         <input
