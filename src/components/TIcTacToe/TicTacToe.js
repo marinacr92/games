@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
 import { useEffect, useState } from 'react';
-import '../styles/TicTacToe.scss';
+import '../../styles/TicTacToe.scss';
 import Form from './Form';
 
 
@@ -65,7 +65,7 @@ const TicTacToe = () => {
   };
 
   return (
-    <main className='main'>
+    <main className='main main__tictactoe'>
       <Form
         updatePlayer1={updatePlayer1}
         updatePlayer2={updatePlayer2}

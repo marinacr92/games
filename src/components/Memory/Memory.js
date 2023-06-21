@@ -1,13 +1,13 @@
-import '../styles/Memory.scss';
+import '../../styles/Memory.scss';
 import MemoryCards from './MemoryCards';
-import SpiderDuck from '../images/spiderduck1.png';
-import BatDuck from '../images/batman1.png';
-import SuperDuck from '../images/superduck.png';
-import JokerDuck from '../images/JokerDuck.png';
-import KungFuDuck from '../images/kungfuDuck.png';
-import FlashDuck from '../images/flashduck.png';
-import HulkDuck from '../images/hulkduck.png';
-import CaptainDuck from '../images/captainduck.png';
+import SpiderDuck from '../../images/spiderduck1.png';
+import BatDuck from '../../images/batman1.png';
+import SuperDuck from '../../images/superduck.png';
+import JokerDuck from '../../images/JokerDuck.png';
+import KungFuDuck from '../../images/kungfuDuck.png';
+import FlashDuck from '../../images/flashduck.png';
+import HulkDuck from '../../images/hulkduck.png';
+import CaptainDuck from '../../images/captainduck.png';
 import { useEffect, useState } from 'react';
 
 const Memory = () => {
