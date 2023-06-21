@@ -1,13 +1,13 @@
 import '../../styles/Memory.scss';
 import MemoryCards from './MemoryCards';
-import SpiderDuck from '../../images/spiderduck1.png';
-import BatDuck from '../../images/batman1.png';
-import SuperDuck from '../../images/superduck.png';
-import JokerDuck from '../../images/JokerDuck.png';
+import SpiderDuck from '../../images/SuperHeros/spiderduck1.png';
+import BatDuck from '../../images/SuperHeros/batman1.png';
+import SuperDuck from '../../images/SuperHeros/superduck.png';
+import JokerDuck from '../../images/SuperHeros/JokerDuck.png';
 import KungFuDuck from '../../images/kungfuDuck.png';
-import FlashDuck from '../../images/flashduck.png';
-import HulkDuck from '../../images/hulkduck.png';
-import CaptainDuck from '../../images/captainduck.png';
+import FlashDuck from '../../images/SuperHeros/flashduck.png';
+import HulkDuck from '../../images/SuperHeros/hulkduck.png';
+import CaptainDuck from '../../images/SuperHeros/captainduck.png';
 import { useEffect, useState } from 'react';
 
 const Memory = () => {
@@ -91,7 +91,7 @@ const Memory = () => {
   };
 
   return (
-    <main className='main'>
+    <main className="main">
       <div className="board">
         <MemoryCards
           images={images}
