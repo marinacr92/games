@@ -4,7 +4,7 @@
   &__landing {
     background-color: rgb(155, 155, 155);
     display: grid;
-    grid-template-rows: 200px 1fr;
+    grid-template-rows: 20% 1fr;
     padding: 0 30px;
   }
   &__title {
@@ -12,6 +12,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &--logo{
+      width: 25%;
+    }
+
+    &--title{
+      width: 75%;
+    }
   }
 
   &__nav {

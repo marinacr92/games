@@ -9,8 +9,8 @@ const Landing = () => {
   return (
     <main className="main main__landing">
       <section className="main__title">
-        <img width="200px" src={Logo} alt="logo pato" />
-        <img src={LogoTitle} alt="" />
+        <img className="main__title--logo" src={Logo} alt="logo pato" />
+        <img className="main__title--title" src={LogoTitle} alt="" />
       </section>
       <nav className="main__nav">
         <ul className="wall">
@@ -23,17 +23,12 @@ const Landing = () => {
             <Link className="link" to="/tictactoe">
               Ahorcado
             </Link>
-
           </li>
           <li className="wall__postit wall__postit--green">
-
             <Link className="link" to="/memory">
               <img className="link__img" src={ImgMemory} alt="" />
               <p className="link__title">Memory</p>
-
             </Link>
-
-
           </li>
           <li className="wall__postit wall__postit--blue">
             <Link className="link" to="/tictactoe">
@@ -41,7 +36,6 @@ const Landing = () => {
             </Link>
           </li>
           <li className="wall__postit wall__postit--violet">
-
             <Link className="link" to="/tictactoe">
               <p>Tic Tac Toe</p>
             </Link>
