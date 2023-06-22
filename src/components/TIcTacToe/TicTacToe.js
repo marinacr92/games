@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react';
 import '../../styles/TicTacToe.scss';
 import Form from './Form';
+import ModalTicTacToe from './ModalTicTacToe';
 import { Link } from 'react-router-dom';
+import Bic from '../../images/bic.png';
 
 
 const TicTacToe = () => {
@@ -74,37 +76,34 @@ const TicTacToe = () => {
   };
 
   return (
-    <main className='main 
-    tictactoe'>
-      <Link to='/' className='tictactoe__backBtn'>Volver</Link>
-      <div className='tictactoe__box'>
+    <>
+      {/* <ModalTicTacToe
+        updatePlayer1={updatePlayer1}
+        updatePlayer2={updatePlayer2}
+        player1={player1}
+        player2={player2}
+        handleReset={handleReset}
+        winnerName={winnerName}
+      ></ModalTicTacToe> */}
+      <main className='main 
+    main__tictactoe'>
+        <h1 className='tictactoe__title'>TicTacToe</h1>
+        <div className="tictactoe__box">
+          <div className='tictactoe__board' onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}>
+            {renderSquare}
+          </div>
+          <img src={Bic} alt="boli bic" />
+        </div>
+        <div>
+          <Link to='/' className='tictactoe__btn backBtn'>Volver</Link>
+          <button
+            onClick={handleReset}
+            className='tictactoe__btn resetBtn'
+          >Jugar de nuevo</button>
+        </div>
+      </main >
 
-        <Form
-          updatePlayer1={updatePlayer1}
-          updatePlayer2={updatePlayer2}
-          player1={player1}
-          player2={player2}
-        />
-        <button
-          onClick={handleReset}
-          className='tictactoe__reset'
-        >Jugar de nuevo</button>
-        < h2 className={winnerName === '' ? 'hidden' : ''}>
-          {
-            `Ha ganado
-          ${winnerName === 'spiderduck'
-              ? player1 || 'Jugador 1'
-              : player2 || 'Jugador 2'
-            }`
-          }
-        </h2 >
-
-      </div>
-      <div className='tictactoe__board' onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}>
-        {renderSquare}
-      </div>
-
-    </main >
+    </>
   );
 };
 
