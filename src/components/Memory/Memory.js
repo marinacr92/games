@@ -1,4 +1,5 @@
 import '../../styles/Memory.scss';
+import ModalMemory from './ModalMemory';
 import MemoryCards from './MemoryCards';
 import SpiderDuck from '../../images/SuperHeros/spiderduck1.png';
 import BatDuck from '../../images/SuperHeros/batman1.png';
@@ -9,6 +10,7 @@ import FlashDuck from '../../images/SuperHeros/flashduck.png';
 import HulkDuck from '../../images/SuperHeros/hulkduck.png';
 import CaptainDuck from '../../images/SuperHeros/captainduck.png';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Memory = () => {
   const [images, setImages] = useState([
@@ -91,23 +93,36 @@ const Memory = () => {
   };
 
   return (
-    <main className="main">
-      <div className="board">
-        <MemoryCards
-          images={images}
-          cardsMatched={cardsMatched}
-          cardsFlipped={cardsFlipped}
-          flipCards={flipCards}
-        />
-      </div>
-      <button onClick={handleReset}>
-        {' '}
-        {counter === 0 ? 'Play!' : 'Reset'}
-      </button>
-      <p>{Math.floor(counter / 2)} movimientos</p>
-      <p>Parejas acertadas: {Math.floor(cardsMatched.length / 2)}/8</p>
-      <h3>{winner()}</h3>
-    </main>
+    <>
+      <main className="main main__memory">
+        <ModalMemory />
+        <h1 className="memory__title">Memory</h1>
+        <div className="memory__board">
+          <MemoryCards
+            images={images}
+            cardsMatched={cardsMatched}
+            cardsFlipped={cardsFlipped}
+            flipCards={flipCards}
+          />
+        </div>
+        <section className="memory__footer">
+          <section className="buttons">
+            <Link to="/" className="button__return">
+              Sala de juegos
+            </Link>
+            <button className="button__reset" onClick={handleReset}>
+              Reiniciar partida
+            </button>
+          </section>
+          <h3 className="message">
+            Parejas acertadas: {Math.floor(cardsMatched.length / 2)}/8
+          </h3>
+        </section>
+        {/* <p>{Math.floor(counter / 2)} movimientos</p>
+      <h3>{winner()}</h3> */}
+      </main>
+      <section className="modal__memory--last"></section>
+    </>
   );
 };
 
