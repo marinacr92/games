@@ -92,13 +92,15 @@ const TicTacToe = () => {
           <div className='tictactoe__board' onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}>
             {renderSquare}
           </div>
-          <img src={Bic} alt="boli bic" />
+          <img className='tictactoe__bic' src={Bic} alt="boli bic" />
         </div>
-        <div>
-          <Link to='/' className='tictactoe__btn backBtn'>Volver</Link>
+        <div className='tictactoe__buttons'>
+          <button className='tictactoe__buttons--btn backBtn'>
+            <Link className='tictactoe__buttons--link' to='/' >Volver</Link>
+          </button>
           <button
             onClick={handleReset}
-            className='tictactoe__btn resetBtn'
+            className='tictactoe__buttons--btn resetBtn'
           >Jugar de nuevo</button>
         </div>
       </main >
