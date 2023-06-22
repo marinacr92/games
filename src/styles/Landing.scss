@@ -1,3 +1,5 @@
+@import "./Varibles.scss";
+
 .main {
   &__landing {
     background-color: rgb(155, 155, 155);
@@ -34,14 +36,14 @@
     }
 
     &--orange {
-      background-color: lightsalmon;
+      background-color: $rock;
       transform: rotateZ(-1deg);
       box-shadow: 9px 5px 11px rgb(56, 56, 56);
       background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
     }
 
     &--green {
-      background-color: rgb(144, 238, 144);
+      background-color: $memory;
       transform: rotateZ(-3deg);
       box-shadow: 8px 8px 8px rgb(56, 56, 56);
       position: relative;
@@ -69,7 +71,7 @@
     }
 
     &--violet {
-      background-color: #b1b1ff;
+      background-color: $tictactoe;
       transform: rotateZ(4deg);
       box-shadow: 14px 13px 9px rgb(56, 56, 56);
       background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");

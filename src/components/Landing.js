@@ -16,19 +16,24 @@ const Landing = () => {
         <ul className="wall">
           <li className="wall__postit wall__postit--yellow">
             <Link className="link" to="/tictactoe">
-              Tic Tac Toe
+              Rock, paper,{' '}
             </Link>
           </li>
           <li className="wall__postit wall__postit--orange">
-            <Link className="link" to="/memory">
-              <img className="link__img" src={ImgMemory} alt="" />
-              <p className="link__title">Memory</p>
-            </Link>
-          </li>
-          <li className="wall__postit wall__postit--green">
             <Link className="link" to="/tictactoe">
               Ahorcado
             </Link>
+
+          </li>
+          <li className="wall__postit wall__postit--green">
+
+            <Link className="link" to="/memory">
+              <img className="link__img" src={ImgMemory} alt="" />
+              <p className="link__title">Memory</p>
+
+            </Link>
+
+
           </li>
           <li className="wall__postit wall__postit--blue">
             <Link className="link" to="/tictactoe">
@@ -36,8 +41,9 @@ const Landing = () => {
             </Link>
           </li>
           <li className="wall__postit wall__postit--violet">
+
             <Link className="link" to="/tictactoe">
-              Rock, paper,{' '}
+              <p>Tic Tac Toe</p>
             </Link>
           </li>
         </ul>
