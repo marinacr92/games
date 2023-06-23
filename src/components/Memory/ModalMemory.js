@@ -22,11 +22,11 @@ const ModalMemory = () => {
           </fieldset>
           <fieldset className="memory__theme">
             <legend className="memory__theme--legend">Temática</legend>
-            <button>
+            <button className="memory__button memory__theme--option1">
               <h3>Nombre pareja 1</h3>
               <img src="" alt="" />
             </button>
-            <button>
+            <button className="memory__button memory__theme--option2">
               <h3>Nombre pareja 2</h3>
               <img src="" alt="" />
             </button>
