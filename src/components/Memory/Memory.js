@@ -53,7 +53,7 @@ import EHondaDuck from '../../images/StreetFighter/EHondaDuck.png';
 import GuileDuck from '../../images/StreetFighter/GuileDuck.png';
 import RyuDuck from '../../images/StreetFighter/RyuDuck.png';
 import Zangief from '../../images/StreetFighter/ZangiefDuck.png';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Memory = () => {
@@ -127,13 +127,8 @@ const Memory = () => {
   const [theme, setTheme] = useState(friends);
   const [themeOne, setThemeOne] = useState(friends);
   const [themeTwo, setThemeTwo] = useState(street);
-
-  // const shuffle = () => {
-  //   images.sort(() => {
-  //     return Math.random() - 0.5;
-  //   });
-  //   setImages([...images]);
-  // };
+  const [imgOne, setImgOne] = useState(Joey);
+  const [imgTwo, setImgTwo] = useState(RyuDuck);
 
   const increment = () => {
     setCounter(counter + 1);
@@ -152,7 +147,6 @@ const Memory = () => {
       if (newCardsFlipped.length === 2) {
         const card1 = newCardsFlipped[0];
         const card2 = newCardsFlipped[1];
-        console.log('card1', card1, 'card2', card2);
 
         if (images[card1] === images[card2]) {
           setCardsMatched([...cardsMatched, card1, card2]);
@@ -167,7 +161,7 @@ const Memory = () => {
   };
 
   const winner = () => {
-    if (cardsMatched.length === 16) {
+    if (cardsMatched.length === theme.length) {
       return '¡Has ganado!';
     }
   };
@@ -175,6 +169,7 @@ const Memory = () => {
   const handleReset = () => {
     setCardsMatched([]);
     setCardsFlipped([]);
+    setImages([]);
     setCounter(0);
     setShowModal(true);
   };
@@ -183,15 +178,21 @@ const Memory = () => {
     if (id === 'easy') {
       setDifficulty('easy');
       setThemeOne(friends);
+      setImgOne(Joey);
       setThemeTwo(street);
+      setImgTwo(RyuDuck);
     } else if (id === 'medium') {
       setDifficulty('medium');
       setThemeOne(horror);
+      setImgOne(DraculaDuck);
       setThemeTwo(ghostbuster);
+      setImgTwo(StayPuftDuck);
     } else if (id === 'hard') {
       setDifficulty('hard');
       setThemeOne(lotr);
+      setImgOne(Frodo);
       setThemeTwo(dc);
+      setImgTwo(AquaDuck);
     }
   };
 
@@ -244,6 +245,9 @@ const Memory = () => {
           themeOption2={themeOption2}
           letsPlay={letsPlay}
           showModal={showModal}
+          imgOne={imgOne}
+          imgTwo={imgTwo}
+          theme={theme}
         />
         {/* <label className="memory__difficulty--label">
           <input
@@ -299,7 +303,7 @@ const Memory = () => {
           />
         </div>
         <section className="memory__footer">
-          <section className="buttons">
+          <section className={showModal ? 'hidden' : 'buttons'}>
             <Link to="/" className="button__return">
               Sala de juegos
             </Link>
@@ -307,12 +311,15 @@ const Memory = () => {
               Reiniciar partida
             </button>
           </section>
-          <h3 className="message">
-            Parejas acertadas: {Math.floor(cardsMatched.length / 2)}/8
+          <h3 className={showModal ? 'hidden' : 'message'}>
+            Parejas acertadas:{' '}
+            {`${Math.floor(cardsMatched.length / 2)} / ${Math.floor(
+              theme.length / 2
+            )}`}
           </h3>
         </section>
-        {/* <p>{Math.floor(counter / 2)} movimientos</p>
-      <h3>{winner()}</h3> */}
+        <p>{Math.floor(counter / 2)} movimientos</p>
+        <h3>{winner()}</h3>
       </main>
       {/* <section className="modal__memory--last"></section> */}
     </>
