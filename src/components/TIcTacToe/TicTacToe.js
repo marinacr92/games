@@ -6,7 +6,6 @@ import Bic from '../../images/bic.png';
 import StartModalTicTacToe from './StartModalTicTacToe'
 import FinishModalTictactoe from './FinishModalTicTacToe';
 
-
 const TicTacToe = () => {
 
   const [board, setBoard] = useState(Array(9).fill(''));
@@ -18,33 +17,10 @@ const TicTacToe = () => {
 
   const [winnerName, setWinnerName] = useState('');
 
-  const counter = () => {
-    setCount(count + 1);
-  };
+  const [theme, setTheme] = useState('ninja');
 
-  const renderSquare = board.map((square, index) => {
-    return (
-      <div key={index} id={index} className={`board__square board__square--${index} ${square}`} >
-      </div>
-    )
-  })
-
-  const whoPlays = (index) => {
-    counter();
-    if (count % 2 === 0) {
-      board[index] = 'spiderduck';
-    } else {
-      board[index] = 'batduck';
-    }
-    setBoard([...board]);
-  };
-
-  // const theme = () =>{
-  //   if(theme === 'ninja'){
-  //     setTheme1('tort1')
-  //     setTheme2('tort2')
-  //   }
-  // }
+  const [character1, setCharacter1] = useState('');
+  const [character2, setCharacter2] = useState('');
 
   useEffect(
     () => {
@@ -66,13 +42,45 @@ const TicTacToe = () => {
       }
     }, [board])
 
-  const handleReset = () => {
-    setWinnerName('');
-    setCount(0);
-    setBoard(Array(9).fill(''));
-    setPlayer1('');
-    setPlayer2('');
-    return 'hidden'
+  const renderSquare = board.map((square, index) => {
+    return (
+      <div key={index} id={index} className={`board__square board__square--${index} ${square}`} >
+      </div>
+    )
+  });
+
+  const counter = () => {
+    setCount(count + 1);
+  };
+
+  const whoPlays = (index) => {
+    counter();
+    if (count % 2 === 0) {
+      board[index] = character1;
+    } else {
+      board[index] = character2;
+    }
+    setBoard([...board]);
+  };
+
+  const chooseTheme = (id) => {
+    setTheme(id)
+  };
+
+  const renderCharacters = () => {
+    switch (theme) {
+      case 'ninja':
+        setCharacter1('donatello');
+        setCharacter2('michelangelo');
+        break;
+      case 'power':
+        setCharacter1('pink');
+        setCharacter2('blue');
+        break;
+      case 'future':
+        setCharacter1('doc')
+        setCharacter2('marty')
+    }
   }
 
   const updatePlayer1 = (value) => {
@@ -82,6 +90,16 @@ const TicTacToe = () => {
     setPlayer2(value);
   };
 
+  const handleReset = () => {
+    renderCharacters()
+    setWinnerName('');
+    setCount(0);
+    setBoard(Array(9).fill(''));
+    setPlayer1('');
+    setPlayer2('');
+    setTheme('');
+  }
+
   return (
     <>
       <StartModalTicTacToe
@@ -90,13 +108,17 @@ const TicTacToe = () => {
         player1={player1}
         player2={player2}
         handleReset={handleReset}
+        chooseTheme={chooseTheme}
         winnerName={winnerName}
+        theme={theme}
       ></StartModalTicTacToe>
       <FinishModalTictactoe
         player1={player1}
         player2={player2}
         handleReset={handleReset}
-        winnerName={winnerName} ></FinishModalTictactoe>
+        winnerName={winnerName}
+        character1={character1}
+      ></FinishModalTictactoe>
       <main className='main 
     main__tictactoe'>
         <h1 className='tictactoe__title'>TicTacToe</h1>

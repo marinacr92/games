@@ -11,7 +11,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Landing />}>
+        </Route>
         <Route path="/tictactoe/" element={<TicTacToe />} />
         <Route path="/memory/" element={<Memory />} />
         <Route path="*" element={<NotFound />} />

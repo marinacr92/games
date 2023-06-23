@@ -1,5 +1,6 @@
+/* eslint-disable default-case */
 
-const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, handleReset }) => {
+const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, handleReset, chooseTheme, theme }) => {
 
   const handlePlayer = (ev) => {
     if (ev.target.id === 'player1') {
@@ -7,6 +8,20 @@ const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, h
       updatePlayer1(ev.target.value);
     } else {
       updatePlayer2(ev.target.value);
+    }
+  };
+
+  const handleTheme = (ev) => {
+    switch (ev.target.id) {
+      case 'ninja':
+        chooseTheme('ninja');
+        break;
+      case 'power':
+        chooseTheme('power');
+        break;
+      case 'future':
+        chooseTheme('future');
+        break;
     }
   };
 
@@ -42,14 +57,14 @@ const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, h
           <fieldset className='tictactoe__theme'>
             <legend className='tictactoe__legend'>Elige un tema:</legend>
             <label htmlFor="ninja" className='tictactoe__label'>
-              <input type="radio" name="ninja" id="ninja" /> Tortugas Ninja
+              <input type="radio" name="ninja" id="ninja" onChange={handleTheme} checked={theme === 'ninja'} /> Tortugas Ninja
             </label>
-            <label htmlFor="rangers" className='tictactoe__label'>
-              <input type="radio" name="rangers" id="rangers" />
+            <label htmlFor="power" className='tictactoe__label'>
+              <input type="radio" name="power" id="power" onChange={handleTheme} checked={theme === 'power'} />
               Power Rangers
             </label>
             <label htmlFor="future" className='tictactoe__label'>
-              <input type="radio" name="future" id="future" /> Regreso al futuro
+              <input type="radio" name="future" id="future" onChange={handleTheme} checked={theme === 'future'} /> Regreso al futuro
             </label>
           </fieldset>
         </form>

@@ -1,11 +1,11 @@
-const FinishModalTictactoe = ({ player1, player2, handleReset, winnerName }) => {
+const FinishModalTictactoe = ({ player1, player2, handleReset, winnerName, character1 }) => {
   return (
     <div className='modal__tictactoe--background hidden'>
       <section className='modal__tictactoe--window'>
         < h2 className={winnerName === '' ? 'hidden' : ''}>
           {
             `Ha ganado
-          ${winnerName === 'spiderduck'
+          ${winnerName === character1
               ? player1 || 'Jugador 1'
               : player2 || 'Jugador 2'
             }`
