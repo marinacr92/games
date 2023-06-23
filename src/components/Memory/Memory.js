@@ -58,6 +58,7 @@ import { Link } from 'react-router-dom';
 
 const Memory = () => {
   const [images, setImages] = useState([]);
+  const [showModal, setShowModal] = useState(true);
 
   const [cardsFlipped, setCardsFlipped] = useState([]);
   const [cardsMatched, setCardsMatched] = useState([]);
@@ -123,16 +124,16 @@ const Memory = () => {
     PennywiseDuck,
     TexasDuck,
   ];
-
+  const [theme, setTheme] = useState(friends);
   const [themeOne, setThemeOne] = useState(friends);
   const [themeTwo, setThemeTwo] = useState(street);
 
-  const shuffle = () => {
-    images.sort(() => {
-      return Math.random() - 0.5;
-    });
-    setImages([...images]);
-  };
+  // const shuffle = () => {
+  //   images.sort(() => {
+  //     return Math.random() - 0.5;
+  //   });
+  //   setImages([...images]);
+  // };
 
   const increment = () => {
     setCounter(counter + 1);
@@ -174,20 +175,20 @@ const Memory = () => {
   const handleReset = () => {
     setCardsMatched([]);
     setCardsFlipped([]);
-    shuffle();
     setCounter(0);
+    setShowModal(true);
   };
 
-  const selectDifficulty = (ev) => {
-    if (ev.target.id === 'easy') {
+  const selectDifficulty = (id) => {
+    if (id === 'easy') {
       setDifficulty('easy');
       setThemeOne(friends);
       setThemeTwo(street);
-    } else if (ev.target.id === 'medium') {
+    } else if (id === 'medium') {
       setDifficulty('medium');
       setThemeOne(horror);
       setThemeTwo(ghostbuster);
-    } else if (ev.target.id === 'hard') {
+    } else if (id === 'hard') {
       setDifficulty('hard');
       setThemeOne(lotr);
       setThemeTwo(dc);
@@ -214,24 +215,37 @@ const Memory = () => {
     }
   };
 
-  const selectTheme = (ev) => {
-    console.log(ev.target.id);
-    if (ev.target.id === '1') {
+  const selectTheme = (id) => {
+    if (id === '1') {
       const copy = themeOne.concat(themeOne);
-      console.log(copy, 'theme1');
-      setImages(copy);
+      setTheme(copy);
     } else {
       const copy = themeTwo.concat(themeTwo);
-      console.log(copy, 'theme2');
-      setImages(copy);
+      setTheme(copy);
     }
+  };
+
+  const letsPlay = () => {
+    theme.sort(() => {
+      return Math.random() - 0.5;
+    });
+    setImages([...theme]);
+    setShowModal(false);
   };
 
   return (
     <>
       <main className="main main__memory">
-        {/* <ModalMemory /> */}
-        <label className="memory__difficulty--label">
+        <ModalMemory
+          selectDifficulty={selectDifficulty}
+          difficulty={difficulty}
+          selectTheme={selectTheme}
+          themeOption1={themeOption1}
+          themeOption2={themeOption2}
+          letsPlay={letsPlay}
+          showModal={showModal}
+        />
+        {/* <label className="memory__difficulty--label">
           <input
             onChange={selectDifficulty}
             type="radio"
@@ -272,13 +286,8 @@ const Memory = () => {
           type="button"
           onClick={selectTheme}
           value={themeOption2()}
-        />
-        {/* <button id="1" onClick={selectTheme}>
-          {themeOne}
-        </button>
-        <button id="2" onClick={selectTheme}>
-          {themeTwo}
-        </button> */}
+        /> */}
+
         <h1 className="memory__title">Memory</h1>
         <div className="memory__board">
           <MemoryCards
@@ -286,9 +295,10 @@ const Memory = () => {
             cardsMatched={cardsMatched}
             cardsFlipped={cardsFlipped}
             flipCards={flipCards}
+            difficulty={difficulty}
           />
         </div>
-        {/* <section className="memory__footer">
+        <section className="memory__footer">
           <section className="buttons">
             <Link to="/" className="button__return">
               Sala de juegos
@@ -300,11 +310,11 @@ const Memory = () => {
           <h3 className="message">
             Parejas acertadas: {Math.floor(cardsMatched.length / 2)}/8
           </h3>
-        </section> */}
+        </section>
         {/* <p>{Math.floor(counter / 2)} movimientos</p>
       <h3>{winner()}</h3> */}
       </main>
-      <section className="modal__memory--last"></section>
+      {/* <section className="modal__memory--last"></section> */}
     </>
   );
 };

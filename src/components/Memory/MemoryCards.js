@@ -1,4 +1,10 @@
-const MemoryCards = ({ images, flipCards, cardsFlipped, cardsMatched }) => {
+const MemoryCards = ({
+  images,
+  flipCards,
+  cardsFlipped,
+  cardsMatched,
+  difficulty,
+}) => {
   const eachCard = images.map((card, index) => {
     return (
       <div
@@ -6,11 +12,12 @@ const MemoryCards = ({ images, flipCards, cardsFlipped, cardsMatched }) => {
         onClick={
           !cardsMatched.includes(index) && !cardsFlipped.includes(index)
             ? () => flipCards(index)
-            : () => { }
+            : () => {}
         }
         className={`card 
-         ${cardsFlipped.includes(index) ? 'flipped' : ''} ${cardsMatched.includes(index) ? 'flipped' : ''
-          }
+         ${cardsFlipped.includes(index) ? 'flipped' : ''} ${
+          cardsMatched.includes(index) ? 'flipped' : ''
+        } ${difficulty === 'hard' ? 'card__size--hard' : 'card__size--nohard'}
         `}
       >
         <figure className="card__front card__face">
