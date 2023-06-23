@@ -69,7 +69,7 @@ const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, h
           </fieldset>
         </form>
         <button
-          onClick={() => handleReset}
+          onClick={handleReset}
           className='buttons__reset'
         >Jugar</button>
       </section>

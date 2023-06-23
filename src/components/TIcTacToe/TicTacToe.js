@@ -22,6 +22,9 @@ const TicTacToe = () => {
   const [character1, setCharacter1] = useState('');
   const [character2, setCharacter2] = useState('');
 
+  // const [isStartModalOpen, setIsStartModalOpen] = useState(true);
+  // const [isStartModalOpen, setIsStartModalOpen] = useState(false);
+
   useEffect(
     () => {
       const winnerLines = [
