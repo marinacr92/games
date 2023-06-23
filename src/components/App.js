@@ -1,7 +1,7 @@
 import '../styles/Reset.scss';
 import '../styles/App.scss';
 import Landing from './Landing';
-import TicTacToe from './TIcTacToe/TicTacToe';
+import TicTacToe from './TicTacToe/TicTacToe'
 import Memory from './Memory/Memory';
 import NotFound from './NotFound';
 import Footer from './Footer';

@@ -1,10 +1,10 @@
 /* eslint-disable default-case */
 import { useEffect, useState } from 'react';
 import '../../styles/TicTacToe.scss';
-import Form from './Form';
-import ModalTicTacToe from './ModalTicTacToe';
 import { Link } from 'react-router-dom';
 import Bic from '../../images/bic.png';
+import StartModalTicTacToe from './StartModalTicTacToe'
+import FinishModalTictactoe from './FinishModalTicTacToe';
 
 
 const TicTacToe = () => {
@@ -37,8 +37,14 @@ const TicTacToe = () => {
       board[index] = 'batduck';
     }
     setBoard([...board]);
-
   };
+
+  // const theme = () =>{
+  //   if(theme === 'ninja'){
+  //     setTheme1('tort1')
+  //     setTheme2('tort2')
+  //   }
+  // }
 
   useEffect(
     () => {
@@ -66,6 +72,7 @@ const TicTacToe = () => {
     setBoard(Array(9).fill(''));
     setPlayer1('');
     setPlayer2('');
+    return 'hidden'
   }
 
   const updatePlayer1 = (value) => {
@@ -77,32 +84,39 @@ const TicTacToe = () => {
 
   return (
     <>
-      {/* <ModalTicTacToe
+      <StartModalTicTacToe
         updatePlayer1={updatePlayer1}
         updatePlayer2={updatePlayer2}
         player1={player1}
         player2={player2}
         handleReset={handleReset}
         winnerName={winnerName}
-      ></ModalTicTacToe> */}
+      ></StartModalTicTacToe>
+      <FinishModalTictactoe
+        player1={player1}
+        player2={player2}
+        handleReset={handleReset}
+        winnerName={winnerName} ></FinishModalTictactoe>
       <main className='main 
     main__tictactoe'>
         <h1 className='tictactoe__title'>TicTacToe</h1>
-        <div className="tictactoe__box">
+        <section className="tictactoe__box">
           <div className='tictactoe__board' onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}>
             {renderSquare}
           </div>
           <img className='tictactoe__bic' src={Bic} alt="boli bic" />
-        </div>
-        <div className='tictactoe__buttons'>
-          <button className='tictactoe__buttons--btn backBtn'>
-            <Link className='tictactoe__buttons--link' to='/' >Volver</Link>
+          <div>
+          </div>
+        </section>
+        <section className='buttons'>
+          <button className='buttons__return backBtn'>
+            <Link className='buttons__link' to='/' >Volver</Link>
           </button>
           <button
             onClick={handleReset}
-            className='tictactoe__buttons--btn resetBtn'
+            className='buttons__reset'
           >Jugar de nuevo</button>
-        </div>
+        </section>
       </main >
 
     </>
