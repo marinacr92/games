@@ -1,8 +1,10 @@
-const FinishModalTictactoe = ({ player1, player2, handleReset, winnerName, character1 }) => {
+import { Link } from 'react-router-dom';
+
+const FinishModalTictactoe = ({ player1, player2, handleReset, winnerName, character1, isFinishModalOpen, handlePlayAgain }) => {
   return (
-    <div className='modal__tictactoe--background hidden'>
+    <div className={isFinishModalOpen ? 'modal__tictactoe--background' : 'hidden'}>
       <section className='modal__tictactoe--window'>
-        < h2 className={winnerName === '' ? 'hidden' : ''}>
+        < h2>
           {
             `Ha ganado
           ${winnerName === character1
@@ -11,10 +13,17 @@ const FinishModalTictactoe = ({ player1, player2, handleReset, winnerName, chara
             }`
           }
         </h2 >
+        <button className='buttons__return backBtn'>
+          <Link className='buttons__link' to='/' >Volver</Link>
+        </button>
         <button
-          onClick={() => handleReset}
-          className='tictactoe__reset'
+          onClick={handlePlayAgain}
+          className='buttons__play'
         >Jugar de nuevo</button>
+        <button
+          onClick={handleReset}
+          className='buttons__reset'
+        >Cambiar personajes</button>
       </section>
     </div>
   )

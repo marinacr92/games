@@ -1,16 +1,17 @@
 /* eslint-disable default-case */
 
-const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, handleReset, chooseTheme, theme }) => {
+const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, handleReset, chooseTheme, theme, isStartModalOpen, handlePlay }) => {
 
+  // manejadora de los inputs para el nombre de los jugadores
   const handlePlayer = (ev) => {
     if (ev.target.id === 'player1') {
-      console.log(ev.target.value);
       updatePlayer1(ev.target.value);
     } else {
       updatePlayer2(ev.target.value);
     }
   };
 
+  // manejadora de los radios para el tema con el que jugar
   const handleTheme = (ev) => {
     switch (ev.target.id) {
       case 'ninja':
@@ -26,7 +27,7 @@ const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, h
   };
 
   return (
-    <div className='modal__tictactoe--background hidden'>
+    <div className={isStartModalOpen ? 'modal__tictactoe--background' : 'hidden'}>
       <section className='modal__tictactoe--window' >
         <form onSubmit={(ev) => ev.preventDefault()} className='modal__tictactoe--form'>
           <fieldset className='tictactoe__players'>
@@ -69,7 +70,7 @@ const StartModalTicTacToe = ({ updatePlayer1, updatePlayer2, player1, player2, h
           </fieldset>
         </form>
         <button
-          onClick={handleReset}
+          onClick={handlePlay}
           className='buttons__reset'
         >Jugar</button>
       </section>

@@ -8,23 +8,34 @@ import FinishModalTictactoe from './FinishModalTicTacToe';
 
 const TicTacToe = () => {
 
+  // casillas del tablero
   const [board, setBoard] = useState(Array(9).fill(''));
 
+  // guardar el index de las casillas jugadas
+  const [playedSquares, setPlayedSquares] = useState([]);
+
+  // contador para saber quien juega
   const [count, setCount] = useState(0);
 
+  // nombres de los jugadores
   const [player1, setPlayer1] = useState('');
   const [player2, setPlayer2] = useState('');
 
+  // nombre del personaje ganador
   const [winnerName, setWinnerName] = useState('');
 
+  // temática elegida
   const [theme, setTheme] = useState('ninja');
 
+  // personajes de cada temática
   const [character1, setCharacter1] = useState('');
   const [character2, setCharacter2] = useState('');
 
-  // const [isStartModalOpen, setIsStartModalOpen] = useState(true);
-  // const [isStartModalOpen, setIsStartModalOpen] = useState(false);
+  //abrir y/o cerrar ventanas modales
+  const [isStartModalOpen, setIsStartModalOpen] = useState(true);
+  const [isFinishModalOpen, setIsFinishModalOpen] = useState(false);
 
+  // comprueba las jugadas para ver quien gana, guarda el ganador en una variable y abre ventana modal
   useEffect(
     () => {
       const winnerLines = [
@@ -41,10 +52,15 @@ const TicTacToe = () => {
         const [a, b, c] = winnerLines[i];
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
           setWinnerName(board[a])
+          setTimeout(() => {
+            setIsFinishModalOpen(true)
+          }, 1000);
+
         }
       }
     }, [board])
 
+  // pintar el tablero
   const renderSquare = board.map((square, index) => {
     return (
       <div key={index} id={index} className={`board__square board__square--${index} ${square}`} >
@@ -52,11 +68,20 @@ const TicTacToe = () => {
     )
   });
 
+  // contador
   const counter = () => {
     setCount(count + 1);
   };
 
+  // manejadora del tablero, si hay un ganador o esa casilla ya ha sido pulsada no se puede cliclar
+  const handleBoard = (ev) => {
+    if (winnerName === '' || !playedSquares.includes(ev.target.id))
+      whoPlays(ev.target.id)
+  }
+
+  // pinta el personaje en cada casilla y guarda el index de las casillas jugadas
   const whoPlays = (index) => {
+    setPlayedSquares([...playedSquares, index])
     counter();
     if (count % 2 === 0) {
       board[index] = character1;
@@ -66,10 +91,12 @@ const TicTacToe = () => {
     setBoard([...board]);
   };
 
+  // elegir temática con la que jugar
   const chooseTheme = (id) => {
     setTheme(id)
   };
 
+  // pintar los personajes según las temática elegida
   const renderCharacters = () => {
     switch (theme) {
       case 'ninja':
@@ -86,6 +113,7 @@ const TicTacToe = () => {
     }
   }
 
+  // guardar nombres de los jugadores
   const updatePlayer1 = (value) => {
     setPlayer1(value);
   };
@@ -93,14 +121,30 @@ const TicTacToe = () => {
     setPlayer2(value);
   };
 
+  // botón volver a seleccionar personajes
   const handleReset = () => {
+    setIsStartModalOpen(true)
+    setIsFinishModalOpen(false)
+  }
+
+  // botón jugar de nuevo con los mismo personajes
+  const handlePlayAgain = () => {
+    setWinnerName('');
+    setCount(0);
+    setBoard(Array(9).fill(''));
+    setIsFinishModalOpen(false)
+  }
+
+  // botón de inicio del juego en la modal
+  const handlePlay = () => {
     renderCharacters()
     setWinnerName('');
     setCount(0);
     setBoard(Array(9).fill(''));
     setPlayer1('');
     setPlayer2('');
-    setTheme('');
+    setTheme('ninja');
+    setIsStartModalOpen(false)
   }
 
   return (
@@ -110,10 +154,11 @@ const TicTacToe = () => {
         updatePlayer2={updatePlayer2}
         player1={player1}
         player2={player2}
-        handleReset={handleReset}
+        handlePlay={handlePlay}
         chooseTheme={chooseTheme}
         winnerName={winnerName}
         theme={theme}
+        isStartModalOpen={isStartModalOpen}
       ></StartModalTicTacToe>
       <FinishModalTictactoe
         player1={player1}
@@ -121,12 +166,17 @@ const TicTacToe = () => {
         handleReset={handleReset}
         winnerName={winnerName}
         character1={character1}
+        isFinishModalOpen={isFinishModalOpen}
+        handlePlayAgain={handlePlayAgain}
       ></FinishModalTictactoe>
       <main className='main 
     main__tictactoe'>
         <h1 className='tictactoe__title'>TicTacToe</h1>
         <section className="tictactoe__box">
-          <div className='tictactoe__board' onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}>
+          <div className='tictactoe__board'
+            // onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}
+            onClick={handleBoard}
+          >
             {renderSquare}
           </div>
           <img className='tictactoe__bic' src={Bic} alt="boli bic" />
@@ -138,9 +188,13 @@ const TicTacToe = () => {
             <Link className='buttons__link' to='/' >Volver</Link>
           </button>
           <button
+            onClick={handlePlayAgain}
+            className='buttons__play'
+          >Jugar de nuevo</button>
+          <button
             onClick={handleReset}
             className='buttons__reset'
-          >Jugar de nuevo</button>
+          >Cambiar personajes</button>
         </section>
       </main >
 
