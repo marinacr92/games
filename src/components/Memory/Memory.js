@@ -7,6 +7,52 @@ import Phoebe from '../../images/Friends/PhoebeDuck.png';
 import Ross from '../../images/Friends/RossDuck.png';
 import Rachel from '../../images/Friends/RachelDuck.png';
 import Chandler from '../../images/Friends/ChandlerDuck.png';
+import Aragorn from '../../images/LOTR/Aragorn.png';
+import Arwen from '../../images/LOTR/Arwen.png';
+import Frodo from '../../images/LOTR/Frodo.png';
+import Galadriel from '../../images/LOTR/Galadriel.png';
+import Gandalf from '../../images/LOTR/GandalfNot.png';
+import Gimli from '../../images/LOTR/Gimli.png';
+import Gollum from '../../images/LOTR/Gollum.png';
+import Legolas from '../../images/LOTR/Legolas.png';
+import Lurtz from '../../images/LOTR/lurtz.png';
+import Samwise from '../../images/LOTR/Samwise.png';
+import Saruman from '../../images/LOTR/Saruman.png';
+import Sauron from '../../images/LOTR/Sauron.png';
+import AquaDuck from '../../images/DC/Aquaduck.png';
+import BatDuck from '../../images/DC/Batduck.png';
+import BloodSportDuck from '../../images/DC/BloodSportDuck.png';
+import CatDuck from '../../images/DC/Catduck.png';
+import HarleyDuck from '../../images/DC/Harleyduck.png';
+import JokerDuck from '../../images/DC/JokerDuck.png';
+import PeacemakerDuck from '../../images/DC/PeacemakerDuck.png';
+import RobinDuck from '../../images/DC/RobinDuck.png';
+import SuperDuck from '../../images/DC/Superduck.png';
+import TDKDuck from '../../images/DC/TDKDuck.png';
+import TwoFaceDuck from '../../images/DC/TwoFaceDuck.png';
+import WonderDuck from '../../images/DC/Wonderduck.png';
+import JanineDuck from '../../images/Ghostbusters/JanineDuck.png';
+import SlimerDuck from '../../images/Ghostbusters/SlimerDuck.png';
+import SpenglerDuck from '../../images/Ghostbusters/SpenglerDuck.png';
+import StantzDuck from '../../images/Ghostbusters/StantzDuck.png';
+import StayPuftDuck from '../../images/Ghostbusters/StayPuftDuck.png';
+import VenkmanDuck from '../../images/Ghostbusters/VenkmanDuck.png';
+import VenkmanDuckSlime from '../../images/Ghostbusters/VenkmanDuckSlime.png';
+import WinstonDuck from '../../images/Ghostbusters/WinstonDuck.png';
+import ChuckyDuck from '../../images/Horror/ChuckyDuck.png';
+import DraculaDuck from '../../images/Horror/DraculaDuck.png';
+import ExorcistDuck from '../../images/Horror/ExorcistDuck.png';
+import GremlinDuck from '../../images/Horror/GremlinDuck.png';
+import MummyDuck from '../../images/Horror/MummyDuck.png';
+import NunDuck from '../../images/Horror/NunDuck.png';
+import PennywiseDuck from '../../images/Horror/PennywiseDuck.png';
+import TexasDuck from '../../images/Horror/TexasDuck.png';
+import BlankaDuck from '../../images/StreetFighter/BlankaDuck.png';
+import ChunLiDuck from '../../images/StreetFighter/ChunLiDuck.png';
+import EHondaDuck from '../../images/StreetFighter/EHondaDuck.png';
+import GuileDuck from '../../images/StreetFighter/GuileDuck.png';
+import RyuDuck from '../../images/StreetFighter/RyuDuck.png';
+import Zangief from '../../images/StreetFighter/ZangiefDuck.png';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -18,8 +64,65 @@ const Memory = () => {
   const [difficulty, setDifficulty] = useState('easy');
 
   const [counter, setCounter] = useState(0);
-  const street = [];
   const friends = [Monica, Joey, Phoebe, Ross, Rachel, Chandler];
+  const street = [
+    BlankaDuck,
+    ChunLiDuck,
+    EHondaDuck,
+    GuileDuck,
+    RyuDuck,
+    Zangief,
+  ];
+  const lotr = [
+    Aragorn,
+    Arwen,
+    Frodo,
+    Galadriel,
+    Gandalf,
+    Gimli,
+    Gollum,
+    Legolas,
+    Lurtz,
+    Samwise,
+    Saruman,
+    Sauron,
+  ];
+
+  const dc = [
+    AquaDuck,
+    BatDuck,
+    BloodSportDuck,
+    CatDuck,
+    HarleyDuck,
+    JokerDuck,
+    PeacemakerDuck,
+    RobinDuck,
+    SuperDuck,
+    TDKDuck,
+    TwoFaceDuck,
+    WonderDuck,
+  ];
+
+  const ghostbuster = [
+    JanineDuck,
+    SlimerDuck,
+    SpenglerDuck,
+    StantzDuck,
+    StayPuftDuck,
+    VenkmanDuck,
+    VenkmanDuckSlime,
+    WinstonDuck,
+  ];
+  const horror = [
+    ChuckyDuck,
+    DraculaDuck,
+    ExorcistDuck,
+    GremlinDuck,
+    MummyDuck,
+    NunDuck,
+    PennywiseDuck,
+    TexasDuck,
+  ];
 
   const [themeOne, setThemeOne] = useState(friends);
   const [themeTwo, setThemeTwo] = useState(street);
@@ -82,12 +185,12 @@ const Memory = () => {
       setThemeTwo(street);
     } else if (ev.target.id === 'medium') {
       setDifficulty('medium');
-      //setThemeOne(horror);
-      //setThemeTwo(ghostbuster);
+      setThemeOne(horror);
+      setThemeTwo(ghostbuster);
     } else if (ev.target.id === 'hard') {
       setDifficulty('hard');
-      //setThemeOne(LOTR);
-      //setThemeTwo(DC);
+      setThemeOne(lotr);
+      setThemeTwo(dc);
     }
   };
 
