@@ -1,4 +1,4 @@
-const ModalMemory = ({
+const StartModalMemory = ({
   selectDifficulty,
   difficulty,
   selectTheme,
@@ -7,7 +7,7 @@ const ModalMemory = ({
   imgOne,
   imgTwo,
   letsPlay,
-  showModal,
+  showStartModal,
   theme,
 }) => {
   const handleDifficulty = (ev) => {
@@ -18,8 +18,14 @@ const ModalMemory = ({
     selectTheme(ev.currentTarget.id);
   };
 
+  const handlePlay = () => {
+    letsPlay();
+  };
+
   return (
-    <section className={showModal ? 'modal__memory--background' : 'hidden'}>
+    <section
+      className={showStartModal ? 'modal__memory--background' : 'hidden'}
+    >
       <section className="modal__memory--window">
         <form className="modal__memory--form">
           <fieldset className="modalmem__difficulty">
@@ -96,7 +102,7 @@ const ModalMemory = ({
             </div>
           </fieldset>
         </form>
-        <button className="modal__button--play" onClick={letsPlay}>
+        <button className="modal__button--play" onClick={handlePlay}>
           ¡A jugar!
         </button>
       </section>
@@ -104,4 +110,4 @@ const ModalMemory = ({
   );
 };
 
-export default ModalMemory;
+export default StartModalMemory;

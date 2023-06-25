@@ -1,6 +1,7 @@
 import '../../styles/Memory.scss';
-import ModalMemory from './ModalMemory';
 import MemoryCards from './MemoryCards';
+import StartModalMemory from './StartModalMemory';
+import FinishModalMemory from './FinishModalMemory';
 import Monica from '../../images/Friends/MonicaDuck.png';
 import Joey from '../../images/Friends/JoeyDuck.png';
 import Phoebe from '../../images/Friends/PhoebeDuck.png';
@@ -53,12 +54,13 @@ import EHondaDuck from '../../images/StreetFighter/EHondaDuck.png';
 import GuileDuck from '../../images/StreetFighter/GuileDuck.png';
 import RyuDuck from '../../images/StreetFighter/RyuDuck.png';
 import Zangief from '../../images/StreetFighter/ZangiefDuck.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Memory = () => {
   const [images, setImages] = useState([]);
-  const [showModal, setShowModal] = useState(true);
+  const [showStartModal, setShowStartModal] = useState(true);
+  const [showFinishModal, setShowFinishModal] = useState(false);
 
   const [cardsFlipped, setCardsFlipped] = useState([]);
   const [cardsMatched, setCardsMatched] = useState([]);
@@ -124,7 +126,7 @@ const Memory = () => {
     PennywiseDuck,
     TexasDuck,
   ];
-  const [theme, setTheme] = useState(friends);
+  const [theme, setTheme] = useState('');
   const [themeOne, setThemeOne] = useState(friends);
   const [themeTwo, setThemeTwo] = useState(street);
   const [imgOne, setImgOne] = useState(Joey);
@@ -160,18 +162,22 @@ const Memory = () => {
     }
   };
 
-  const winner = () => {
-    if (cardsMatched.length === theme.length) {
-      return '¡Has ganado!';
+  useEffect(() => {
+    if (theme.length !== 0) {
+      if (cardsMatched.length === theme.length) {
+        setShowFinishModal(true);
+      }
     }
-  };
+  }, [cardsMatched]);
 
   const handleReset = () => {
     setCardsMatched([]);
     setCardsFlipped([]);
     setImages([]);
+    setTheme('');
     setCounter(0);
-    setShowModal(true);
+    setShowStartModal(true);
+    setShowFinishModal(false);
   };
 
   const selectDifficulty = (id) => {
@@ -231,20 +237,20 @@ const Memory = () => {
       return Math.random() - 0.5;
     });
     setImages([...theme]);
-    setShowModal(false);
+    setShowStartModal(false);
   };
 
   return (
     <>
       <main className="main main__memory">
-        <ModalMemory
+        <StartModalMemory
           selectDifficulty={selectDifficulty}
           difficulty={difficulty}
           selectTheme={selectTheme}
           themeOption1={themeOption1}
           themeOption2={themeOption2}
           letsPlay={letsPlay}
-          showModal={showModal}
+          showStartModal={showStartModal}
           imgOne={imgOne}
           imgTwo={imgTwo}
           theme={theme}
@@ -259,45 +265,42 @@ const Memory = () => {
             difficulty={difficulty}
           />
         </div>
-        <section className="memory__footer">
-          <section className={showModal ? 'hidden' : 'buttons'}>
-            {/* <Link to="/" className="button__return">
-              Sala de juegos
-            </Link>
-            <button className="button__reset" onClick={handleReset}>
-              Reiniciar partida
-            </button> */}
-
+        <section
+          className={
+            showStartModal || showFinishModal ? 'hidden' : 'memory__footer'
+          }
+        >
+          <section className="buttons">
             <button className="button__container" onClick={handleReset}>
               <div className="button__front">
-                <i class="fa-solid fa-arrow-rotate-right button__i"></i>
+                <i className="fa-solid fa-arrow-rotate-right button__i"></i>
               </div>
-              <div className="button__back"></div>
+              <div className="button__back">
+                <span>Reiniciar partida</span>
+              </div>
             </button>
-
             <Link to="/" className="button__container">
               <div className="button__front">
-                <i class="fa-solid fa-arrow-left button__i"></i>
+                <i className="fa-solid fa-arrow-left button__i"></i>
               </div>
-              <div className="button__back"></div>
+              <div className="button__back">
+                <span>Sala de juegos</span>
+              </div>
             </Link>
-
-            {/* <div className="container">
-              <input type="text" placeholder="Buscar" />
-              <div className="btn">
-                <i>x</i>
-              </div>
-            </div> */}
           </section>
-          <h3 className={showModal ? 'hidden' : 'message'}>
+          <h3 className={showStartModal ? 'hidden' : 'message'}>
             Parejas acertadas:{' '}
             {`${Math.floor(cardsMatched.length / 2)} / ${Math.floor(
               theme.length / 2
             )}`}
           </h3>
         </section>
-        <p>{Math.floor(counter / 2)} movimientos</p>
-        <h3>{winner()}</h3>
+        <FinishModalMemory
+          counter={counter}
+          showFinishModal={showFinishModal}
+          handleReset={handleReset}
+          showStartModal={showStartModal}
+        />
       </main>
       {/* <section className="modal__memory--last"></section> */}
     </>
