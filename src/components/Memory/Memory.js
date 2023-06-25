@@ -267,20 +267,21 @@ const Memory = () => {
             <button className="button__reset" onClick={handleReset}>
               Reiniciar partida
             </button> */}
-            {/* <div className="button__container--return">
-              <Link to="/" className="button__return">
-                Volver
-              </Link>
-              <div className="btn__return">
-                <i>v</i>
+
+            <button className="button__container" onClick={handleReset}>
+              <div className="button__front">
+                <i class="fa-solid fa-arrow-rotate-right button__i"></i>
               </div>
-            </div> */}
-            <div className="button__container--reset">
-              <div className="btn__reset">
-                <i>x</i>
+              <div className="button__back"></div>
+            </button>
+
+            <Link to="/" className="button__container">
+              <div className="button__front">
+                <i class="fa-solid fa-arrow-left button__i"></i>
               </div>
-              <button className="button__reset" onClick={handleReset}></button>
-            </div>
+              <div className="button__back"></div>
+            </Link>
+
             {/* <div className="container">
               <input type="text" placeholder="Buscar" />
               <div className="btn">
