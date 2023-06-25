@@ -100,25 +100,26 @@
 
 .buttons{
   grid-column: 1/2;
+  position: relative;
 }
 
-.button {
- &__reset , &__return{
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: grey;
-    color: white;
-  }
+// .button {
+//  &__reset , &__return{
+//     font-size: 20px;
+//     border-radius: 10px;
+//     padding: 15px;
+//     background-color: grey;
+//     color: white;
+//   }
 
-  &__return {
-    text-decoration: none;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonborder;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-}
+//   &__return {
+//     text-decoration: none;
+//     border-width: 2px;
+//     border-style: outset;
+//     border-color: buttonborder;
+//     font-family: Arial, Helvetica, sans-serif;
+//   }
+// }
 
 .message{
   font-size:25px;
@@ -238,3 +239,144 @@
 .marker{
   background-color: rgb(171, 171, 171);
 }
+
+.button__container--return, .button__container--reset{
+    position: absolute;
+    transform: translate(0, -50%);
+    padding: 10px;
+}
+
+.button__container--return{
+  left: 160px;
+  top: 20%;
+}
+
+.button__container--reset{
+  left: 20px;
+  top:0;
+}
+
+.button__return, .button__reset {
+  outline: none;
+  box-sizing: border-box;
+  height: 40px;
+  //height: 100px;
+  width: 0px;
+  //padding: 0 20px;
+  color: black;
+  border-radius: 50px;
+  font-size: 20px;
+  border: 1px solid red;
+  transition: all .7s ease;
+}
+
+
+.btn__return, .btn__reset{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.btn__return i, .btn__reset i {
+  font-size: 30px;
+  color: white;
+  line-height: 60px;
+  transition: all .7s ease;
+}
+
+.button__container--return:hover .button__return {
+  width: 300px;
+}
+
+.button__container--reset:hover .button__reset{
+  width: 300px;
+}
+
+.button__container--return:hover i {
+  transform: rotate(-360deg);
+}
+
+.button__container--reset:hover i {
+  transform: rotate(-360deg);
+}
+
+.btn__return:hover {
+  background-color: red;
+}
+
+.btn__reset:hover {
+  background-color: red;
+}
+
+// .container{
+//   position: absolute;
+//   left: 48%;
+//   top:45%;
+//   transform: translate(-50%, -50%);
+//   padding: 10px;
+// }
+
+// input{
+//   outline: none;
+//   box-sizing: border-box;
+//   height: 60px;
+//   width: 0;
+//   padding: 0 20px;
+//   color: black;
+//   border-radius: 50px;
+//   font-size: 20px;
+//   border: 1px solid red;
+//   transition: all .7s ease;
+// }
+
+// ::placeholder{
+//   color:grey;
+// }
+
+// .btn{
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   width: 80px;
+//   height: 80px;
+//   background-color: red;
+//   line-height: 80px;
+//   border-radius: 50%;
+//   text-align: center;
+//   cursor: pointer;
+//   transition: .5s;
+// }
+
+// .btn i{
+//   font-size: 25px;
+//   color: white;
+//   line-height: 80px;
+//   transition: all .7s ease;
+// }
+
+// .container:hover input{
+//   width: 350px;
+// }
+
+// .container:hover i {
+//   transform: rotate(-360deg);
+// }
+
+// .btn:hover{
+//   background-color: red;
+// }
+
+
+
+
+
+
+

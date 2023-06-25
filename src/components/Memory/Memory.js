@@ -249,49 +249,6 @@ const Memory = () => {
           imgTwo={imgTwo}
           theme={theme}
         />
-        {/* <label className="memory__difficulty--label">
-          <input
-            onChange={selectDifficulty}
-            type="radio"
-            name="difficulty"
-            id="easy"
-            checked={difficulty === 'easy'}
-          />
-          Fácil (6 parejas)
-        </label>
-        <label className="memory__difficulty--label">
-          <input
-            onChange={selectDifficulty}
-            type="radio"
-            name="difficulty"
-            id="medium"
-            checked={difficulty === 'medium'}
-          />
-          Medio (8 parejas)
-        </label>
-        <label className="memory__difficulty--label">
-          <input
-            onChange={selectDifficulty}
-            type="radio"
-            name="difficulty"
-            id="hard"
-            checked={difficulty === 'hard'}
-          />
-          Difícil (12 parejas)
-        </label>
-        <input
-          id="1"
-          type="button"
-          onClick={selectTheme}
-          value={themeOption1()}
-        />
-        <input
-          id="2"
-          type="button"
-          onClick={selectTheme}
-          value={themeOption2()}
-        /> */}
-
         <h1 className="memory__title">Memory</h1>
         <div className="memory__board">
           <MemoryCards
@@ -304,12 +261,32 @@ const Memory = () => {
         </div>
         <section className="memory__footer">
           <section className={showModal ? 'hidden' : 'buttons'}>
-            <Link to="/" className="button__return">
+            {/* <Link to="/" className="button__return">
               Sala de juegos
             </Link>
             <button className="button__reset" onClick={handleReset}>
               Reiniciar partida
-            </button>
+            </button> */}
+            {/* <div className="button__container--return">
+              <Link to="/" className="button__return">
+                Volver
+              </Link>
+              <div className="btn__return">
+                <i>v</i>
+              </div>
+            </div> */}
+            <div className="button__container--reset">
+              <div className="btn__reset">
+                <i>x</i>
+              </div>
+              <button className="button__reset" onClick={handleReset}></button>
+            </div>
+            {/* <div className="container">
+              <input type="text" placeholder="Buscar" />
+              <div className="btn">
+                <i>x</i>
+              </div>
+            </div> */}
           </section>
           <h3 className={showModal ? 'hidden' : 'message'}>
             Parejas acertadas:{' '}
