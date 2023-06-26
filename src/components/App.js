@@ -1,7 +1,7 @@
 import '../styles/Reset.scss';
 import '../styles/App.scss';
 import Landing from './Landing';
-import TicTacToe from './TicTacToe/TicTacToe'
+import TicTacToe from './TicTacToe/TicTacToe';
 import Memory from './Memory/Memory';
 import NotFound from './NotFound';
 import Footer from './Footer';
@@ -11,8 +11,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Landing />}>
-        </Route>
+        <Route path="/" element={<Landing />}></Route>
         <Route path="/tictactoe/" element={<TicTacToe />} />
         <Route path="/memory/" element={<Memory />} />
         <Route path="*" element={<NotFound />} />
