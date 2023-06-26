@@ -15,6 +15,7 @@ const StartModalMemory = ({
   };
 
   const handleTheme = (ev) => {
+    ev.preventDefault();
     selectTheme(ev.currentTarget.id);
   };
 
