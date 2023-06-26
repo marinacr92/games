@@ -100,16 +100,16 @@ const TicTacToe = () => {
   const renderCharacters = () => {
     switch (theme) {
       case 'ninja':
-        setCharacter1('Donatello');
-        setCharacter2('Michelangelo');
+        setCharacter1('donatello');
+        setCharacter2('michelangelo');
         break;
       case 'power':
         setCharacter1('pink');
         setCharacter2('blue');
         break;
       case 'future':
-        setCharacter1('Doc')
-        setCharacter2('Marty')
+        setCharacter1('doc')
+        setCharacter2('marty')
     }
   }
 
