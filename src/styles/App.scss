@@ -1,9 +1,12 @@
+@import "./Varibles.scss";
+
 #root {
   min-height: 100vh;
   // scroll-behavior: smooth;
   // overflow-y: scroll;
   display: grid;
   grid-template-rows: 1fr 10%;
+  font-family: $mainFont;
 }
 
 .main {

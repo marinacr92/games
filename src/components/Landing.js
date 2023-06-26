@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ImgMemory from '../images/capturaMemory.png';
 import BallPaper from '../images/kisspng-newspaper-newsprint-ball-papel-5ac79e07dd5244.1078719615230315599065.png';
 import Logo from '../images/logo.png';
-import LogoTitle from '../images/minigameshubbig.svg';
+import LogoTitle from '../images/playtopia.png';
 import '../styles/Landing.scss';
 
 const Landing = () => {
@@ -42,9 +42,9 @@ const Landing = () => {
           </li>
         </ul>
       </nav>
-      <div>
+      {/* <div>
         <img width="100px" src={BallPaper} alt="" />
-      </div>
+      </div> */}
     </main>
   );
 };

@@ -13,12 +13,12 @@
     align-items: center;
     justify-content: center;
 
-    &--logo{
-      width: 25%;
+    &--logo {
+      width: 70px;
     }
 
-    &--title{
-      width: 75%;
+    &--title {
+      height: 70px;
     }
   }
 
@@ -29,25 +29,25 @@
 
 .wall {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  justify-items: center;
   gap: 25px;
 
   &__postit {
-    width: 200px;
-    height: 200px;
+    width: 125px;
+    height: 125px;
+    background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
 
     &--yellow {
       background-color: rgb(251, 251, 82);
       transform: rotateZ(4deg);
       box-shadow: 16px 11px 8px rgb(56, 56, 56);
-      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
     }
 
     &--orange {
       background-color: $rock;
       transform: rotateZ(-1deg);
       box-shadow: 9px 5px 11px rgb(56, 56, 56);
-      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
     }
 
     &--green {
@@ -55,7 +55,6 @@
       transform: rotateZ(-3deg);
       box-shadow: 8px 8px 8px rgb(56, 56, 56);
       position: relative;
-      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
 
       &:before {
         box-shadow: 6px 6px 5px #4b4a4a;
@@ -75,14 +74,12 @@
       background-color: lightblue;
       transform: rotateZ(-3deg);
       box-shadow: 16px 8px 9px rgb(56, 56, 56);
-      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
     }
 
     &--violet {
       background-color: $tictactoe;
       transform: rotateZ(4deg);
       box-shadow: 14px 13px 9px rgb(56, 56, 56);
-      background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
       &:before {
         box-shadow: 3px -3px 4px #4b4a4a;
         background-color: rgb(155, 155, 155);
@@ -109,7 +106,7 @@
   color: #4b4a4a;
 
   &__img {
-    width: 150px;
+    width: 75px;
     border-radius: 10px;
   }
 
