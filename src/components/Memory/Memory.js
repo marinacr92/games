@@ -282,7 +282,7 @@ const Memory = () => {
             showStartModal || showFinishModal ? 'hidden' : 'memory__footer'
           }
         >
-          <section className="buttons">
+          <section className="section__buttons">
             <button className="button__container" onClick={handleReset}>
               <div className="button__front">
                 <i className="fa-solid fa-arrow-rotate-right button__i"></i>
@@ -300,7 +300,7 @@ const Memory = () => {
               </div>
             </Link>
           </section>
-          <h3 className={showStartModal ? 'hidden' : 'message'}>
+          <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>
             Parejas acertadas:{' '}
             {`${Math.floor(cardsMatched.length / 2)} / ${Math.floor(
               theme.length / 2
