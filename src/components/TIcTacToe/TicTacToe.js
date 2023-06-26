@@ -54,7 +54,7 @@ const TicTacToe = () => {
           setWinnerName(board[a])
           setTimeout(() => {
             setIsFinishModalOpen(true)
-          }, 1000);
+          }, 700);
 
         }
       }
@@ -75,7 +75,7 @@ const TicTacToe = () => {
 
   // manejadora del tablero, si hay un ganador o esa casilla ya ha sido pulsada no se puede cliclar
   const handleBoard = (ev) => {
-    if (winnerName === '' || !playedSquares.includes(ev.target.id))
+    if (winnerName === '' && !playedSquares.includes(ev.target.id))
       whoPlays(ev.target.id)
   }
 
@@ -132,6 +132,7 @@ const TicTacToe = () => {
     setWinnerName('');
     setCount(0);
     setBoard(Array(9).fill(''));
+    setPlayedSquares([]);
     setIsFinishModalOpen(false)
   }
 
@@ -141,6 +142,7 @@ const TicTacToe = () => {
     setWinnerName('');
     setCount(0);
     setBoard(Array(9).fill(''));
+    setPlayedSquares([]);
     setPlayer1('');
     setPlayer2('');
     setTheme('ninja');
