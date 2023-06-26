@@ -2,12 +2,12 @@ import '../../styles/Memory.scss';
 import MemoryCards from './MemoryCards';
 import StartModalMemory from './StartModalMemory';
 import FinishModalMemory from './FinishModalMemory';
-import Monica from '../../images/Friends/MonicaDuck.png';
-import Joey from '../../images/Friends/JoeyDuck.png';
-import Phoebe from '../../images/Friends/PhoebeDuck.png';
-import Ross from '../../images/Friends/RossDuck.png';
-import Rachel from '../../images/Friends/RachelDuck.png';
-import Chandler from '../../images/Friends/ChandlerDuck.png';
+// import Monica from '../../images/Friends/MonicaDuck.png';
+// import Joey from '../../images/Friends/JoeyDuck.png';
+// import Phoebe from '../../images/Friends/PhoebeDuck.png';
+// import Ross from '../../images/Friends/RossDuck.png';
+// import Rachel from '../../images/Friends/RachelDuck.png';
+// import Chandler from '../../images/Friends/ChandlerDuck.png';
 import Aragorn from '../../images/LOTR/Aragorn.png';
 import Arwen from '../../images/LOTR/Arwen.png';
 import Frodo from '../../images/LOTR/Frodo.png';
@@ -54,6 +54,17 @@ import EHondaDuck from '../../images/StreetFighter/EHondaDuck.png';
 import GuileDuck from '../../images/StreetFighter/GuileDuck.png';
 import RyuDuck from '../../images/StreetFighter/RyuDuck.png';
 import Zangief from '../../images/StreetFighter/ZangiefDuck.png';
+
+// import {
+//   Monica,
+//   Joey,
+//   Phoebe,
+//   Ross,
+//   Rachel,
+//   Chandler,
+// } from '../Resources/Friends';
+import { Friends, Joey } from '../Resources/Friends';
+
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -67,7 +78,7 @@ const Memory = () => {
   const [difficulty, setDifficulty] = useState('easy');
 
   const [counter, setCounter] = useState(0);
-  const friends = [Monica, Joey, Phoebe, Ross, Rachel, Chandler];
+  const friends = [...Friends];
   const street = [
     BlankaDuck,
     ChunLiDuck,
@@ -168,6 +179,7 @@ const Memory = () => {
         setShowFinishModal(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardsMatched]);
 
   const handleReset = () => {
