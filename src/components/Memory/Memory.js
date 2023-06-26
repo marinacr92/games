@@ -67,6 +67,7 @@ import { Friends, Joey } from '../Resources/Friends';
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../Button';
 
 const Memory = () => {
   const [images, setImages] = useState([]);
@@ -283,21 +284,20 @@ const Memory = () => {
           }
         >
           <section className="section__buttons">
+
+
             <button className="button__container" onClick={handleReset}>
-              <div className="button__front">
-                <i className="fa-solid fa-arrow-rotate-right button__i"></i>
-              </div>
-              <div className="button__back">
-                <span>Reiniciar partida</span>
-              </div>
+              <Button
+                classIcon='fa-arrow-rotate-right'
+                textButton='Reiniciar Partida'
+              ></Button>
+
             </button>
             <Link to="/" className="button__container">
-              <div className="button__front">
-                <i className="fa-solid fa-arrow-left button__i"></i>
-              </div>
-              <div className="button__back">
-                <span>Sala de juegos</span>
-              </div>
+              <Button
+                classIcon='fa-arrow-left'
+                textButton='Sala de juegos'
+              ></Button>
             </Link>
           </section>
           <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>

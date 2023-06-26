@@ -1,5 +1,6 @@
 import '../styles/Reset.scss';
 import '../styles/App.scss';
+import '../styles/Button.scss';
 import Landing from './Landing';
 import TicTacToe from './TicTacToe/TicTacToe';
 import Memory from './Memory/Memory';

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Bic from '../../images/bic.png';
 import StartModalTicTacToe from './StartModalTicTacToe'
 import FinishModalTictactoe from './FinishModalTicTacToe';
+import Button from '../Button';
 
 const TicTacToe = () => {
 
@@ -192,18 +193,32 @@ const TicTacToe = () => {
             <img className='tictactoe__bic' src={Bic} alt="boli bic" />
           </div>
         </section>
-        <section className='buttons'>
-          <button className='buttons__return backBtn'>
-            <Link className='buttons__link' to='/' >Volver</Link>
-          </button>
+        <section className='section__buttons'>
+          <Link className='button__container' to='/' >
+            <Button
+              classIcon='fa-arrow-left'
+              textButton='Sala de juegos'
+            ></Button>
+          </Link>
           <button
             onClick={handlePlayAgain}
-            className='buttons__play'
-          >Jugar de nuevo</button>
+            className='button__container'
+          >
+            <Button
+              classIcon='fa-arrow-rotate-right'
+              textButton='Reiniciar Partida'
+            ></Button>
+
+          </button>
           <button
             onClick={handleReset}
-            className='buttons__reset'
-          >Cambiar personajes</button>
+            className='button__container'
+          >
+            <Button
+              classIcon='fa-sliders'
+              textButton='Cambiar personajes'
+            ></Button>
+          </button>
         </section>
       </main >
 

@@ -1,7 +1,7 @@
-@import './Varibles.scss';
+@import "./Varibles.scss";
 
-.main__memory{
-  background-image: url('../images/wood.jpg');
+.main__memory {
+  background-image: url("../images/wood.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: grid;
@@ -46,7 +46,7 @@
   cursor: pointer;
   transition: 1s ease-in-out;
   transform-style: preserve-3d;
-  
+
   &__faces {
     border: solid 2px black;
     border-radius: 5px;
@@ -57,7 +57,7 @@
     height: 100%;
     backface-visibility: hidden;
     transition: 1s ease-in-out;
-    
+
     &--img {
       width: 100%;
       height: 100%;
@@ -70,16 +70,15 @@
   }
 }
 
-.card__size{
-
-  &--nohard{
+.card__size {
+  &--nohard {
     width: 150px;
     height: 150px;
   }
 
-  &--hard{
-  width: 150px;
-  height: 150px;
+  &--hard {
+    width: 150px;
+    height: 150px;
   }
 }
 
@@ -94,27 +93,14 @@
 //   background-color: green;
 // }
 
-
-  
-
-
-.section__buttons{
-  grid-column: 1/2;
-  //position: relative;
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-}
-
-.couples-matched-msg{
-  font-size:20px;
+.couples-matched-msg {
+  font-size: 20px;
   color: white;
   font-family: $mainFont;
 }
 
-.modal__memory{
-  
-  &--background{
+.modal__memory {
+  &--background {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -125,7 +111,7 @@
     align-items: center;
   }
 
-  &--window{
+  &--window {
     background-color: rgb(144, 238, 144);
     width: 650px;
     height: 500px;
@@ -139,7 +125,7 @@
     justify-content: space-around;
   }
 
-  &--content{
+  &--content {
     width: 100%;
     height: 100%;
     display: grid;
@@ -147,73 +133,68 @@
     grid-template-rows: 1fr 1fr;
     align-items: end;
   }
-
-  
 }
 
-.modalmem{
-  &__difficulty{
-    
-    &--legend{
+.modalmem {
+  &__difficulty {
+    &--legend {
       font-family: $mainFont;
       font-size: 30px;
     }
 
-    &--content{
+    &--content {
       display: grid;
       grid-template-columns: repeat(3, 30px 1fr);
       justify-items: center;
       align-items: center;
-      gap:10px;
+      gap: 10px;
       margin: 20px 0;
     }
 
-    &--label{
+    &--label {
       font-family: $mainFont;
       font-size: 20px;
     }
 
-    &--input{
+    &--input {
       width: 15px;
       height: 15px;
       cursor: pointer;
       accent-color: rgb(93, 93, 93);
     }
-
   }
 
-  &__theme{
-
-    &--content{
+  &__theme {
+    &--content {
       margin-top: 20px;
       display: flex;
       justify-content: center;
       gap: 50px;
     }
 
-    &--legend{
+    &--legend {
       font-family: $mainFont;
       font-size: 30px;
     }
 
-    &--label{
+    &--label {
       font-family: $mainFont;
       font-size: 20px;
     }
 
-    &--figure{
+    &--figure {
       width: 150px;
       height: 150px;
     }
-    
-    &--img{
+
+    &--img {
       width: 100%;
       height: 100%;
     }
   }
 }
 
-.modal__button--play{
+.modal__button--play {
   width: 50%;
   font-size: 23px;
   border-radius: 8px;
@@ -222,21 +203,21 @@
   cursor: pointer;
 }
 
-.modal__title{
+.modal__title {
   grid-column: 1/3;
   text-align: center;
   font-family: $mainFont;
   font-size: 30px;
 }
 
-.modal__buttons{
+.modal__buttons {
   grid-row: 2/3;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 }
 
-.memory__button{
+.memory__button {
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -244,73 +225,6 @@
   align-items: center;
 }
 
-.marker{
+.marker {
   background-color: rgb(171, 171, 171);
-}
-
-.button__container{
-  display: flex;
-  align-items: center;
-  height: 50px;
-  width: 50px;
-  position: relative;
-  text-align: center;
-  font-family: $mainFont;
-  padding: 10px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.button__front {
-  position: absolute;
-  z-index: 4;
-  width: 50px;
-  height: 50px;
-  background-color: grey;
-  border-radius: 50%;
-  text-align: center;
-  cursor: pointer;
-  transition: .5s;
-}
-
-.button__back {
-  position: absolute;
-  left: 20px;
-  outline: none;
-  box-sizing: border-box;
-  height: 40px;
-  width: 0px;
-  border-radius: 50px;
-  line-height: 35px;
-  border: 2px solid rgb(90, 90, 90);
-  transition: all .7s ease;
-  background-color: white;
-}
-
-.button__i {
-  font-size: 20px;
-  color: white;
-  line-height: 50px;
-  transition: all .7s ease;
-}
-
-.button__back span{
-  opacity: 0;
-  font-size: 0px;
-  color: black;
-  transition: all .7s ease;
-}
-
-.button__container:hover .button__back{
-  width: 300px;
-}
-
-.button__container:hover .button__back span {
-  opacity: 1;
-  font-size: 20px;
-}
-
-.button__container:hover .button__i {
-  transform: rotate(360deg);
 }
