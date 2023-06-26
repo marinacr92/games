@@ -100,16 +100,16 @@ const TicTacToe = () => {
   const renderCharacters = () => {
     switch (theme) {
       case 'ninja':
-        setCharacter1('donatello');
-        setCharacter2('michelangelo');
+        setCharacter1('Donatello');
+        setCharacter2('Michelangelo');
         break;
       case 'power':
         setCharacter1('pink');
         setCharacter2('blue');
         break;
       case 'future':
-        setCharacter1('doc')
-        setCharacter2('marty')
+        setCharacter1('Doc')
+        setCharacter2('Marty')
     }
   }
 
@@ -143,8 +143,8 @@ const TicTacToe = () => {
     setCount(0);
     setBoard(Array(9).fill(''));
     setPlayedSquares([]);
-    setPlayer1('');
-    setPlayer2('');
+    // setPlayer1('');
+    // setPlayer2('');
     setTheme('ninja');
     setIsStartModalOpen(false)
   }
@@ -181,8 +181,15 @@ const TicTacToe = () => {
           >
             {renderSquare}
           </div>
-          <img className='tictactoe__bic' src={Bic} alt="boli bic" />
-          <div>
+          <div className='tictactoe__players'>
+            <p className='tictactoe__players--names'>{player1 || 'Jugador 1'} vs. {player2 || 'Jugador 2'}</p>
+            <div className='tictactoe__players--characters'>
+              <div className={`tictactoe__players--one 
+             ${character1}
+              `}></div>
+              <div className={`tictactoe__players--two ${character2}`}></div>
+            </div>
+            <img className='tictactoe__bic' src={Bic} alt="boli bic" />
           </div>
         </section>
         <section className='buttons'>
