@@ -284,19 +284,22 @@ const Memory = () => {
           }
         >
           <section className="section__buttons">
-
-
             <button className="button__container" onClick={handleReset}>
               <Button
-                classIcon='fa-arrow-rotate-right'
-                textButton='Reiniciar Partida'
+                classIcon="fa-arrow-rotate-right"
+                textButton="Reiniciar Partida"
               ></Button>
-
+            </button>
+            <button onClick={handleReset} className="button__container">
+              <Button
+                classIcon="fa-sliders"
+                textButton="Cambiar personajes"
+              ></Button>
             </button>
             <Link to="/" className="button__container">
               <Button
-                classIcon='fa-arrow-left'
-                textButton='Sala de juegos'
+                classIcon="fa-arrow-left"
+                textButton="Sala de juegos"
               ></Button>
             </Link>
           </section>
