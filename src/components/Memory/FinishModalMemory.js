@@ -5,7 +5,8 @@ import ConfettiExplosion from 'react-confetti-explosion';
 const FinishModalMemory = ({
   counter,
   showFinishModal,
-  handleReset,
+  handleRestartGame,
+  handleChangeTheme,
   showStartModal,
   closeModalMem,
   isExplodingMem,
@@ -40,13 +41,13 @@ const FinishModalMemory = ({
           {/* <section className="modal__buttons"> */}
           <section className="modal__buttons">
             <div className="modal__buttons--buttons">
-              <button className="button__container" onClick={handleReset}>
+              <button className="button__container" onClick={handleRestartGame}>
                 <Button
                   classIcon="fa-arrow-rotate-right"
                   textButton="Reiniciar Partida"
                 ></Button>
               </button>
-              <button onClick={handleReset} className="button__container">
+              <button onClick={handleChangeTheme} className="button__container">
                 <Button
                   classIcon="fa-sliders"
                   textButton="Cambiar personajes"

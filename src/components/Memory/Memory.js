@@ -185,7 +185,22 @@ const Memory = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardsMatched]);
 
-  const handleReset = () => {
+  const handleRestartGame = () => {
+    setCardsMatched([]);
+    setCardsFlipped([]);
+    setCounter(0);
+    setShowStartModal(false);
+    setShowFinishModal(false);
+    setIsExplodingMem(false);
+    setTimeout(() => {
+      theme.sort(() => {
+        return Math.random() - 0.5;
+      });
+      setImages([...theme]);
+    }, 700);
+  };
+
+  const handleChangeTheme = () => {
     setCardsMatched([]);
     setCardsFlipped([]);
     setImages([]);
@@ -297,13 +312,13 @@ const Memory = () => {
                 textButton="Sala de juegos"
               ></Button>
             </Link>
-            <button className="button__container" onClick={handleReset}>
+            <button className="button__container" onClick={handleRestartGame}>
               <Button
                 classIcon="fa-arrow-rotate-right"
                 textButton="Reiniciar Partida"
               ></Button>
             </button>
-            <button onClick={handleReset} className="button__container">
+            <button onClick={handleChangeTheme} className="button__container">
               <Button
                 classIcon="fa-sliders"
                 textButton="Cambiar personajes"
@@ -320,7 +335,8 @@ const Memory = () => {
         <FinishModalMemory
           counter={counter}
           showFinishModal={showFinishModal}
-          handleReset={handleReset}
+          handleRestartGame={handleRestartGame}
+          handleChangeTheme={handleChangeTheme}
           showStartModal={showStartModal}
           closeModalMem={closeModalMem}
           isExplodingMem={isExplodingMem}
