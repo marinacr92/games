@@ -84,10 +84,10 @@ const StartModalMemory = ({
                 //className="memory__button"
                 onClick={handleTheme}
               >
-                <h3 className="modalmem__theme--label">{themeOption1()}</h3>
                 <figure className="modalmem__theme--figure">
                   <img className="modalmem__theme--img" src={imgOne} alt="" />
                 </figure>
+                <h3 className="modalmem__theme--label">{themeOption1()}</h3>
               </button>
               <button
                 id="2"
@@ -97,10 +97,10 @@ const StartModalMemory = ({
                 //className="memory__button"
                 onClick={handleTheme}
               >
-                <h3 className="modalmem__theme--label">{themeOption2()}</h3>
                 <figure className="modalmem__theme--figure">
                   <img className="modalmem__theme--img" src={imgTwo} alt="" />
                 </figure>
+                <h3 className="modalmem__theme--label">{themeOption2()}</h3>
               </button>
             </div>
           </fieldset>
