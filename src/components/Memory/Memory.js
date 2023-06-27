@@ -231,7 +231,7 @@ const Memory = () => {
     } else if (difficulty === 'medium') {
       return 'Cazafantasmas';
     } else if (difficulty === 'hard') {
-      return 'DC';
+      return 'DC Comics';
     }
   };
 
@@ -284,6 +284,12 @@ const Memory = () => {
           }
         >
           <section className="section__buttons">
+            <Link to="/" className="button__container">
+              <Button
+                classIcon="fa-arrow-left"
+                textButton="Sala de juegos"
+              ></Button>
+            </Link>
             <button className="button__container" onClick={handleReset}>
               <Button
                 classIcon="fa-arrow-rotate-right"
@@ -296,12 +302,6 @@ const Memory = () => {
                 textButton="Cambiar personajes"
               ></Button>
             </button>
-            <Link to="/" className="button__container">
-              <Button
-                classIcon="fa-arrow-left"
-                textButton="Sala de juegos"
-              ></Button>
-            </Link>
           </section>
           <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>
             Parejas acertadas:{' '}
