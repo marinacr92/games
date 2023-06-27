@@ -39,7 +39,7 @@
     background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
 
     &--yellow {
-      background-color: rgb(251, 251, 82);
+      background-color: #fbfb52;
       transform: rotateZ(4deg);
       box-shadow: 16px 11px 8px rgb(56, 56, 56);
     }
@@ -71,7 +71,7 @@
     }
 
     &--blue {
-      background-color: lightblue;
+      background-color: #add8e6;
       transform: rotateZ(-3deg);
       box-shadow: 16px 8px 9px rgb(56, 56, 56);
     }
