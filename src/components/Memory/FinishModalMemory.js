@@ -33,7 +33,11 @@ const FinishModalMemory = ({
         ''
       )}
       <section className="modal__memory--window">
-        <i class="fa-solid fa-xmark" onClick={() => closeModalMem()}></i>
+        <i
+          className="fa-solid fa-xmark"
+          onClick={() => closeModalMem()}
+          title="Salir del menú"
+        ></i>
         <section className="modal__memory--finishcontent">
           <h2 className="modal__title">
             ¡Has ganado en {Math.floor(counter / 2)} movimientos!
@@ -41,20 +45,32 @@ const FinishModalMemory = ({
           {/* <section className="modal__buttons"> */}
           <section className="modal__buttons">
             <div className="modal__buttons--buttons">
-              <button className="button__container" onClick={handleRestartGame}>
+              <button
+                className="button__container"
+                onClick={handleRestartGame}
+                title="Botón para reiniciar la partida"
+              >
                 <Button
                   classIcon="fa-arrow-rotate-right"
                   textButton="Volver a jugar"
                 ></Button>
               </button>
-              <button onClick={handleChangeTheme} className="button__container">
+              <button
+                onClick={handleChangeTheme}
+                className="button__container"
+                title="Botón para cambiar los personajes"
+              >
                 <Button
                   classIcon="fa-sliders"
                   textButton="Cambiar personajes"
                 ></Button>
               </button>
             </div>
-            <Link to="/" className="button__container">
+            <Link
+              to="/"
+              className="button__container"
+              title="Botón para volver a la sala de juegos"
+            >
               <Button
                 classIcon="fa-arrow-left"
                 textButton="Sala de juegos"

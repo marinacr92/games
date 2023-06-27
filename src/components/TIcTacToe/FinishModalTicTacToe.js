@@ -33,7 +33,11 @@ const FinishModalTictactoe = ({
           ''
         )}
         <section className="modal__tictactoe--window">
-          <i class="fa-solid fa-xmark" onClick={() => closeModal()}></i>
+          <i
+            class="fa-solid fa-xmark"
+            onClick={() => closeModal()}
+            title="Salir del menú"
+          ></i>
           <h2 className="modal__winner">
             {`Ha ganado
           ${
@@ -44,20 +48,32 @@ const FinishModalTictactoe = ({
           </h2>
 
           <div className="modal__btns">
-            <button onClick={handlePlayAgain} className="button__container">
+            <button
+              onClick={handlePlayAgain}
+              className="button__container"
+              title="Botón para reiniciar la partida"
+            >
               <Button
                 classIcon="fa-arrow-rotate-right"
                 textButton="Volver a jugar"
               ></Button>
             </button>
-            <button onClick={handleReset} className="button__container">
+            <button
+              onClick={handleReset}
+              className="button__container"
+              title="Botón para cambiar los personajes"
+            >
               <Button
                 classIcon="fa-sliders"
                 textButton="Cambiar personajes"
               ></Button>
             </button>
           </div>
-          <Link className="button__container modal__link" to="/">
+          <Link
+            className="button__container modal__link"
+            to="/"
+            title="Botón para volver a la sala de juegos"
+          >
             <Button
               classIcon="fa-arrow-left"
               textButton="Sala de juegos"

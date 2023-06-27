@@ -135,6 +135,7 @@ const StartModalTicTacToe = ({
           <button
             onClick={handlePlay}
             className="button__container button__play"
+            title="Comenzar a jugar"
           >
             <Button classIcon="fa-play" textButton="Jugar"></Button>
           </button>

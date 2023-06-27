@@ -211,19 +211,31 @@ const TicTacToe = () => {
           </div>
         </section>
         <section className="section__buttons">
-          <Link className="button__container" to="/">
+          <Link
+            className="button__container"
+            to="/"
+            title="Botón para volver a la sala de juegos"
+          >
             <Button
               classIcon="fa-arrow-left"
               textButton="Sala de juegos"
             ></Button>
           </Link>
-          <button onClick={handlePlayAgain} className="button__container">
+          <button
+            onClick={handlePlayAgain}
+            className="button__container"
+            title="Botón para reiniciar la partida"
+          >
             <Button
               classIcon="fa-arrow-rotate-right"
               textButton="Reiniciar partida"
             ></Button>
           </button>
-          <button onClick={handleReset} className="button__container">
+          <button
+            onClick={handleReset}
+            className="button__container"
+            title="Botón para cambiar los personajes"
+          >
             <Button
               classIcon="fa-sliders"
               textButton="Cambiar personajes"

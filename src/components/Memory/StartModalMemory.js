@@ -105,7 +105,11 @@ const StartModalMemory = ({
             </div>
           </fieldset>
         </form>
-        <button className="button__container button__play" onClick={handlePlay}>
+        <button
+          className="button__container button__play"
+          onClick={handlePlay}
+          title="Comenzar a jugar"
+        >
           <Button classIcon="fa-play" textButton="¡A jugar!" />
         </button>
       </section>

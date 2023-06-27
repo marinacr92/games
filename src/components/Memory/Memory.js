@@ -306,19 +306,31 @@ const Memory = () => {
           }
         >
           <section className="section__buttons">
-            <Link to="/" className="button__container">
+            <Link
+              to="/"
+              className="button__container"
+              title="Botón para volver a la sala de juegos"
+            >
               <Button
                 classIcon="fa-arrow-left"
                 textButton="Sala de juegos"
               ></Button>
             </Link>
-            <button className="button__container" onClick={handleRestartGame}>
+            <button
+              className="button__container"
+              onClick={handleRestartGame}
+              title="Botón para reiniciar la partida"
+            >
               <Button
                 classIcon="fa-arrow-rotate-right"
                 textButton="Reiniciar partida"
               ></Button>
             </button>
-            <button onClick={handleChangeTheme} className="button__container">
+            <button
+              onClick={handleChangeTheme}
+              className="button__container"
+              title="Botón para cambiar los personajes"
+            >
               <Button
                 classIcon="fa-sliders"
                 textButton="Cambiar personajes"
