@@ -30,7 +30,7 @@ const StartModalMemory = ({
       className={showStartModal ? 'modal__memory--background' : 'hidden'}
     >
       <section className="modal__memory--window">
-        <form className="modal__memory--form">
+        <form className="modal__memory--startcontent">
           <fieldset className="modalmem__difficulty">
             <legend className="modalmem__difficulty--legend">
               Nivel de dificultad

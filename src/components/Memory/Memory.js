@@ -143,6 +143,7 @@ const Memory = () => {
   const [themeTwo, setThemeTwo] = useState(street);
   const [imgOne, setImgOne] = useState(Joey);
   const [imgTwo, setImgTwo] = useState(RyuDuck);
+  const [isExplodingMem, setIsExplodingMem] = useState(false);
 
   const increment = () => {
     setCounter(counter + 1);
@@ -178,6 +179,7 @@ const Memory = () => {
     if (theme.length !== 0) {
       if (cardsMatched.length === theme.length) {
         setShowFinishModal(true);
+        setIsExplodingMem(true);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -191,6 +193,7 @@ const Memory = () => {
     setCounter(0);
     setShowStartModal(true);
     setShowFinishModal(false);
+    setIsExplodingMem(false);
   };
 
   const selectDifficulty = (id) => {
@@ -251,6 +254,10 @@ const Memory = () => {
     });
     setImages([...theme]);
     setShowStartModal(false);
+  };
+
+  const closeModalMem = () => {
+    setShowFinishModal(false);
   };
 
   return (
@@ -315,6 +322,8 @@ const Memory = () => {
           showFinishModal={showFinishModal}
           handleReset={handleReset}
           showStartModal={showStartModal}
+          closeModalMem={closeModalMem}
+          isExplodingMem={isExplodingMem}
         />
       </main>
       {/* <section className="modal__memory--last"></section> */}
