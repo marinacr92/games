@@ -44,7 +44,7 @@ const FinishModalMemory = ({
               <button className="button__container" onClick={handleRestartGame}>
                 <Button
                   classIcon="fa-arrow-rotate-right"
-                  textButton="Reiniciar Partida"
+                  textButton="Volver a jugar"
                 ></Button>
               </button>
               <button onClick={handleChangeTheme} className="button__container">

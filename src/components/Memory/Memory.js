@@ -315,7 +315,7 @@ const Memory = () => {
             <button className="button__container" onClick={handleRestartGame}>
               <Button
                 classIcon="fa-arrow-rotate-right"
-                textButton="Reiniciar Partida"
+                textButton="Reiniciar partida"
               ></Button>
             </button>
             <button onClick={handleChangeTheme} className="button__container">

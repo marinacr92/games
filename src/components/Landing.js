@@ -16,13 +16,17 @@ const Landing = () => {
       <nav className="main__nav">
         <ul className="wall">
           <li className="wall__postit wall__postit--violet">
-            <Link className="link" to="/tictactoe">
+            <Link
+              className="link"
+              to="/tictactoe"
+              title="Enlace al juego TicTacToe"
+            >
               <p className="link__title">Tic Tac Toe</p>
               <img className="link__img" src={ImgTicTacToe} alt="" />
             </Link>
           </li>
           <li className="wall__postit wall__postit--green">
-            <Link className="link" to="/memory">
+            <Link className="link" to="/memory" title="Enlace al juego Memory">
               <img className="link__img" src={ImgMemory} alt="" />
               <p className="link__title">Memory</p>
             </Link>

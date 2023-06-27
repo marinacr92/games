@@ -8,7 +8,6 @@ import FinishModalTictactoe from './FinishModalTicTacToe';
 import Button from '../Button';
 
 const TicTacToe = () => {
-
   // casillas del tablero
   const [board, setBoard] = useState(Array(9).fill(''));
 
@@ -37,39 +36,40 @@ const TicTacToe = () => {
   const [isFinishModalOpen, setIsFinishModalOpen] = useState(false);
 
   // confeti
-  const [isExploding, setIsExploding] = useState(false)
+  const [isExploding, setIsExploding] = useState(false);
   // comprueba las jugadas para ver quien gana, guarda el ganador en una variable y abre ventana modal
-  useEffect(
-    () => {
-      const winnerLines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-      ]
-      for (let i = 0; i < winnerLines.length; i++) {
-        const [a, b, c] = winnerLines[i];
-        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-          setWinnerName(board[a])
-          setTimeout(() => {
-            setIsFinishModalOpen(true)
-            setIsExploding(true)
-          }, 700);
-
-        }
+  useEffect(() => {
+    const winnerLines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    for (let i = 0; i < winnerLines.length; i++) {
+      const [a, b, c] = winnerLines[i];
+      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        setWinnerName(board[a]);
+        setTimeout(() => {
+          setIsFinishModalOpen(true);
+          setIsExploding(true);
+        }, 700);
       }
-    }, [board])
+    }
+  }, [board]);
 
   // pintar el tablero
   const renderSquare = board.map((square, index) => {
     return (
-      <div key={index} id={index} className={`board__square board__square--${index} ${square}`} >
-      </div>
-    )
+      <div
+        key={index}
+        id={index}
+        className={`board__square board__square--${index} ${square}`}
+      ></div>
+    );
   });
 
   // contador
@@ -80,12 +80,12 @@ const TicTacToe = () => {
   // manejadora del tablero, si hay un ganador o esa casilla ya ha sido pulsada no se puede cliclar
   const handleBoard = (ev) => {
     if (winnerName === '' && !playedSquares.includes(ev.target.id))
-      whoPlays(ev.target.id)
-  }
+      whoPlays(ev.target.id);
+  };
 
   // pinta el personaje en cada casilla y guarda el index de las casillas jugadas
   const whoPlays = (index) => {
-    setPlayedSquares([...playedSquares, index])
+    setPlayedSquares([...playedSquares, index]);
     counter();
     if (count % 2 === 0) {
       board[index] = character1;
@@ -97,7 +97,7 @@ const TicTacToe = () => {
 
   // elegir temática con la que jugar
   const chooseTheme = (id) => {
-    setTheme(id)
+    setTheme(id);
   };
 
   // pintar los personajes según las temática elegida
@@ -112,10 +112,10 @@ const TicTacToe = () => {
         setCharacter2('blue');
         break;
       case 'future':
-        setCharacter1('doc')
-        setCharacter2('marty')
+        setCharacter1('doc');
+        setCharacter2('marty');
     }
-  }
+  };
 
   // guardar nombres de los jugadores
   const updatePlayer1 = (value) => {
@@ -127,9 +127,9 @@ const TicTacToe = () => {
 
   // botón volver a seleccionar personajes
   const handleReset = () => {
-    setIsStartModalOpen(true)
-    setIsFinishModalOpen(false)
-  }
+    setIsStartModalOpen(true);
+    setIsFinishModalOpen(false);
+  };
 
   // botón jugar de nuevo con los mismo personajes
   const handlePlayAgain = () => {
@@ -138,24 +138,24 @@ const TicTacToe = () => {
     setBoard(Array(9).fill(''));
     setPlayedSquares([]);
     setIsFinishModalOpen(false);
-    setIsExploding(false)
-  }
+    setIsExploding(false);
+  };
 
   // botón de inicio del juego en la modal
   const handlePlay = () => {
-    renderCharacters()
+    renderCharacters();
     setWinnerName('');
     setCount(0);
     setBoard(Array(9).fill(''));
     setPlayedSquares([]);
     setTheme('ninja');
-    setIsStartModalOpen(false)
-    setIsExploding(false)
-  }
+    setIsStartModalOpen(false);
+    setIsExploding(false);
+  };
 
   const closeModal = () => {
-    setIsFinishModalOpen(false)
-  }
+    setIsFinishModalOpen(false);
+  };
 
   return (
     <>
@@ -182,56 +182,55 @@ const TicTacToe = () => {
         closeModal={closeModal}
       ></FinishModalTictactoe>
 
-      <main className='main 
-    main__tictactoe'>
-        <h1 className='tictactoe__title'>TicTacToe</h1>
+      <main
+        className="main 
+    main__tictactoe"
+      >
+        <h1 className="tictactoe__title">TicTacToe</h1>
         <section className="tictactoe__box">
-          <div className='tictactoe__board'
+          <div
+            className="tictactoe__board"
             // onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}
             onClick={handleBoard}
           >
             {renderSquare}
           </div>
-          <div className='tictactoe__players'>
-            <p className='tictactoe__players--names'>{player1 || 'Jugador 1'} vs. {player2 || 'Jugador 2'}</p>
-            <div className='tictactoe__players--characters'>
-              <div className={`tictactoe__players--one 
+          <div className="tictactoe__players">
+            <p className="tictactoe__players--names">
+              {player1 || 'Jugador 1'} vs. {player2 || 'Jugador 2'}
+            </p>
+            <div className="tictactoe__players--characters">
+              <div
+                className={`tictactoe__players--one 
              ${character1}
-              `}></div>
+              `}
+              ></div>
               <div className={`tictactoe__players--two ${character2}`}></div>
             </div>
-            <img className='tictactoe__bic' src={Bic} alt="boli bic" />
+            <img className="tictactoe__bic" src={Bic} alt="boli bic" />
           </div>
         </section>
-        <section className='section__buttons'>
-          <Link className='button__container' to='/' >
+        <section className="section__buttons">
+          <Link className="button__container" to="/">
             <Button
-              classIcon='fa-arrow-left'
-              textButton='Sala de juegos'
+              classIcon="fa-arrow-left"
+              textButton="Sala de juegos"
             ></Button>
           </Link>
-          <button
-            onClick={handlePlayAgain}
-            className='button__container'
-          >
+          <button onClick={handlePlayAgain} className="button__container">
             <Button
-              classIcon='fa-arrow-rotate-right'
-              textButton='Reiniciar Partida'
+              classIcon="fa-arrow-rotate-right"
+              textButton="Reiniciar partida"
             ></Button>
-
           </button>
-          <button
-            onClick={handleReset}
-            className='button__container'
-          >
+          <button onClick={handleReset} className="button__container">
             <Button
-              classIcon='fa-sliders'
-              textButton='Cambiar personajes'
+              classIcon="fa-sliders"
+              textButton="Cambiar personajes"
             ></Button>
           </button>
         </section>
-      </main >
-
+      </main>
     </>
   );
 };

@@ -9,12 +9,20 @@ const Footer = () => {
             <span className="footer__name">Bea Figueroa</span>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/bea-figueroa/" target="blank">
+            <a
+              href="https://www.linkedin.com/in/bea-figueroa/"
+              target="blank"
+              title="Enlace a LinkedIn"
+            >
               <i className="fa-brands fa-linkedin footer__icon"></i>
             </a>
           </li>
           <li>
-            <a href="https://github.com/beafig" target="blank">
+            <a
+              href="https://github.com/beafig"
+              target="blank"
+              title="Enlace a GitHub"
+            >
               <i className="fa-brands fa-github footer__icon"></i>
             </a>
           </li>
@@ -27,12 +35,17 @@ const Footer = () => {
             <a
               href="https://www.linkedin.com/in/marina-caro-romero/"
               target="blank"
+              title="Enlace a LinkedIn"
             >
               <i className="fa-brands fa-linkedin footer__icon"></i>
             </a>
           </li>
           <li>
-            <a href="https://github.com/marinacr92" target="blank">
+            <a
+              href="https://github.com/marinacr92"
+              target="blank"
+              title="Enlace a GitHub"
+            >
               <i className="fa-brands fa-github footer__icon"></i>
             </a>
           </li>
