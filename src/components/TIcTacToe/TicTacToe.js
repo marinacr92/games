@@ -6,6 +6,7 @@ import Bic from '../../images/bic.png';
 import StartModalTicTacToe from './StartModalTicTacToe'
 import FinishModalTictactoe from './FinishModalTicTacToe';
 import Button from '../Button';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 const TicTacToe = () => {
 
@@ -36,6 +37,8 @@ const TicTacToe = () => {
   const [isStartModalOpen, setIsStartModalOpen] = useState(true);
   const [isFinishModalOpen, setIsFinishModalOpen] = useState(false);
 
+  // confeti
+  const [isExploding, setIsExploding] = useState(false)
   // comprueba las jugadas para ver quien gana, guarda el ganador en una variable y abre ventana modal
   useEffect(
     () => {
@@ -55,6 +58,7 @@ const TicTacToe = () => {
           setWinnerName(board[a])
           setTimeout(() => {
             setIsFinishModalOpen(true)
+            setIsExploding(true)
           }, 700);
 
         }
@@ -134,7 +138,8 @@ const TicTacToe = () => {
     setCount(0);
     setBoard(Array(9).fill(''));
     setPlayedSquares([]);
-    setIsFinishModalOpen(false)
+    setIsFinishModalOpen(false);
+    setIsExploding(false)
   }
 
   // botón de inicio del juego en la modal
@@ -144,10 +149,13 @@ const TicTacToe = () => {
     setCount(0);
     setBoard(Array(9).fill(''));
     setPlayedSquares([]);
-    // setPlayer1('');
-    // setPlayer2('');
     setTheme('ninja');
     setIsStartModalOpen(false)
+    setIsExploding(false)
+  }
+
+  const closeModal = () => {
+    setIsFinishModalOpen(false)
   }
 
   return (
@@ -171,7 +179,10 @@ const TicTacToe = () => {
         character1={character1}
         isFinishModalOpen={isFinishModalOpen}
         handlePlayAgain={handlePlayAgain}
+        isExploding={isExploding}
+        closeModal={closeModal}
       ></FinishModalTictactoe>
+
       <main className='main 
     main__tictactoe'>
         <h1 className='tictactoe__title'>TicTacToe</h1>

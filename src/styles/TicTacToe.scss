@@ -1,14 +1,14 @@
 @import "./Varibles.scss";
 
 .main__tictactoe {
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
-  grid-template-rows: 60px 1fr 200px;
+  grid-template-rows: 40px 1fr 70px;
   background-image: url("../images/paper.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: $mainFont;
   color: blue;
+  padding: 0 8px;
 }
 .tictactoe {
   &__title {
@@ -41,34 +41,35 @@
   }
   &__box {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
   }
   &__board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 300px;
-    height: 300px;
-    align-self: center;
+    width: 225px;
+    height: 225px;
   }
   &__bic {
-    margin-top: 120px;
-    width: 300px;
-    transform: rotate(-20deg);
+    display: none;
+    // margin-top: 120px;
+    // width: 300px;
+    // transform: rotate(-20deg);
   }
   &__players {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     &--names {
+      font-size: 14px;
       margin-bottom: 10px;
     }
     &--characters {
       display: flex;
+      justify-content: center;
     }
     &--one,
     &--two {
-      height: 100px;
-      width: 100px;
+      height: 60px;
+      width: 60px;
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -82,49 +83,72 @@
   &--1,
   &--3,
   &--4 {
-    border-bottom: solid 3px blue;
-    border-right: solid 3px blue;
+    border-bottom: solid 2px blue;
+    border-right: solid 2px blue;
   }
   &--2,
   &--5 {
-    border-bottom-width: 3px;
+    border-bottom-width: 2px;
     border-bottom-style: solid;
     border-image: linear-gradient(to right, blue, rgb(171, 171, 248)) 1;
   }
   &--6,
   &--7 {
-    border-right-width: 3px;
+    border-right-width: 2px;
     border-right-style: solid;
     border-image: linear-gradient(to bottom, blue, rgb(171, 171, 248)) 1;
   }
 }
-.buttons {
-  grid-row: 3/4;
-  &__link {
-    text-decoration: none;
-  }
-}
+
 .modal__tictactoe {
   &--background {
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: rgba(128, 128, 128, 0.505);
-    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
   }
   &--window {
-    background-color: white;
-    width: 300px;
-    height: 300px;
+    // align-self: center;
+    margin: auto;
+    background-color: $tictactoe;
+    width: 90%;
     position: relative;
     z-index: 5;
     border-radius: 20px;
     padding: 15px;
     font-family: $mainFont;
-    color: blue;
+  }
+}
+
+.modal {
+  &__legend {
+    margin: 12px 0;
+  }
+  &__label {
+    display: flex;
+    margin: 8px;
+  }
+  &__input {
+    width: 100px;
+    margin-left: 5px;
+  }
+  &__characters {
+    display: flex;
+    align-items: center;
+  }
+  &__img {
+    width: 250px;
+    height: 125px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
   }
 }
 .donatello {
@@ -150,4 +174,14 @@
 }
 .hidden {
   display: none;
+}
+
+.fa-xmark {
+  color: white;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  padding: 4px 6px;
+  border: solid 1px white;
+  border-radius: 50%;
 }
