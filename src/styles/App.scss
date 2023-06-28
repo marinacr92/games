@@ -2,13 +2,16 @@
 
 #root {
   min-height: 100vh;
-  // scroll-behavior: smooth;
-  // overflow-y: scroll;
-  display: grid;
-  grid-template-rows: 1fr 10%;
+  // display: grid;
+  // grid-template-rows: 1fr 15%;
   font-family: $mainFont;
 }
 
 .main {
   grid-row: 1/2;
+}
+
+.div {
+  display: grid;
+  grid-template-rows: 1fr 15%;
 }

@@ -1,31 +1,25 @@
 .footer {
   grid-row: 2/3;
   background-color: #fadf55;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 5px;
+  padding: 10px 5px;
 
-  &__nav{
+  &__nav {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
+    justify-content: space-between;
   }
 
-  &__ul{
+  &__ul {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
     gap: 5px;
   }
 
-  &__name{
-    color: #0D82BB;
-    font-size: 12px;
+  &__name {
+    color: #0d82bb;
+    font-size: 14px;
   }
 
-  &__icon{
+  &__icon {
     color: #096492;
+    font-size: 20px;
   }
 }
