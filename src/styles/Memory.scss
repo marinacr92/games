@@ -1,6 +1,7 @@
 @import "./Varibles.scss";
 
 .main__memory {
+  grid-row: 1/3;
   background-image: url("../images/wood.jpg");
   background-size: cover;
   background-repeat: no-repeat;

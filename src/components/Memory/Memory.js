@@ -279,7 +279,7 @@ const Memory = () => {
   return (
     <>
       <main
-        className="main main__memory"
+        className="main__memory"
         // style={{ height: viewportHeight }}
       >
         <StartModalMemory

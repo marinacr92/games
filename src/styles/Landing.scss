@@ -2,6 +2,7 @@
 
 .main {
   &__landing {
+    grid-row: 1/2;
     background-color: rgb(155, 155, 155);
     // background-color: #add8e6;
     display: grid;
