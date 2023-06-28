@@ -179,8 +179,10 @@ const Memory = () => {
   useEffect(() => {
     if (images.length !== 0) {
       if (cardsMatched.length === images.length) {
-        setShowFinishModal(true);
-        setIsExplodingMem(true);
+        setTimeout(() => {
+          setShowFinishModal(true);
+          setIsExplodingMem(true);
+        }, 700);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
