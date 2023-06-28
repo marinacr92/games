@@ -138,9 +138,10 @@ const Memory = ({ viewportHeight }) => {
     PennywiseDuck,
     TexasDuck,
   ];
-  const [theme, setTheme] = useState('');
+
   const [themeOne, setThemeOne] = useState(friends);
   const [themeTwo, setThemeTwo] = useState(street);
+  const [theme, setTheme] = useState(themeOne);
   const [imgOne, setImgOne] = useState(Joey);
   const [imgTwo, setImgTwo] = useState(RyuDuck);
   const [isExplodingMem, setIsExplodingMem] = useState(false);

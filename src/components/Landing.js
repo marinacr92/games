@@ -32,18 +32,18 @@ const Landing = () => {
             </Link>
           </li>
           <li className="wall__postit wall__postit--yellow">
-            <Link className="link" to="/tictactoe">
+            <Link className="link" to="#">
               Próximamente
             </Link>
           </li>
           <li className="wall__postit wall__postit--orange">
-            <Link className="link" to="/tictactoe">
+            <Link className="link" to="#">
               Próximamente
             </Link>
           </li>
 
           <li className="wall__postit wall__postit--blue">
-            <Link className="link" to="/tictactoe">
+            <Link className="link" to="#">
               Próximamente
             </Link>
           </li>

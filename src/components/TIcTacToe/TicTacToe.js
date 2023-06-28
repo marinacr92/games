@@ -159,34 +159,22 @@ const TicTacToe = ({ viewportHeight }) => {
 
   return (
     <>
-      <StartModalTicTacToe
-        updatePlayer1={updatePlayer1}
-        updatePlayer2={updatePlayer2}
-        player1={player1}
-        player2={player2}
-        handlePlay={handlePlay}
-        chooseTheme={chooseTheme}
-        winnerName={winnerName}
-        theme={theme}
-        isStartModalOpen={isStartModalOpen}
-      ></StartModalTicTacToe>
-      <FinishModalTictactoe
-        player1={player1}
-        player2={player2}
-        handleReset={handleReset}
-        winnerName={winnerName}
-        character1={character1}
-        isFinishModalOpen={isFinishModalOpen}
-        handlePlayAgain={handlePlayAgain}
-        isExploding={isExploding}
-        closeModal={closeModal}
-      ></FinishModalTictactoe>
-
       <main
         className="main 
     main__tictactoe"
         style={{ height: viewportHeight }}
       >
+        <StartModalTicTacToe
+          updatePlayer1={updatePlayer1}
+          updatePlayer2={updatePlayer2}
+          player1={player1}
+          player2={player2}
+          handlePlay={handlePlay}
+          chooseTheme={chooseTheme}
+          winnerName={winnerName}
+          theme={theme}
+          isStartModalOpen={isStartModalOpen}
+        />
         <h1 className="tictactoe__title">TicTacToe</h1>
         <section className="tictactoe__box">
           <div
@@ -243,6 +231,17 @@ const TicTacToe = ({ viewportHeight }) => {
             ></Button>
           </button>
         </section>
+        <FinishModalTictactoe
+          player1={player1}
+          player2={player2}
+          handleReset={handleReset}
+          winnerName={winnerName}
+          character1={character1}
+          isFinishModalOpen={isFinishModalOpen}
+          handlePlayAgain={handlePlayAgain}
+          isExploding={isExploding}
+          closeModal={closeModal}
+        ></FinishModalTictactoe>
       </main>
     </>
   );
