@@ -40,9 +40,15 @@ function App() {
       <div className="div" style={{ height: viewportHeight }}>
         <Routes>
           <Route path="/" element={<Landing />}></Route>
-          <Route path="/tictactoe/" element={<TicTacToe />} />
-          <Route path="/memory/" element={<Memory />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/tictactoe/" element={<TicTacToe
+            viewportHeight={viewportHeight}
+          />} />
+          <Route path="/memory/" element={<Memory
+            viewportHeight={viewportHeight}
+          />} />
+          <Route path="*" element={<NotFound
+            viewportHeight={viewportHeight}
+          />} />
         </Routes>
         <Footer />
       </div>

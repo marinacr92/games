@@ -10,7 +10,7 @@
   position: relative;
   //padding: 0 20px;
   padding: 0 8px;
-  height: 100vh;
+  // height: 100vh;
 }
 
 .memory {
@@ -72,7 +72,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-          border-radius: 5px;
+      border-radius: 5px;
     }
   }
   &__back {
@@ -137,7 +137,7 @@
     justify-content: space-around;
   }
 
-  &--startcontent{
+  &--startcontent {
     width: 100%;
   }
 
@@ -219,7 +219,7 @@
       height: 100%;
     }
 
-    &--button{
+    &--button {
       border-radius: 8px;
       cursor: pointer;
       display: flex;
@@ -259,7 +259,7 @@
   gap: 10px;
   // row-gap: 20px;
 
-  &--buttons{
+  &--buttons {
     display: flex;
     gap: 20px;
   }
