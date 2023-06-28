@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import ImgMemory from '../images/fotolandingmempng.png';
 import ImgTicTacToe from '../images/landingtictac.png';
-import BallPaper from '../images/kisspng-newspaper-newsprint-ball-papel-5ac79e07dd5244.1078719615230315599065.png';
+//import BallPaper from '../images/kisspng-newspaper-newsprint-ball-papel-5ac79e07dd5244.1078719615230315599065.png';
 import Logo from '../images/logo.png';
 import LogoTitle from '../images/playtopiapng.svg';
 import '../styles/Landing.scss';

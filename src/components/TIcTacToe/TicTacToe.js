@@ -7,7 +7,7 @@ import StartModalTicTacToe from './StartModalTicTacToe';
 import FinishModalTictactoe from './FinishModalTicTacToe';
 import Button from '../Button';
 
-const TicTacToe = ({ viewportHeight }) => {
+const TicTacToe = () => {
   // casillas del tablero
   const [board, setBoard] = useState(Array(9).fill(''));
 
@@ -162,7 +162,7 @@ const TicTacToe = ({ viewportHeight }) => {
       <main
         className="main 
     main__tictactoe"
-        style={{ height: viewportHeight }}
+        // style={{ height: viewportHeight }}
       >
         <StartModalTicTacToe
           updatePlayer1={updatePlayer1}

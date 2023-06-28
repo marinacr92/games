@@ -69,7 +69,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 
-const Memory = ({ viewportHeight }) => {
+const Memory = () => {
   const [images, setImages] = useState([]);
   const [showStartModal, setShowStartModal] = useState(true);
   const [showFinishModal, setShowFinishModal] = useState(false);
@@ -278,8 +278,9 @@ const Memory = ({ viewportHeight }) => {
 
   return (
     <>
-      <main className="main main__memory"
-        style={{ height: viewportHeight }}
+      <main
+        className="main main__memory"
+        // style={{ height: viewportHeight }}
       >
         <StartModalMemory
           selectDifficulty={selectDifficulty}

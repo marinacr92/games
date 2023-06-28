@@ -1,9 +1,11 @@
 .footer {
   grid-row: 2/3;
+  //height: 120px;
   background-color: #fadf55;
   padding: 10px 5px;
 
   &__nav {
+    height: 70%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -24,5 +26,10 @@
   &__icon {
     color: #096492;
     font-size: 25px;
+  }
+
+  &__copy{
+    color: #0d82bb;
+    font-size: 14px;
   }
 }

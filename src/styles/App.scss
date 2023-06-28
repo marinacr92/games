@@ -1,17 +1,19 @@
 @import "./Varibles.scss";
 
 #root {
-  min-height: 100vh;
-  // display: grid;
-  // grid-template-rows: 1fr 15%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 150px;
   font-family: $mainFont;
 }
 
 .main {
   grid-row: 1/2;
+  background-color: aqua;
+  //height: 80%;
 }
 
-.div {
-  display: grid;
-  grid-template-rows: 1fr 12%;
-}
+// .div {
+//   display: grid;
+//   grid-template-rows: 1fr 12%;
+// }
