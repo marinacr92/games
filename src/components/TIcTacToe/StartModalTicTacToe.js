@@ -59,7 +59,7 @@ const StartModalTicTacToe = ({
   };
 
   return (
-    <div
+    <section
       className={isStartModalOpen ? 'modal__tictactoe--background' : 'hidden'}
     >
       <section className="modal__tictactoe--window">
@@ -152,7 +152,7 @@ const StartModalTicTacToe = ({
           </button>
         </div>
       </section>
-    </div>
+    </section>
   );
 };
 
