@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '../Button';
 
 const StartModalMemory = ({
@@ -105,13 +106,25 @@ const StartModalMemory = ({
             </div>
           </fieldset>
         </form>
-        <button
-          className="button__container button__play"
-          onClick={handlePlay}
-          title="Comenzar a jugar"
-        >
-          <Button classIcon="fa-play" textButton="¡A jugar!" />
-        </button>
+        <section className="startmodal__buttons">
+          <Link
+            to="/"
+            className="button__container"
+            title="Botón para volver a la sala de juegos"
+          >
+            <Button
+              classIcon="fa-arrow-left"
+              textButton="Sala de juegos"
+            ></Button>
+          </Link>
+          <button
+            className="button__container button__play"
+            onClick={handlePlay}
+            title="Comenzar a jugar"
+          >
+            <Button classIcon="fa-play" textButton="¡A jugar!" />
+          </button>
+        </section>
       </section>
     </section>
   );

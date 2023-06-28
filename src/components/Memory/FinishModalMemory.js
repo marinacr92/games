@@ -43,8 +43,8 @@ const FinishModalMemory = ({
             ¡Has ganado en {Math.floor(counter / 2)} movimientos!
           </h2>
           {/* <section className="modal__buttons"> */}
-          <section className="modal__buttons">
-            <div className="modal__buttons--buttons">
+          <section className="finishmodal__buttons">
+            <div className="finishmodal__buttons--buttons">
               <button
                 className="button__container"
                 onClick={handleRestartGame}

@@ -141,7 +141,7 @@ const Memory = () => {
 
   const [themeOne, setThemeOne] = useState(friends);
   const [themeTwo, setThemeTwo] = useState(street);
-  const [theme, setTheme] = useState(themeOne);
+  const [theme, setTheme] = useState(friends);
   const [imgOne, setImgOne] = useState(Joey);
   const [imgTwo, setImgTwo] = useState(RyuDuck);
   const [isExplodingMem, setIsExplodingMem] = useState(false);
@@ -177,8 +177,8 @@ const Memory = () => {
   };
 
   useEffect(() => {
-    if (theme.length !== 0) {
-      if (cardsMatched.length === theme.length) {
+    if (images.length !== 0) {
+      if (cardsMatched.length === images.length) {
         setShowFinishModal(true);
         setIsExplodingMem(true);
       }
@@ -194,10 +194,11 @@ const Memory = () => {
     setShowFinishModal(false);
     setIsExplodingMem(false);
     setTimeout(() => {
-      theme.sort(() => {
+      const copy = theme.concat(theme);
+      copy.sort(() => {
         return Math.random() - 0.5;
       });
-      setImages([...theme]);
+      setImages([...copy]);
     }, 700);
   };
 
@@ -205,7 +206,7 @@ const Memory = () => {
     setCardsMatched([]);
     setCardsFlipped([]);
     setImages([]);
-    setTheme('');
+    setTheme(friends);
     setCounter(0);
     setShowStartModal(true);
     setShowFinishModal(false);
@@ -219,18 +220,21 @@ const Memory = () => {
       setImgOne(Joey);
       setThemeTwo(street);
       setImgTwo(RyuDuck);
+      setTheme(friends);
     } else if (id === 'medium') {
       setDifficulty('medium');
       setThemeOne(horror);
       setImgOne(DraculaDuck);
       setThemeTwo(ghostbuster);
       setImgTwo(StayPuftDuck);
+      setTheme(horror);
     } else if (id === 'hard') {
       setDifficulty('hard');
       setThemeOne(lotr);
       setImgOne(Frodo);
       setThemeTwo(dc);
       setImgTwo(AquaDuck);
+      setTheme(lotr);
     }
   };
 
@@ -240,7 +244,7 @@ const Memory = () => {
     } else if (difficulty === 'medium') {
       return 'Terror';
     } else if (difficulty === 'hard') {
-      return 'El señor de los anillos';
+      return 'ESDLA';
     }
   };
 
@@ -256,20 +260,28 @@ const Memory = () => {
 
   const selectTheme = (id) => {
     if (id === '1') {
-      const copy = themeOne.concat(themeOne);
-      setTheme(copy);
+      // const copy = themeOne.concat(themeOne);
+      // setTheme(copy);
+      setTheme(themeOne);
     } else {
-      const copy = themeTwo.concat(themeTwo);
-      setTheme(copy);
+      // const copy = themeTwo.concat(themeTwo);
+      // setTheme(copy);
+      setTheme(themeTwo);
     }
   };
 
   const letsPlay = () => {
-    theme.sort(() => {
+    const copy = theme.concat(theme);
+    copy.sort(() => {
       return Math.random() - 0.5;
     });
-    setImages([...theme]);
+    setImages([...copy]);
     setShowStartModal(false);
+    setDifficulty('easy');
+    setThemeOne(friends);
+    setImgOne(Joey);
+    setThemeTwo(street);
+    setImgTwo(RyuDuck);
   };
 
   const closeModalMem = () => {
@@ -344,7 +356,7 @@ const Memory = () => {
           <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>
             Parejas acertadas:{' '}
             {`${Math.floor(cardsMatched.length / 2)} / ${Math.floor(
-              theme.length / 2
+              images.length / 2
             )}`}
           </h3>
         </section>

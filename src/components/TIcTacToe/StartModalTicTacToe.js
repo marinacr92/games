@@ -2,6 +2,7 @@
 
 import Button from '../Button';
 import '../../styles/TicTacToe.scss';
+import { Link } from 'react-router-dom';
 
 const StartModalTicTacToe = ({
   updatePlayer1,
@@ -132,6 +133,16 @@ const StartModalTicTacToe = ({
           <div className={`modal__img ${seeCharacter2()}`}></div>
         </div>
         <div className="modal__button">
+          <Link
+            to="/"
+            className="button__container"
+            title="Botón para volver a la sala de juegos"
+          >
+            <Button
+              classIcon="fa-arrow-left"
+              textButton="Sala de juegos"
+            ></Button>
+          </Link>
           <button
             onClick={handlePlay}
             className="button__container button__play"

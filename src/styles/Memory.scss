@@ -221,14 +221,13 @@
     }
 
     &--button {
-      border-radius: 8px;
       cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      width: 137px;
-      height: 105px;
+      aspect-ratio: 1/1;
+      width: 130px;
       background-color: transparent;
       border: none;
       margin: 5px 0;
@@ -252,7 +251,12 @@
   font-size: 14px;
 }
 
-.modal__buttons {
+.startmodal__buttons{
+  display: flex;
+  gap: 10px;
+}
+
+.finishmodal__buttons {
   grid-row: 2/3;
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -267,7 +271,9 @@
 }
 
 .marker {
-  background-color: rgb(171, 171, 171);
+  background-color: rgb(213, 213, 213);
+  border: 1px solid grey;
+  border-radius: 8px;
 }
 
 .fa-xmark {
