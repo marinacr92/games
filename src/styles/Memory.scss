@@ -5,20 +5,23 @@
   background-size: cover;
   background-repeat: no-repeat;
   display: grid;
-  grid-template-rows: 100px 1fr 180px;
+  //grid-template-rows: 100px 1fr 180px;
+  grid-template-rows: 50px 1fr 90px;
   position: relative;
   //padding: 0 20px;
   padding: 0 8px;
-  height: 100vh;
+  // height: 100vh;
 }
 
 .memory {
   &__title {
     grid-row: 1/2;
     font-family: $gameTitle;
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
+    color: white;
+    //margin-top: 30px;
   }
 
   &__board {
@@ -28,10 +31,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
-    align-items: center;
+    //align-items: center;
+    align-content: center;
     row-gap: 10px;
     column-gap: 10px;
-    display:none;
   }
 
   &__footer {
@@ -39,6 +42,7 @@
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-around;
+    align-items: stretch;
     // display: grid;
     // align-items: center;
     // grid-template-columns: 60% 40%;
@@ -53,7 +57,8 @@
   transform-style: preserve-3d;
 
   &__faces {
-    border: solid 2px black;
+    border: solid 1.5px rgb(90, 90, 90);
+    //border: solid 2px black;
     border-radius: 5px;
     position: absolute;
     top: 0;
@@ -67,6 +72,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 5px;
     }
   }
   &__back {
@@ -77,13 +83,13 @@
 
 .card__size {
   &--nohard {
-    width: 150px;
-    height: 150px;
+    width: 65px;
+    height: 65px;
   }
 
   &--hard {
-    width: 150px;
-    height: 150px;
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -94,14 +100,12 @@
   display: none;
 }
 
-// .matched{
-//   background-color: green;
-// }
-
 .couples-matched-msg {
-  font-size: 20px;
+  //font-size: 20px;
+  font-size: 14px;
   color: white;
   font-family: $mainFont;
+  text-align: center;
 }
 
 .modal__memory {
@@ -109,34 +113,41 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: rgba(128, 128, 128, 0.505);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 4;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
   }
 
   &--window {
     background-color: rgb(144, 238, 144);
-    width: 650px;
-    height: 500px;
+    width: 90%;
+    margin: auto;
+    // width: 650px;
+    // height: 500px;
     position: relative;
     z-index: 5;
     border-radius: 20px;
-    padding: 15px;
+    padding: 10px;
+    //padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
   }
 
-  &--content {
+  &--startcontent {
     width: 100%;
-    height: 100%;
+  }
+
+  &--finishcontent {
+    width: 100%;
+    //height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    //grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    align-items: end;
+    align-items: center;
   }
 }
 
@@ -144,26 +155,32 @@
   &__difficulty {
     &--legend {
       font-family: $mainFont;
-      font-size: 30px;
+      font-size: 14px;
+      //font-size: 20px;
     }
 
     &--content {
       display: grid;
-      grid-template-columns: repeat(3, 30px 1fr);
+      grid-template-columns: repeat(3, 20px 1fr);
+      // grid-template-columns: repeat(3, 30px 1fr);
       justify-items: center;
       align-items: center;
-      gap: 10px;
-      margin: 20px 0;
+      //gap: 10px;
+      margin: 10px 0;
+      //margin: 20px 0;
     }
 
     &--label {
       font-family: $mainFont;
-      font-size: 20px;
+      font-size: 14px;
+      //font-size: 20px;
     }
 
     &--input {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
+      // width: 15px;
+      // height: 15px;
       cursor: pointer;
       accent-color: rgb(93, 93, 93);
     }
@@ -171,65 +188,93 @@
 
   &__theme {
     &--content {
-      margin-top: 20px;
+      margin: 10px 0;
+      //margin-top: 20px;
       display: flex;
       justify-content: center;
-      gap: 50px;
+      //gap: 50px;
     }
 
     &--legend {
       font-family: $mainFont;
-      font-size: 30px;
+      font-size: 14px;
+      // font-size: 30px;
     }
 
     &--label {
       font-family: $mainFont;
-      font-size: 20px;
+      font-size: 12px;
+      // font-size: 20px;
     }
 
     &--figure {
-      width: 150px;
-      height: 150px;
+      width: 70px;
+      height: 70px;
+      // width: 150px;
+      // height: 150px;
     }
 
     &--img {
       width: 100%;
       height: 100%;
     }
+
+    &--button {
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 137px;
+      height: 105px;
+      background-color: transparent;
+      border: none;
+      margin: 5px 0;
+    }
   }
 }
 
-.modal__button--play {
-  width: 50%;
-  font-size: 23px;
-  border-radius: 8px;
-  font-family: $mainFont;
-  //margin-top: 30px;
-  cursor: pointer;
-}
+// .modal__button--play {
+//   width: 50%;
+//   font-size: 23px;
+//   border-radius: 8px;
+//   font-family: $mainFont;
+//   //margin-top: 30px;
+//   cursor: pointer;
+// }
 
 .modal__title {
-  grid-column: 1/3;
+  //grid-column: 1/3;
   text-align: center;
   font-family: $mainFont;
-  font-size: 30px;
+  font-size: 14px;
 }
 
 .modal__buttons {
   grid-row: 2/3;
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  gap: 10px;
+  // row-gap: 20px;
 
-.memory__button {
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  &--buttons {
+    display: flex;
+    gap: 20px;
+  }
 }
 
 .marker {
   background-color: rgb(171, 171, 171);
+}
+
+.fa-xmark {
+  color: white;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  padding: 4px 6px;
+  border: solid 1px white;
+  border-radius: 50%;
 }

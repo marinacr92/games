@@ -1,14 +1,19 @@
 @import "./Varibles.scss";
 
 #root {
-  min-height: 100vh;
-  // scroll-behavior: smooth;
-  // overflow-y: scroll;
-  display: grid;
-  grid-template-rows: 1fr 10%;
-  font-family: $mainFont;
+  // min-height: 100vh;
+  // display: grid;
+  // grid-template-rows: 1fr 15%;
+  // font-family: $mainFont;
 }
 
 .main {
   grid-row: 1/2;
+}
+
+.div {
+  display: grid;
+  grid-template-rows: 1fr 12%;
+  min-height: 100vh;
+  font-family: $mainFont;
 }

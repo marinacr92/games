@@ -8,6 +8,6 @@ const Button = ({ classIcon, textButton }) => {
         <span>{textButton}</span>
       </div>
     </>
-  )
-}
+  );
+};
 export default Button;

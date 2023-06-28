@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "./static/css/main.1791ecaa.css",
-    "main.js": "./static/js/main.5f2a9da0.js",
-    "static/media/capturaMemory.png": "./static/media/capturaMemory.775c2d2f421499293b9a.png",
+    "main.css": "./static/css/main.115cea78.css",
+    "main.js": "./static/js/main.8f6d5da7.js",
+    "static/media/fotolandingmempng.png": "./static/media/fotolandingmempng.9e83d6beaae3cc63d355.png",
     "static/media/wood.jpg": "./static/media/wood.8580f9436daa280a5173.jpg",
     "static/media/paper.jpg": "./static/media/paper.c90f260c1add361146af.jpg",
     "static/media/MummyDuck.png": "./static/media/MummyDuck.c6aee3bf3d8b6fa8d9f0.png",
@@ -64,15 +64,16 @@
     "static/media/Gollum.png": "./static/media/Gollum.704b0a11de2e68d2538b.png",
     "static/media/Catduck.png": "./static/media/Catduck.a74557e6e0f16b1b9e16.png",
     "static/media/StayPuftDuck.png": "./static/media/StayPuftDuck.c7a7fa3907e021cf93c4.png",
+    "static/media/landingtictac.png": "./static/media/landingtictac.d1cf36309abc29f4cde1.png",
     "static/media/kisspng-newspaper-newsprint-ball-papel-5ac79e07dd5244.png": "./static/media/kisspng-newspaper-newsprint-ball-papel-5ac79e07dd5244.1078719615230315599065.e682d1a9a4fd7052dcf8.png",
-    "static/media/playtopia.png": "./static/media/playtopia.e0b4b319b7b8a884496c.png",
     "static/media/bic.png": "./static/media/bic.5e290e0140ff8d0031de.png",
+    "static/media/playtopiapng.svg": "./static/media/playtopiapng.039940308ae8b6ee7c0e6704b9fc84d1.svg",
     "index.html": "./index.html",
-    "main.1791ecaa.css.map": "./static/css/main.1791ecaa.css.map",
-    "main.5f2a9da0.js.map": "./static/js/main.5f2a9da0.js.map"
+    "main.115cea78.css.map": "./static/css/main.115cea78.css.map",
+    "main.8f6d5da7.js.map": "./static/js/main.8f6d5da7.js.map"
   },
   "entrypoints": [
-    "static/css/main.1791ecaa.css",
-    "static/js/main.5f2a9da0.js"
+    "static/css/main.115cea78.css",
+    "static/js/main.8f6d5da7.js"
   ]
 }

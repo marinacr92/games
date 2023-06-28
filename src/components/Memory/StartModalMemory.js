@@ -1,3 +1,5 @@
+import Button from '../Button';
+
 const StartModalMemory = ({
   selectDifficulty,
   difficulty,
@@ -28,7 +30,7 @@ const StartModalMemory = ({
       className={showStartModal ? 'modal__memory--background' : 'hidden'}
     >
       <section className="modal__memory--window">
-        <form className="modal__memory--form">
+        <form className="modal__memory--startcontent">
           <fieldset className="modalmem__difficulty">
             <legend className="modalmem__difficulty--legend">
               Nivel de dificultad
@@ -42,7 +44,7 @@ const StartModalMemory = ({
                 id="easy"
                 checked={difficulty === 'easy'}
               />
-              <label className="modalmem__difficulty--label">
+              <label className="modalmem__difficulty--label" htmlFor="easy">
                 Fácil (6 parejas)
               </label>
 
@@ -54,7 +56,7 @@ const StartModalMemory = ({
                 id="medium"
                 checked={difficulty === 'medium'}
               />
-              <label className="modalmem__difficulty--label">
+              <label className="modalmem__difficulty--label" htmlFor="medium">
                 Medio (8 parejas)
               </label>
 
@@ -66,7 +68,7 @@ const StartModalMemory = ({
                 id="hard"
                 checked={difficulty === 'hard'}
               />
-              <label className="modalmem__difficulty--label">
+              <label className="modalmem__difficulty--label" htmlFor="hard">
                 Difícil (12 parejas)
               </label>
             </div>
@@ -76,35 +78,39 @@ const StartModalMemory = ({
             <div className="modalmem__theme--content">
               <button
                 id="1"
-                className={`memory__button ${
+                className={`modalmem__theme--button ${
                   theme.includes(imgOne) ? 'marker' : ''
                 }`}
                 //className="memory__button"
                 onClick={handleTheme}
               >
-                <h3 className="modalmem__theme--label">{themeOption1()}</h3>
                 <figure className="modalmem__theme--figure">
                   <img className="modalmem__theme--img" src={imgOne} alt="" />
                 </figure>
+                <h3 className="modalmem__theme--label">{themeOption1()}</h3>
               </button>
               <button
                 id="2"
-                className={`memory__button ${
+                className={`modalmem__theme--button ${
                   theme.includes(imgTwo) ? 'marker' : ''
                 }`}
                 //className="memory__button"
                 onClick={handleTheme}
               >
-                <h3 className="modalmem__theme--label">{themeOption2()}</h3>
                 <figure className="modalmem__theme--figure">
                   <img className="modalmem__theme--img" src={imgTwo} alt="" />
                 </figure>
+                <h3 className="modalmem__theme--label">{themeOption2()}</h3>
               </button>
             </div>
           </fieldset>
         </form>
-        <button className="modal__button--play" onClick={handlePlay}>
-          ¡A jugar!
+        <button
+          className="button__container button__play"
+          onClick={handlePlay}
+          title="Comenzar a jugar"
+        >
+          <Button classIcon="fa-play" textButton="¡A jugar!" />
         </button>
       </section>
     </section>

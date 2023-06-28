@@ -1,4 +1,28 @@
 .footer {
   grid-row: 2/3;
-  background-color: yellow;
+  background-color: #fadf55;
+  padding: 10px 5px;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  &__ul {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__name {
+    color: #0d82bb;
+    font-size: 18px;
+  }
+
+  &__icon {
+    color: #096492;
+    font-size: 25px;
+  }
 }

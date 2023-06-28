@@ -69,7 +69,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 
-const Memory = () => {
+const Memory = ({ viewportHeight }) => {
   const [images, setImages] = useState([]);
   const [showStartModal, setShowStartModal] = useState(true);
   const [showFinishModal, setShowFinishModal] = useState(false);
@@ -138,11 +138,13 @@ const Memory = () => {
     PennywiseDuck,
     TexasDuck,
   ];
-  const [theme, setTheme] = useState('');
+
   const [themeOne, setThemeOne] = useState(friends);
   const [themeTwo, setThemeTwo] = useState(street);
+  const [theme, setTheme] = useState(themeOne);
   const [imgOne, setImgOne] = useState(Joey);
   const [imgTwo, setImgTwo] = useState(RyuDuck);
+  const [isExplodingMem, setIsExplodingMem] = useState(false);
 
   const increment = () => {
     setCounter(counter + 1);
@@ -178,12 +180,28 @@ const Memory = () => {
     if (theme.length !== 0) {
       if (cardsMatched.length === theme.length) {
         setShowFinishModal(true);
+        setIsExplodingMem(true);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardsMatched]);
 
-  const handleReset = () => {
+  const handleRestartGame = () => {
+    setCardsMatched([]);
+    setCardsFlipped([]);
+    setCounter(0);
+    setShowStartModal(false);
+    setShowFinishModal(false);
+    setIsExplodingMem(false);
+    setTimeout(() => {
+      theme.sort(() => {
+        return Math.random() - 0.5;
+      });
+      setImages([...theme]);
+    }, 700);
+  };
+
+  const handleChangeTheme = () => {
     setCardsMatched([]);
     setCardsFlipped([]);
     setImages([]);
@@ -191,6 +209,7 @@ const Memory = () => {
     setCounter(0);
     setShowStartModal(true);
     setShowFinishModal(false);
+    setIsExplodingMem(false);
   };
 
   const selectDifficulty = (id) => {
@@ -231,7 +250,7 @@ const Memory = () => {
     } else if (difficulty === 'medium') {
       return 'Cazafantasmas';
     } else if (difficulty === 'hard') {
-      return 'DC';
+      return 'DC Comics';
     }
   };
 
@@ -253,9 +272,15 @@ const Memory = () => {
     setShowStartModal(false);
   };
 
+  const closeModalMem = () => {
+    setShowFinishModal(false);
+  };
+
   return (
     <>
-      <main className="main main__memory">
+      <main className="main main__memory"
+        style={{ height: viewportHeight }}
+      >
         <StartModalMemory
           selectDifficulty={selectDifficulty}
           difficulty={difficulty}
@@ -284,24 +309,36 @@ const Memory = () => {
           }
         >
           <section className="section__buttons">
-            <button className="button__container" onClick={handleReset}>
-              <Button
-                classIcon="fa-arrow-rotate-right"
-                textButton="Reiniciar Partida"
-              ></Button>
-            </button>
-            <button onClick={handleReset} className="button__container">
-              <Button
-                classIcon="fa-sliders"
-                textButton="Cambiar personajes"
-              ></Button>
-            </button>
-            <Link to="/" className="button__container">
+            <Link
+              to="/"
+              className="button__container"
+              title="Botón para volver a la sala de juegos"
+            >
               <Button
                 classIcon="fa-arrow-left"
                 textButton="Sala de juegos"
               ></Button>
             </Link>
+            <button
+              className="button__container"
+              onClick={handleRestartGame}
+              title="Botón para reiniciar la partida"
+            >
+              <Button
+                classIcon="fa-arrow-rotate-right"
+                textButton="Reiniciar partida"
+              ></Button>
+            </button>
+            <button
+              onClick={handleChangeTheme}
+              className="button__container"
+              title="Botón para cambiar los personajes"
+            >
+              <Button
+                classIcon="fa-sliders"
+                textButton="Cambiar personajes"
+              ></Button>
+            </button>
           </section>
           <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>
             Parejas acertadas:{' '}
@@ -313,8 +350,11 @@ const Memory = () => {
         <FinishModalMemory
           counter={counter}
           showFinishModal={showFinishModal}
-          handleReset={handleReset}
+          handleRestartGame={handleRestartGame}
+          handleChangeTheme={handleChangeTheme}
           showStartModal={showStartModal}
+          closeModalMem={closeModalMem}
+          isExplodingMem={isExplodingMem}
         />
       </main>
       {/* <section className="modal__memory--last"></section> */}
