@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.10203073.css",
+    "main.css": "./static/css/main.c52a6be4.css",
     "main.js": "./static/js/main.a3d7e726.js",
     "static/media/fotolandingmempng.png": "./static/media/fotolandingmempng.9e83d6beaae3cc63d355.png",
     "static/media/wood.jpg": "./static/media/wood.8580f9436daa280a5173.jpg",
@@ -68,11 +68,11 @@
     "static/media/bic.png": "./static/media/bic.5e290e0140ff8d0031de.png",
     "static/media/playtopiapng.svg": "./static/media/playtopiapng.039940308ae8b6ee7c0e6704b9fc84d1.svg",
     "index.html": "./index.html",
-    "main.10203073.css.map": "./static/css/main.10203073.css.map",
+    "main.c52a6be4.css.map": "./static/css/main.c52a6be4.css.map",
     "main.a3d7e726.js.map": "./static/js/main.a3d7e726.js.map"
   },
   "entrypoints": [
-    "static/css/main.10203073.css",
+    "static/css/main.c52a6be4.css",
     "static/js/main.a3d7e726.js"
   ]
 }
