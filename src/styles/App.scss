@@ -1,10 +1,10 @@
 @import "./Varibles.scss";
 
 #root {
-  // min-height: 100vh;
+  min-height: 100vh;
   // display: grid;
   // grid-template-rows: 1fr 15%;
-  // font-family: $mainFont;
+  font-family: $mainFont;
 }
 
 .main {
@@ -14,6 +14,4 @@
 .div {
   display: grid;
   grid-template-rows: 1fr 12%;
-  min-height: 100vh;
-  font-family: $mainFont;
 }
