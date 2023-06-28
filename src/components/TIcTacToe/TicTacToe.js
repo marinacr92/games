@@ -199,7 +199,7 @@ const TicTacToe = ({ viewportHeight }) => {
             <img className="tictactoe__bic" src={Bic} alt="boli bic" />
           </div>
         </section>
-        <section className="section__buttons">
+        <section className={isStartModalOpen || isFinishModalOpen ? 'hidden' : 'section__buttons'}>
           <Link
             className="button__container"
             to="/"
