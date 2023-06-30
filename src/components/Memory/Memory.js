@@ -1,8 +1,13 @@
-import '../../styles/Memory.scss';
-// import FlipMove from 'react-flip-move';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import Button from '../Button';
+import FinalModal from '../FinalModal';
 import MemoryCards from './MemoryCards';
 import StartModalMemory from './StartModalMemory';
-import FinishModalMemory from './FinishModalMemory';
+
+import '../../styles/Memory.scss';
+
 // import Monica from '../../images/Friends/MonicaDuck.png';
 // import Joey from '../../images/Friends/JoeyDuck.png';
 // import Phoebe from '../../images/Friends/PhoebeDuck.png';
@@ -66,9 +71,7 @@ import Zangief from '../../images/StreetFighter/ZangiefDuck.png';
 // } from '../Resources/Friends';
 import { Friends, Joey } from '../Resources/Friends';
 
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Button from '../Button';
+
 
 const Memory = () => {
   const [images, setImages] = useState([]);
@@ -365,17 +368,16 @@ const Memory = () => {
             )}`}
           </h3>
         </section>
-        <FinishModalMemory
-          counter={counter}
-          showFinishModal={showFinishModal}
-          handleRestartGame={handleRestartGame}
-          handleChangeTheme={handleChangeTheme}
-          showStartModal={showStartModal}
-          closeModalMem={closeModalMem}
-          isExplodingMem={isExplodingMem}
+        <FinalModal
+          isOpen={showFinishModal}
+          isExploding={isExplodingMem}
+          closeModal={closeModalMem}
+          winner={`¡Has ganado en ${Math.floor(counter / 2)} movimientos!`}
+          handleReset={handleRestartGame}
+          handlePlayAgain={handleChangeTheme}
+          game={'memory'}
         />
       </main>
-      {/* <section className="modal__memory--last"></section> */}
     </>
   );
 };

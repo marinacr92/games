@@ -1,13 +1,23 @@
 import { Link } from 'react-router-dom';
 import ConfettiExplosion from 'react-confetti-explosion';
-import Button from './Button';
-import '../styles/Modal.scss'
+import Button from '../Button';
+import '../../styles/Modal.scss'
 
-const FinalModal = ({ isOpen, isExploding, closeModal, winner, handlePlayAgain, handleReset, game }) => {
+const FinishModalTictactoe = ({
+  player1,
+  player2,
+  handleReset,
+  winnerName,
+  character1,
+  isFinishModalOpen,
+  handlePlayAgain,
+  isExploding,
+  closeModal,
+}) => {
   return (
     <section
       className={
-        isOpen ? 'modal__background' : 'hidden'
+        isFinishModalOpen ? 'modal__background' : 'hidden'
       }
     >
       {isExploding ? (
@@ -22,14 +32,18 @@ const FinalModal = ({ isOpen, isExploding, closeModal, winner, handlePlayAgain, 
       ) : (
         ''
       )}
-      <section className={`modal__window modal__${game}`}>
+      <section className="modal__window modal__tictactoe">
         <i
           className="fa-solid fa-xmark"
           onClick={() => closeModal()}
           title="Salir del menú"
         ></i>
         <h2 className="finalContent__title">
-          {winner}
+          {`¡Ha ganado
+          ${winnerName === character1
+              ? player1 || 'Jugador 1'
+              : player2 || 'Jugador 2'
+            }!`}
         </h2>
 
         <section className="modal__buttons">
@@ -69,6 +83,6 @@ const FinalModal = ({ isOpen, isExploding, closeModal, winner, handlePlayAgain, 
         </div>
       </section>
     </section>
-  )
-}
-export default FinalModal;
+  );
+};
+export default FinishModalTictactoe;

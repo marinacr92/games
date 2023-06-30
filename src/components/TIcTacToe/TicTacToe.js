@@ -4,8 +4,9 @@ import '../../styles/TicTacToe.scss';
 import { Link } from 'react-router-dom';
 import Bic from '../../images/bic.png';
 import StartModalTicTacToe from './StartModalTicTacToe';
-import FinishModalTictactoe from './FinishModalTicTacToe';
+// import FinishModalTictactoe from './FinishModalTicTacToe';
 import Button from '../Button';
+import FinalModal from '../FinalModal';
 
 const TicTacToe = () => {
   // casillas del tablero
@@ -236,17 +237,19 @@ const TicTacToe = () => {
             ></Button>
           </button>
         </section>
-        <FinishModalTictactoe
-          player1={player1}
-          player2={player2}
-          handleReset={handleReset}
-          winnerName={winnerName}
-          character1={character1}
-          isFinishModalOpen={isFinishModalOpen}
-          handlePlayAgain={handlePlayAgain}
+        <FinalModal
+          isOpen={isFinishModalOpen}
           isExploding={isExploding}
           closeModal={closeModal}
-        ></FinishModalTictactoe>
+          winner={`¡Ha ganado
+          ${winnerName === character1
+              ? player1 || 'Jugador 1'
+              : player2 || 'Jugador 2'
+            }!`}
+          handlePlayAgain={handlePlayAgain}
+          handleReset={handleReset}
+          game={'tictactoe'}
+        ></FinalModal>
       </main>
     </>
   );

@@ -15,7 +15,6 @@ const FinishModalMemory = ({
 }) => {
   return (
     <section
-      // por que la doble condicion con el && ??
       className={
         showFinishModal === true && showStartModal === false
           ? 'modal__background'
@@ -40,11 +39,9 @@ const FinishModalMemory = ({
           onClick={() => closeModalMem()}
           title="Salir del menú"
         ></i>
-        {/* <section className="modal__finishcontent"> */}
         <h2 className="finalContent__title">
           ¡Has ganado en {Math.floor(counter / 2)} movimientos!
         </h2>
-        {/* <section className="modal__buttons"> */}
         <section className="modal__buttons">
           <button
             className="button__container"
