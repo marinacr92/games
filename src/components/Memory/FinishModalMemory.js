@@ -1,6 +1,8 @@
 import Button from '../Button';
 import { Link } from 'react-router-dom';
 import ConfettiExplosion from 'react-confetti-explosion';
+import '../../styles/Modal.scss'
+
 
 const FinishModalMemory = ({
   counter,
@@ -13,12 +15,12 @@ const FinishModalMemory = ({
 }) => {
   return (
     <section
+      // por que la doble condicion con el && ??
       className={
         showFinishModal === true && showStartModal === false
-          ? 'modal__memory--background'
+          ? 'modal__background'
           : 'hidden'
       }
-      // className="modal__memory--background"
     >
       {isExplodingMem ? (
         <ConfettiExplosion
@@ -32,55 +34,54 @@ const FinishModalMemory = ({
       ) : (
         ''
       )}
-      <section className="modal__memory--window">
+      <section className="modal__window modal__memory">
         <i
           className="fa-solid fa-xmark"
           onClick={() => closeModalMem()}
           title="Salir del menú"
         ></i>
-        <section className="modal__memory--finishcontent">
-          <h2 className="modal__title">
-            ¡Has ganado en {Math.floor(counter / 2)} movimientos!
-          </h2>
-          {/* <section className="modal__buttons"> */}
-          <section className="finishmodal__buttons">
-            <div className="finishmodal__buttons--buttons">
-              <button
-                className="button__container"
-                onClick={handleRestartGame}
-                title="Botón para reiniciar la partida"
-              >
-                <Button
-                  classIcon="fa-arrow-rotate-right"
-                  textButton="Volver a jugar"
-                ></Button>
-              </button>
-              <button
-                onClick={handleChangeTheme}
-                className="button__container"
-                title="Botón para cambiar los personajes"
-              >
-                <Button
-                  classIcon="fa-sliders"
-                  textButton="Cambiar personajes"
-                ></Button>
-              </button>
-            </div>
-            <Link
-              to="/"
-              className="button__container"
-              title="Botón para volver a la sala de juegos"
-            >
-              <Button
-                classIcon="fa-arrow-left"
-                textButton="Sala de juegos"
-              ></Button>
-            </Link>
-          </section>
+        {/* <section className="modal__finishcontent"> */}
+        <h2 className="finalContent__title">
+          ¡Has ganado en {Math.floor(counter / 2)} movimientos!
+        </h2>
+        {/* <section className="modal__buttons"> */}
+        <section className="modal__buttons">
+          <button
+            className="button__container"
+            onClick={handleRestartGame}
+            title="Botón para reiniciar la partida"
+          >
+            <Button
+              classIcon="fa-arrow-rotate-right"
+              textButton="Volver a jugar"
+            ></Button>
+          </button>
+          <button
+            onClick={handleChangeTheme}
+            className="button__container"
+            title="Botón para cambiar los personajes"
+          >
+            <Button
+              classIcon="fa-sliders"
+              textButton="Cambiar personajes"
+            ></Button>
+          </button>
+
         </section>
+        <div className='modal__link'>
+          <Link
+            to="/"
+            className="button__container"
+            title="Botón para volver a la sala de juegos"
+          >
+            <Button
+              classIcon="fa-arrow-left"
+              textButton="Sala de juegos"
+            ></Button>
+          </Link>
+        </div>
       </section>
     </section>
-    // </section>
   );
 };
 

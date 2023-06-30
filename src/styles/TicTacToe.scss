@@ -8,11 +8,11 @@
   background-image: url("../images/paper.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  color: blue;
   height: 100%;
   position: relative;
 }
 .tictactoe {
+  color: blue;
   &__title {
     font-family: $gameTitle;
     padding: 15px;
@@ -102,69 +102,6 @@
   }
 }
 
-.modal__tictactoe {
-  &--background {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 10;
-    display: flex;
-  }
-  &--window {
-    margin: auto;
-    background-color: $tictactoe;
-    width: 90%;
-    position: relative;
-    z-index: 5;
-    border-radius: 20px;
-    padding: 10px;
-    font-family: $mainFont;
-  }
-}
-
-.modal {
-  &__legend {
-    margin: 12px 0;
-  }
-  &__label {
-    display: flex;
-    margin: 8px;
-  }
-  &__input {
-    width: 100px;
-    margin-left: 5px;
-  }
-  &__characters {
-    display: flex;
-    align-items: center;
-  }
-  &__img {
-    width: 250px;
-    height: 125px;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  &__button {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  &__btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-  }
-  &__link {
-    margin: auto;
-  }
-  &__winner {
-    text-align: center;
-    font-size: 20px;
-  }
-}
 .donatello {
   background-image: url("../images/Tortugas/Donatello.png");
 }
@@ -190,12 +127,12 @@
   display: none;
 }
 
-.fa-xmark {
-  color: white;
-  position: absolute;
-  top: 7px;
-  right: 10px;
-  padding: 4px 6px;
-  border: solid 1px white;
-  border-radius: 50%;
-}
+// .fa-xmark {
+//   color: white;
+//   position: absolute;
+//   top: 7px;
+//   right: 10px;
+//   padding: 4px 6px;
+//   border: solid 1px white;
+//   border-radius: 50%;
+// }

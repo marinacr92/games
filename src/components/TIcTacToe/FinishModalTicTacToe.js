@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import ConfettiExplosion from 'react-confetti-explosion';
 import Button from '../Button';
+import '../../styles/Modal.scss'
 
 const FinishModalTictactoe = ({
   player1,
@@ -15,9 +16,9 @@ const FinishModalTictactoe = ({
 }) => {
   return (
     <>
-      <div
+      <section
         className={
-          isFinishModalOpen ? 'modal__tictactoe--background' : 'hidden'
+          isFinishModalOpen ? 'modal__background' : 'hidden'
         }
       >
         {isExploding ? (
@@ -32,21 +33,21 @@ const FinishModalTictactoe = ({
         ) : (
           ''
         )}
-        <section className="modal__tictactoe--window">
+        <section className="modal__window modal__tictactoe">
           <i
             className="fa-solid fa-xmark"
             onClick={() => closeModal()}
             title="Salir del menú"
           ></i>
-          <h2 className="modal__winner">
-            {`Ha ganado
+          <h2 className="finalContent__title">
+            {`¡Ha ganado
           ${winnerName === character1
                 ? player1 || 'Jugador 1'
                 : player2 || 'Jugador 2'
-              }`}
+              }!`}
           </h2>
 
-          <div className="modal__btns">
+          <section className="modal__buttons">
             <button
               onClick={handlePlayAgain}
               className="button__container"
@@ -67,19 +68,22 @@ const FinishModalTictactoe = ({
                 textButton="Cambiar personajes"
               ></Button>
             </button>
+
+          </section>
+          <div className='modal__link'>
+            <Link
+              className="button__container"
+              to="/"
+              title="Botón para volver a la sala de juegos"
+            >
+              <Button
+                classIcon="fa-arrow-left"
+                textButton="Sala de juegos"
+              ></Button>
+            </Link>
           </div>
-          <Link
-            className="button__container modal__link"
-            to="/"
-            title="Botón para volver a la sala de juegos"
-          >
-            <Button
-              classIcon="fa-arrow-left"
-              textButton="Sala de juegos"
-            ></Button>
-          </Link>
         </section>
-      </div>
+      </section>
     </>
   );
 };
