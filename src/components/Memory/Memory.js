@@ -6,12 +6,6 @@ import FinalModal from '../FinalModal';
 import MemoryCards from './MemoryCards';
 import StartModalMemory from './StartModalMemory';
 
-import '../../styles/Memory.scss';
-
-
-
-
-
 import { Friends, Joey } from '../Resources/Friends';
 import { Street, RyuDuck } from '../Resources/Street';
 import { LOTR, Frodo } from '../Resources/LOTR';
@@ -19,7 +13,7 @@ import { DC, AquaDuck } from '../Resources/DC';
 import { Ghostbuster, StayPuftDuck } from '../Resources/Ghostbusters';
 import { Horror, DraculaDuck } from '../Resources/Horror'
 
-
+import '../../styles/Memory.scss';
 
 const Memory = () => {
   const [images, setImages] = useState([]);
@@ -29,8 +23,9 @@ const Memory = () => {
   const [cardsFlipped, setCardsFlipped] = useState([]);
   const [cardsMatched, setCardsMatched] = useState([]);
   const [difficulty, setDifficulty] = useState('easy');
-
   const [counter, setCounter] = useState(0);
+  const [isExplodingMem, setIsExplodingMem] = useState(false);
+
   const friends = [...Friends];
   const street = [...Street];
   const lotr = [...LOTR];
@@ -43,7 +38,6 @@ const Memory = () => {
   const [theme, setTheme] = useState(friends);
   const [imgOne, setImgOne] = useState(Joey);
   const [imgTwo, setImgTwo] = useState(RyuDuck);
-  const [isExplodingMem, setIsExplodingMem] = useState(false);
 
   const increment = () => {
     setCounter(counter + 1);
@@ -161,12 +155,8 @@ const Memory = () => {
 
   const selectTheme = (id) => {
     if (id === '1') {
-      // const copy = themeOne.concat(themeOne);
-      // setTheme(copy);
       setTheme(themeOne);
     } else {
-      // const copy = themeTwo.concat(themeTwo);
-      // setTheme(copy);
       setTheme(themeTwo);
     }
   };

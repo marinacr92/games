@@ -34,10 +34,12 @@ const TicTacToe = () => {
 
   //abrir y/o cerrar ventanas modales
   const [isStartModalOpen, setIsStartModalOpen] = useState(true);
+  const [isTieModalOpen, setIsTieModalOpen] = useState(false);
   const [isFinishModalOpen, setIsFinishModalOpen] = useState(false);
 
   // confeti
   const [isExploding, setIsExploding] = useState(false);
+
   // comprueba las jugadas para ver quien gana, guarda el ganador en una variable y abre ventana modal
   useEffect(() => {
     const winnerLines = [
@@ -80,6 +82,10 @@ const TicTacToe = () => {
 
   // manejadora del tablero, si hay un ganador o esa casilla ya ha sido pulsada no se puede cliclar
   const handleBoard = (ev) => {
+    if (playedSquares.length === 8) {
+      console.log(playedSquares.length)
+      setIsTieModalOpen(true)
+    }
     if (winnerName === '' && !playedSquares.includes(ev.target.id))
       whoPlays(ev.target.id);
   };
@@ -139,6 +145,7 @@ const TicTacToe = () => {
     setBoard(Array(9).fill(''));
     setPlayedSquares([]);
     setIsFinishModalOpen(false);
+    setIsTieModalOpen(false)
     setIsExploding(false);
   };
 
@@ -162,7 +169,6 @@ const TicTacToe = () => {
     <>
       <main
         className="main__tictactoe"
-      // style={{ height: viewportHeight }}
       >
         <StartModalTicTacToe
           updatePlayer1={updatePlayer1}
@@ -179,7 +185,6 @@ const TicTacToe = () => {
         <section className="tictactoe__box">
           <div
             className="tictactoe__board"
-            // onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}
             onClick={handleBoard}
           >
             {renderSquare}
@@ -249,7 +254,15 @@ const TicTacToe = () => {
           handlePlayAgain={handlePlayAgain}
           handleReset={handleReset}
           game={'tictactoe'}
-        ></FinalModal>
+        />
+        <FinalModal
+          isOpen={isTieModalOpen}
+          closeModal={closeModal}
+          winner={`Empate`}
+          handlePlayAgain={handlePlayAgain}
+          handleReset={handleReset}
+          game={'tictactoe'}
+        />
       </main>
     </>
   );
