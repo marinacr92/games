@@ -2,9 +2,8 @@
 import { useEffect, useState } from 'react';
 import '../../styles/TicTacToe.scss';
 import { Link } from 'react-router-dom';
-import Bic from '../../images/bic.png';
+// import Bic from '../../images/bic.png';
 import StartModalTicTacToe from './StartModalTicTacToe';
-// import FinishModalTictactoe from './FinishModalTicTacToe';
 import Button from '../Button';
 import FinalModal from '../FinalModal';
 

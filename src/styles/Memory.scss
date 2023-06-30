@@ -11,6 +11,9 @@
   align-items: center;
   position: relative;
   padding: 0 10px;
+  @media (min-width: 768px) {
+    grid-template-rows: 100px 1fr 100px;
+  }
 }
 
 .memory {
@@ -21,6 +24,9 @@
     font-size: 30px;
     text-align: center;
     color: white;
+    @media (min-width: 768px) {
+      font-size: 45px;
+    }
   }
   &__board {
     display: grid;
@@ -46,6 +52,9 @@
   cursor: pointer;
   transition: 1s ease-in-out;
   transform-style: preserve-3d;
+  @media (min-width: 768px) {
+    min-width: 95px;
+  }
   &__faces {
     border: solid 1.5px rgb(90, 90, 90);
     border-radius: 5px;
@@ -93,4 +102,7 @@
 .couples-matched-msg {
   color: white;
   text-align: center;
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }

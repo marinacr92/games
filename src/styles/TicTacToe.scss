@@ -24,8 +24,9 @@
     display: inline-block;
     mix-blend-mode: multiply;
     @media (min-width: 768px) {
+      font-size: 45px;
     }
-    font-size: 45px;
+
     &:before {
       background: linear-gradient(
         to right,
