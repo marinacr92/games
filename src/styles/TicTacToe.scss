@@ -9,6 +9,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  @media (min-width: 768px) {
+    grid-template-rows: 100px 1fr 80px;
+  }
 }
 .tictactoe {
   &__title {
@@ -20,8 +23,9 @@
     background: white;
     display: inline-block;
     mix-blend-mode: multiply;
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
     }
+    font-size: 45px;
     &:before {
       background: linear-gradient(
         to right,
@@ -44,6 +48,9 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
   }
   &__board {
     display: grid;
@@ -51,6 +58,12 @@
     width: 80%;
     max-width: 400px;
     aspect-ratio: 1/1;
+    @media (min-width: 768px) {
+      max-width: 500px;
+    }
+    @media (min-width: 1400px) {
+      max-width: 600px;
+    }
   }
   &__bic {
     display: none;
@@ -62,6 +75,9 @@
     &--names {
       color: blue;
       margin-bottom: 15px;
+      @media (min-width: 768px) {
+        font-size: 23px;
+      }
     }
     &--characters {
       display: flex;
@@ -74,6 +90,9 @@
       aspect-ratio: 1/1;
       background-repeat: no-repeat;
       background-size: cover;
+      @media (min-width: 768px) {
+        height: 110px;
+      }
     }
   }
 }
@@ -126,13 +145,3 @@
 .hidden {
   display: none;
 }
-
-// .fa-xmark {
-//   color: white;
-//   position: absolute;
-//   top: 7px;
-//   right: 10px;
-//   padding: 4px 6px;
-//   border: solid 1px white;
-//   border-radius: 50%;
-// }

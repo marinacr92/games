@@ -190,6 +190,7 @@ const TicTacToe = () => {
             onClick={handleBoard}
           >
             {renderSquare}
+
           </div>
           <div className="tictactoe__players">
             <p className="tictactoe__players--names">
@@ -203,7 +204,7 @@ const TicTacToe = () => {
               ></div>
               <div className={`tictactoe__players--two ${character2}`}></div>
             </div>
-            <img className="tictactoe__bic" src={Bic} alt="boli bic" />
+            {/* <img className="tictactoe__bic" src={Bic} alt="boli bic" /> */}
           </div>
         </section>
         <section

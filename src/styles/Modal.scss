@@ -37,6 +37,8 @@
     display: flex;
     justify-content: center;
     gap: 15px;
+    @media (min-width: 768px) {
+    }
   }
   &__link {
     margin-top: 20px;
