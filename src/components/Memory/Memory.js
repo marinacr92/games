@@ -183,7 +183,6 @@ const Memory = () => {
     <>
       <main
         className="main__memory"
-      // style={{ height: viewportHeight }}
       >
         <StartModalMemory
           selectDifficulty={selectDifficulty}
@@ -198,22 +197,28 @@ const Memory = () => {
           theme={theme}
         />
         <h1 className="memory__title">Memory</h1>
-        <div className="memory__board">
-          {/* <FlipMove> */}
-          <MemoryCards
-            images={images}
-            cardsMatched={cardsMatched}
-            cardsFlipped={cardsFlipped}
-            flipCards={flipCards}
-            difficulty={difficulty}
-          />
-          {/* </FlipMove> */}
+        <div className='memory__container'>
+          <div className="memory__board">
+            <MemoryCards
+              images={images}
+              cardsMatched={cardsMatched}
+              cardsFlipped={cardsFlipped}
+              flipCards={flipCards}
+              difficulty={difficulty}
+            />
+          </div>
         </div>
         <section
           className={
             showStartModal || showFinishModal ? 'hidden' : 'memory__footer'
           }
         >
+          <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>
+            Parejas acertadas:{' '}
+            {`${Math.floor(cardsMatched.length / 2)} / ${Math.floor(
+              images.length / 2
+            )}`}
+          </h3>
           <section className="section__buttons">
             <Link
               to="/"
@@ -246,12 +251,6 @@ const Memory = () => {
               ></Button>
             </button>
           </section>
-          <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>
-            Parejas acertadas:{' '}
-            {`${Math.floor(cardsMatched.length / 2)} / ${Math.floor(
-              images.length / 2
-            )}`}
-          </h3>
         </section>
         <FinalModal
           isOpen={showFinishModal}

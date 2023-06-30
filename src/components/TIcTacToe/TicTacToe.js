@@ -83,8 +83,9 @@ const TicTacToe = () => {
   // manejadora del tablero, si hay un ganador o esa casilla ya ha sido pulsada no se puede cliclar
   const handleBoard = (ev) => {
     if (playedSquares.length === 8) {
-      console.log(playedSquares.length)
-      setIsTieModalOpen(true)
+      setTimeout(() => {
+        setIsTieModalOpen(true)
+      }, 700);
     }
     if (winnerName === '' && !playedSquares.includes(ev.target.id))
       whoPlays(ev.target.id);
@@ -163,6 +164,7 @@ const TicTacToe = () => {
 
   const closeModal = () => {
     setIsFinishModalOpen(false);
+    setIsTieModalOpen(false);
   };
 
   return (
@@ -206,7 +208,7 @@ const TicTacToe = () => {
         </section>
         <section
           className={
-            isStartModalOpen || isFinishModalOpen
+            isStartModalOpen || isFinishModalOpen || isTieModalOpen
               ? 'hidden'
               : 'section__buttons'
           }
