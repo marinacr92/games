@@ -2,15 +2,15 @@
 
 .main {
   &__landing {
-    // grid-row: 1/2;
     background-color: rgb(155, 155, 155);
-    // display: grid;
-    // grid-template-rows: 10% 1fr;
     display: flex;
     flex-direction: column;
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-rows: 130px 1fr 100px;
+    }
   }
   &__title {
-    // grid-row: 1/2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,17 +19,39 @@
     &--logo {
       width: 18%;
       max-width: 90px;
+      @media (min-width: 768px) {
+        width: 10%;
+        max-width: 130px;
+      }
     }
 
     &--title {
       width: 80%;
       max-width: 390px;
+      @media (min-width: 768px) {
+        width: 60%;
+        max-width: 600px;
+      }
     }
   }
 
   &__nav {
-    // grid-row: 2/3;
     margin-bottom: 50px;
+    @media (min-width: 768px) {
+      margin-top: 75px;
+    }
+  }
+  &__decoration {
+    display: none;
+    &--img {
+      width: 100px;
+      height: 100px;
+    }
+    @media (min-width: 1024px) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
   }
 }
 
@@ -39,7 +61,10 @@
   justify-content: center;
   justify-items: center;
   @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
   &__postit {
@@ -123,5 +148,12 @@
 
   &__title {
     margin: 10px 0;
+    font-size: 20px;
+    @media (min-width: 768px) {
+      font-size: 15px;
+    }
+    @media (min-width: 1024px) {
+      font-size: 19px;
+    }
   }
 }

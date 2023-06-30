@@ -1,20 +1,27 @@
 .footer {
   grid-row: 2/3;
   background-color: #fadf55;
-  padding: 10px 5px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   &__nav {
-    width: 100%;
     height: 60%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    // flex-direction: column;
-    // align-items: flex-end;
     gap: 25px;
+    @media (min-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      height: auto;
+    }
   }
 
   &__ul {
