@@ -161,7 +161,7 @@ const TicTacToe = () => {
     <>
       <main
         className="main__tictactoe"
-        // style={{ height: viewportHeight }}
+      // style={{ height: viewportHeight }}
       >
         <StartModalTicTacToe
           updatePlayer1={updatePlayer1}

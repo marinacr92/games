@@ -1,4 +1,5 @@
 import '../../styles/Memory.scss';
+// import FlipMove from 'react-flip-move';
 import MemoryCards from './MemoryCards';
 import StartModalMemory from './StartModalMemory';
 import FinishModalMemory from './FinishModalMemory';
@@ -294,7 +295,7 @@ const Memory = () => {
     <>
       <main
         className="main__memory"
-        // style={{ height: viewportHeight }}
+      // style={{ height: viewportHeight }}
       >
         <StartModalMemory
           selectDifficulty={selectDifficulty}
@@ -310,6 +311,7 @@ const Memory = () => {
         />
         <h1 className="memory__title">Memory</h1>
         <div className="memory__board">
+          {/* <FlipMove> */}
           <MemoryCards
             images={images}
             cardsMatched={cardsMatched}
@@ -317,6 +319,7 @@ const Memory = () => {
             flipCards={flipCards}
             difficulty={difficulty}
           />
+          {/* </FlipMove> */}
         </div>
         <section
           className={

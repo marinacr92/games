@@ -34,17 +34,16 @@ const FinishModalTictactoe = ({
         )}
         <section className="modal__tictactoe--window">
           <i
-            class="fa-solid fa-xmark"
+            className="fa-solid fa-xmark"
             onClick={() => closeModal()}
             title="Salir del menú"
           ></i>
           <h2 className="modal__winner">
             {`Ha ganado
-          ${
-            winnerName === character1
-              ? player1 || 'Jugador 1'
-              : player2 || 'Jugador 2'
-          }`}
+          ${winnerName === character1
+                ? player1 || 'Jugador 1'
+                : player2 || 'Jugador 2'
+              }`}
           </h2>
 
           <div className="modal__btns">

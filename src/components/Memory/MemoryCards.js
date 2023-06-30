@@ -1,3 +1,6 @@
+// import FlipMove from 'react-flip-move';
+
+
 const MemoryCards = ({
   images,
   flipCards,
@@ -12,12 +15,11 @@ const MemoryCards = ({
         onClick={
           !cardsMatched.includes(index) && !cardsFlipped.includes(index)
             ? () => flipCards(index)
-            : () => {}
+            : () => { }
         }
         className={`card 
-         ${cardsFlipped.includes(index) ? 'flipped' : ''} ${
-          cardsMatched.includes(index) ? 'flipped' : ''
-        } ${difficulty === 'hard' ? 'card__size--hard' : 'card__size--nohard'}
+         ${cardsFlipped.includes(index) ? 'flipped' : ''} ${cardsMatched.includes(index) ? 'flipped' : ''
+          } ${difficulty === 'hard' ? 'card__size--hard' : 'card__size--nohard'}
         `}
       >
         <figure className="card__front card__faces">
@@ -34,7 +36,11 @@ const MemoryCards = ({
     );
   });
 
-  return <>{eachCard}</>;
+  return <>
+    {/* <FlipMove> */}
+    {eachCard}
+    {/* </FlipMove> */}
+  </>
 };
 
 export default MemoryCards;
