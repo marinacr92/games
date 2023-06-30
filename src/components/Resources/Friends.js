@@ -7,16 +7,6 @@ import Chandler from '../../images/Friends/ChandlerDuck.png';
 
 const FriendsArray = [Monica, Joey, Phoebe, Ross, Rachel, Chandler];
 
-// const Friends = {
-//   Monica,
-//   Joey,
-//   Phoebe,
-//   Ross,
-//   Rachel,
-//   Chandler,
-//   FriendsArray,
-// };
-
 export {
   Monica,
   Joey,
@@ -27,4 +17,4 @@ export {
   FriendsArray as Friends,
 };
 
-// export default Friends;
+
