@@ -2,19 +2,24 @@
   grid-row: 2/3;
   background-color: #fadf55;
   padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__nav {
-    height: 70%;
+    width: 100%;
+    height: 60%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 15px;
+    align-items: center;
+    justify-content: space-around;
+    // flex-direction: column;
+    // align-items: flex-end;
+    gap: 25px;
   }
 
   &__ul {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    gap: 8px;
   }
 
   &__name {
@@ -29,6 +34,6 @@
 
   &__copy {
     color: #0d82bb;
-    font-size: 14px;
+    // font-size: 14px;
   }
 }
