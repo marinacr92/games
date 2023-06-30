@@ -168,11 +168,11 @@ const Memory = () => {
     });
     setImages([...copy]);
     setShowStartModal(false);
-    setDifficulty('easy');
-    setThemeOne(friends);
-    setImgOne(Joey);
-    setThemeTwo(street);
-    setImgTwo(RyuDuck);
+    // setDifficulty('easy');
+    // setThemeOne(friends);
+    // setImgOne(Joey);
+    // setThemeTwo(street);
+    // setImgTwo(RyuDuck);
   };
 
   const closeModalMem = () => {
@@ -198,7 +198,7 @@ const Memory = () => {
         />
         <h1 className="memory__title">Memory</h1>
         <div className='memory__container'>
-          <div className="memory__board">
+          <div className={difficulty === 'hard' ? 'memory__board--hard memory__board' : 'memory__board'}>
             <MemoryCards
               images={images}
               cardsMatched={cardsMatched}
