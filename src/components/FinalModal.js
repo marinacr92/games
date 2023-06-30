@@ -12,12 +12,12 @@ const FinalModal = ({ isOpen, isExploding, closeModal, winner, handlePlayAgain, 
     >
       {isExploding ? (
         <ConfettiExplosion
-          particleCount={250}
-          duration={5000}
+          particleCount={400}
+          duration={4000}
           zIndex={99}
-          height={'500vh'}
+          width={10000}
           colors={['#b1b1ff', '#90ee90', '#ffa07a', '#fbfb52', '#add8e6']}
-          force={0}
+          force={0.8}
         />
       ) : (
         ''
