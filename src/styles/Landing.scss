@@ -72,6 +72,7 @@
     width: 65%;
     max-width: 300px;
     margin-bottom: 50px;
+    padding: 5px;
     background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
 
     &--yellow {
@@ -149,8 +150,9 @@
   &__title {
     margin: 10px 0;
     font-size: 20px;
+    text-align: center;
     @media (min-width: 768px) {
-      font-size: 15px;
+      font-size: 13px;
     }
     @media (min-width: 1024px) {
       font-size: 19px;
