@@ -1,75 +1,21 @@
-import '../../styles/Memory.scss';
-import MemoryCards from './MemoryCards';
-import StartModalMemory from './StartModalMemory';
-import FinishModalMemory from './FinishModalMemory';
-// import Monica from '../../images/Friends/MonicaDuck.png';
-// import Joey from '../../images/Friends/JoeyDuck.png';
-// import Phoebe from '../../images/Friends/PhoebeDuck.png';
-// import Ross from '../../images/Friends/RossDuck.png';
-// import Rachel from '../../images/Friends/RachelDuck.png';
-// import Chandler from '../../images/Friends/ChandlerDuck.png';
-import Aragorn from '../../images/LOTR/Aragorn.png';
-import Arwen from '../../images/LOTR/Arwen.png';
-import Frodo from '../../images/LOTR/Frodo.png';
-import Galadriel from '../../images/LOTR/Galadriel.png';
-import Gandalf from '../../images/LOTR/GandalfNot.png';
-import Gimli from '../../images/LOTR/Gimli.png';
-import Gollum from '../../images/LOTR/Gollum.png';
-import Legolas from '../../images/LOTR/Legolas.png';
-import Lurtz from '../../images/LOTR/lurtz.png';
-import Samwise from '../../images/LOTR/Samwise.png';
-import Saruman from '../../images/LOTR/Saruman.png';
-import Sauron from '../../images/LOTR/Sauron.png';
-import AquaDuck from '../../images/DC/Aquaduck.png';
-import BatDuck from '../../images/DC/Batduck.png';
-import BloodSportDuck from '../../images/DC/BloodSportDuck.png';
-import CatDuck from '../../images/DC/Catduck.png';
-import HarleyDuck from '../../images/DC/Harleyduck.png';
-import JokerDuck from '../../images/DC/JokerDuck.png';
-import PeacemakerDuck from '../../images/DC/PeacemakerDuck.png';
-import RobinDuck from '../../images/DC/RobinDuck.png';
-import SuperDuck from '../../images/DC/Superduck.png';
-import TDKDuck from '../../images/DC/TDKDuck.png';
-import TwoFaceDuck from '../../images/DC/TwoFaceDuck.png';
-import WonderDuck from '../../images/DC/Wonderduck.png';
-import JanineDuck from '../../images/Ghostbusters/JanineDuck.png';
-import SlimerDuck from '../../images/Ghostbusters/SlimerDuck.png';
-import SpenglerDuck from '../../images/Ghostbusters/SpenglerDuck.png';
-import StantzDuck from '../../images/Ghostbusters/StantzDuck.png';
-import StayPuftDuck from '../../images/Ghostbusters/StayPuftDuck.png';
-import VenkmanDuck from '../../images/Ghostbusters/VenkmanDuck.png';
-import VenkmanDuckSlime from '../../images/Ghostbusters/VenkmanDuckSlime.png';
-import WinstonDuck from '../../images/Ghostbusters/WinstonDuck.png';
-import ChuckyDuck from '../../images/Horror/ChuckyDuck.png';
-import DraculaDuck from '../../images/Horror/DraculaDuck.png';
-import ExorcistDuck from '../../images/Horror/ExorcistDuck.png';
-import GremlinDuck from '../../images/Horror/GremlinDuck.png';
-import MummyDuck from '../../images/Horror/MummyDuck.png';
-import NunDuck from '../../images/Horror/NunDuck.png';
-import PennywiseDuck from '../../images/Horror/PennywiseDuck.png';
-import TexasDuck from '../../images/Horror/TexasDuck.png';
-import BlankaDuck from '../../images/StreetFighter/BlankaDuck.png';
-import ChunLiDuck from '../../images/StreetFighter/ChunLiDuck.png';
-import EHondaDuck from '../../images/StreetFighter/EHondaDuck.png';
-import GuileDuck from '../../images/StreetFighter/GuileDuck.png';
-import RyuDuck from '../../images/StreetFighter/RyuDuck.png';
-import Zangief from '../../images/StreetFighter/ZangiefDuck.png';
-
-// import {
-//   Monica,
-//   Joey,
-//   Phoebe,
-//   Ross,
-//   Rachel,
-//   Chandler,
-// } from '../Resources/Friends';
-import { Friends, Joey } from '../Resources/Friends';
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../Button';
 
-const Memory = ({ viewportHeight }) => {
+import Button from '../Button';
+import FinalModal from '../FinalModal';
+import MemoryCards from './MemoryCards';
+import StartModalMemory from './StartModalMemory';
+
+import { Friends, Joey } from '../Resources/Friends';
+import { Street, RyuDuck } from '../Resources/Street';
+import { LOTR, Frodo } from '../Resources/LOTR';
+import { DC, AquaDuck } from '../Resources/DC';
+import { Ghostbuster, StayPuftDuck } from '../Resources/Ghostbusters';
+import { Horror, DraculaDuck } from '../Resources/Horror'
+
+import '../../styles/Memory.scss';
+
+const Memory = () => {
   const [images, setImages] = useState([]);
   const [showStartModal, setShowStartModal] = useState(true);
   const [showFinishModal, setShowFinishModal] = useState(false);
@@ -77,74 +23,21 @@ const Memory = ({ viewportHeight }) => {
   const [cardsFlipped, setCardsFlipped] = useState([]);
   const [cardsMatched, setCardsMatched] = useState([]);
   const [difficulty, setDifficulty] = useState('easy');
-
   const [counter, setCounter] = useState(0);
+  const [isExplodingMem, setIsExplodingMem] = useState(false);
+
   const friends = [...Friends];
-  const street = [
-    BlankaDuck,
-    ChunLiDuck,
-    EHondaDuck,
-    GuileDuck,
-    RyuDuck,
-    Zangief,
-  ];
-  const lotr = [
-    Aragorn,
-    Arwen,
-    Frodo,
-    Galadriel,
-    Gandalf,
-    Gimli,
-    Gollum,
-    Legolas,
-    Lurtz,
-    Samwise,
-    Saruman,
-    Sauron,
-  ];
-
-  const dc = [
-    AquaDuck,
-    BatDuck,
-    BloodSportDuck,
-    CatDuck,
-    HarleyDuck,
-    JokerDuck,
-    PeacemakerDuck,
-    RobinDuck,
-    SuperDuck,
-    TDKDuck,
-    TwoFaceDuck,
-    WonderDuck,
-  ];
-
-  const ghostbuster = [
-    JanineDuck,
-    SlimerDuck,
-    SpenglerDuck,
-    StantzDuck,
-    StayPuftDuck,
-    VenkmanDuck,
-    VenkmanDuckSlime,
-    WinstonDuck,
-  ];
-  const horror = [
-    ChuckyDuck,
-    DraculaDuck,
-    ExorcistDuck,
-    GremlinDuck,
-    MummyDuck,
-    NunDuck,
-    PennywiseDuck,
-    TexasDuck,
-  ];
+  const street = [...Street];
+  const lotr = [...LOTR];
+  const dc = [...DC];
+  const ghostbuster = [...Ghostbuster];
+  const horror = [...Horror];
 
   const [themeOne, setThemeOne] = useState(friends);
   const [themeTwo, setThemeTwo] = useState(street);
-  const [theme, setTheme] = useState(themeOne);
+  const [theme, setTheme] = useState(friends);
   const [imgOne, setImgOne] = useState(Joey);
   const [imgTwo, setImgTwo] = useState(RyuDuck);
-  const [isExplodingMem, setIsExplodingMem] = useState(false);
 
   const increment = () => {
     setCounter(counter + 1);
@@ -177,10 +70,12 @@ const Memory = ({ viewportHeight }) => {
   };
 
   useEffect(() => {
-    if (theme.length !== 0) {
-      if (cardsMatched.length === theme.length) {
-        setShowFinishModal(true);
-        setIsExplodingMem(true);
+    if (images.length !== 0) {
+      if (cardsMatched.length === images.length) {
+        setTimeout(() => {
+          setShowFinishModal(true);
+          setIsExplodingMem(true);
+        }, 700);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -194,10 +89,11 @@ const Memory = ({ viewportHeight }) => {
     setShowFinishModal(false);
     setIsExplodingMem(false);
     setTimeout(() => {
-      theme.sort(() => {
+      const copy = theme.concat(theme);
+      copy.sort(() => {
         return Math.random() - 0.5;
       });
-      setImages([...theme]);
+      setImages([...copy]);
     }, 700);
   };
 
@@ -205,11 +101,16 @@ const Memory = ({ viewportHeight }) => {
     setCardsMatched([]);
     setCardsFlipped([]);
     setImages([]);
-    setTheme('');
+    setTheme(friends);
     setCounter(0);
     setShowStartModal(true);
     setShowFinishModal(false);
     setIsExplodingMem(false);
+    setDifficulty('easy');
+    setThemeOne(friends);
+    setImgOne(Joey);
+    setThemeTwo(street);
+    setImgTwo(RyuDuck);
   };
 
   const selectDifficulty = (id) => {
@@ -219,18 +120,21 @@ const Memory = ({ viewportHeight }) => {
       setImgOne(Joey);
       setThemeTwo(street);
       setImgTwo(RyuDuck);
+      setTheme(friends);
     } else if (id === 'medium') {
       setDifficulty('medium');
       setThemeOne(horror);
       setImgOne(DraculaDuck);
       setThemeTwo(ghostbuster);
       setImgTwo(StayPuftDuck);
+      setTheme(horror);
     } else if (id === 'hard') {
       setDifficulty('hard');
       setThemeOne(lotr);
       setImgOne(Frodo);
       setThemeTwo(dc);
       setImgTwo(AquaDuck);
+      setTheme(lotr);
     }
   };
 
@@ -240,7 +144,7 @@ const Memory = ({ viewportHeight }) => {
     } else if (difficulty === 'medium') {
       return 'Terror';
     } else if (difficulty === 'hard') {
-      return 'El señor de los anillos';
+      return 'ESDLA';
     }
   };
 
@@ -256,20 +160,24 @@ const Memory = ({ viewportHeight }) => {
 
   const selectTheme = (id) => {
     if (id === '1') {
-      const copy = themeOne.concat(themeOne);
-      setTheme(copy);
+      setTheme(themeOne);
     } else {
-      const copy = themeTwo.concat(themeTwo);
-      setTheme(copy);
+      setTheme(themeTwo);
     }
   };
 
   const letsPlay = () => {
-    theme.sort(() => {
+    const copy = theme.concat(theme);
+    copy.sort(() => {
       return Math.random() - 0.5;
     });
-    setImages([...theme]);
+    setImages([...copy]);
     setShowStartModal(false);
+    // setDifficulty('easy');
+    // setThemeOne(friends);
+    // setImgOne(Joey);
+    // setThemeTwo(street);
+    // setImgTwo(RyuDuck);
   };
 
   const closeModalMem = () => {
@@ -278,8 +186,8 @@ const Memory = ({ viewportHeight }) => {
 
   return (
     <>
-      <main className="main main__memory"
-        style={{ height: viewportHeight }}
+      <main
+        className="main__memory"
       >
         <StartModalMemory
           selectDifficulty={selectDifficulty}
@@ -293,21 +201,29 @@ const Memory = ({ viewportHeight }) => {
           imgTwo={imgTwo}
           theme={theme}
         />
-        <h1 className="memory__title">Memory</h1>
-        <div className="memory__board">
-          <MemoryCards
-            images={images}
-            cardsMatched={cardsMatched}
-            cardsFlipped={cardsFlipped}
-            flipCards={flipCards}
-            difficulty={difficulty}
-          />
+        <h1 className="memory__title">Juego de memoria</h1>
+        <div className='memory__container'>
+          <div className={difficulty === 'hard' ? 'memory__board--hard memory__board' : 'memory__board'}>
+            <MemoryCards
+              images={images}
+              cardsMatched={cardsMatched}
+              cardsFlipped={cardsFlipped}
+              flipCards={flipCards}
+              difficulty={difficulty}
+            />
+          </div>
         </div>
         <section
           className={
             showStartModal || showFinishModal ? 'hidden' : 'memory__footer'
           }
         >
+          <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>
+            Parejas acertadas:{' '}
+            {`${Math.floor(cardsMatched.length / 2)} / ${Math.floor(
+              images.length / 2
+            )}`}
+          </h3>
           <section className="section__buttons">
             <Link
               to="/"
@@ -340,24 +256,17 @@ const Memory = ({ viewportHeight }) => {
               ></Button>
             </button>
           </section>
-          <h3 className={showStartModal ? 'hidden' : 'couples-matched-msg'}>
-            Parejas acertadas:{' '}
-            {`${Math.floor(cardsMatched.length / 2)} / ${Math.floor(
-              theme.length / 2
-            )}`}
-          </h3>
         </section>
-        <FinishModalMemory
-          counter={counter}
-          showFinishModal={showFinishModal}
-          handleRestartGame={handleRestartGame}
-          handleChangeTheme={handleChangeTheme}
-          showStartModal={showStartModal}
-          closeModalMem={closeModalMem}
-          isExplodingMem={isExplodingMem}
+        <FinalModal
+          isOpen={showFinishModal}
+          isExploding={isExplodingMem}
+          closeModal={closeModalMem}
+          winner={`¡Has ganado en ${Math.floor(counter / 2)} movimientos!`}
+          handleReset={handleRestartGame}
+          handlePlayAgain={handleChangeTheme}
+          game={'memory'}
         />
       </main>
-      {/* <section className="modal__memory--last"></section> */}
     </>
   );
 };

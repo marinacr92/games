@@ -51,6 +51,7 @@ const Footer = () => {
           </li>
         </ul>
       </nav>
+      <span className="footer__copy">Copyright 2023. PlayTopia</span>
     </footer>
   );
 };

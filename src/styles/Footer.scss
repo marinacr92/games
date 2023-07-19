@@ -1,19 +1,32 @@
 .footer {
   grid-row: 2/3;
   background-color: #fadf55;
-  padding: 10px 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   &__nav {
+    height: 60%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 15px;
+    align-items: center;
+    justify-content: space-around;
+    gap: 25px;
+    @media (min-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      height: auto;
+    }
   }
 
   &__ul {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    gap: 8px;
   }
 
   &__name {
@@ -24,5 +37,10 @@
   &__icon {
     color: #096492;
     font-size: 25px;
+  }
+
+  &__copy {
+    color: #0d82bb;
+    // font-size: 14px;
   }
 }

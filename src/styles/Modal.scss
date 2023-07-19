@@ -1,0 +1,172 @@
+@import "./Varibles.scss";
+
+.modal {
+  &__background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    display: flex;
+  }
+  &__window {
+    margin: auto;
+    width: 90%;
+    position: relative;
+    z-index: 5;
+    border-radius: 20px;
+    padding: 10px;
+    @media (min-width: 550px) {
+      width: 70%;
+    }
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+    @media (min-width: 1024px) {
+      width: 30%;
+    }
+  }
+  &__tictactoe {
+    background-color: $tictactoe;
+  }
+  &__memory {
+    background-color: rgb(144, 238, 144);
+  }
+  &__buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    @media (min-width: 768px) {
+    }
+  }
+  &__link {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.startContent {
+  color: black;
+  &__legend {
+    font-size: 20px;
+  }
+  &__content {
+    // estilos para los radios de dificutal, creo que quedan mejor en columna en movil y luego para pantalla más grande poner esto
+    // &--difficulty {
+    //   display: grid;
+    //   grid-template-columns: repeat(3, 1fr);
+    //   justify-items: center;
+    //   align-items: center;
+    //   margin: 10px 15px;
+    // }
+    &--radios {
+      margin: 20px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    &--theme {
+      margin: 20px 15px;
+      display: flex;
+      justify-content: center;
+    }
+    &--players {
+      margin: 20px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+  &__label {
+    font-family: $mainFont;
+    font-size: 16px;
+  }
+  &__input--tictactoe {
+    width: 100px;
+    margin-left: 5px;
+  }
+  &__input--memory {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    accent-color: rgb(93, 93, 93);
+  }
+  &__button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    aspect-ratio: 1/1;
+    width: 130px;
+    background-color: transparent;
+    border: none;
+    margin: 5px 0;
+    &--img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+  &__characters {
+    display: flex;
+    justify-content: center;
+    &--img {
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.finalContent {
+  &__title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+  }
+}
+.marker {
+  background-color: rgb(213, 213, 213);
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+
+.fa-xmark {
+  color: white;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  padding: 4px 6px;
+  border: solid 1px white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.donatello {
+  background-image: url("../images/Tortugas/Donatello.png");
+}
+
+.michelangelo {
+  background-image: url("../images/Tortugas/Michelangelo.png");
+}
+
+.pink {
+  background-image: url("../images/Power/PinkRanger.png");
+}
+.blue {
+  background-image: url("../images/Power/BlueRanger.png");
+}
+
+.doc {
+  background-image: url("../images/BTF/Doc.png");
+}
+.marty {
+  background-image: url("../images/BTF/Marty.png");
+}
+
+.hidden {
+  display: none;
+}

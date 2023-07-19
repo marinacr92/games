@@ -1,7 +1,8 @@
 /* eslint-disable default-case */
 
 import Button from '../Button';
-import '../../styles/TicTacToe.scss';
+import '../../styles/Modal.scss'
+import { Link } from 'react-router-dom';
 
 const StartModalTicTacToe = ({
   updatePlayer1,
@@ -58,80 +59,94 @@ const StartModalTicTacToe = ({
   };
 
   return (
-    <div
-      className={isStartModalOpen ? 'modal__tictactoe--background' : 'hidden'}
+    <section
+      className={isStartModalOpen ? 'modal__background' : 'hidden'}
     >
-      <section className="modal__tictactoe--window">
+      <section className="modal__window modal__tictactoe">
         <form
           onSubmit={(ev) => ev.preventDefault()}
-          className="modal__tictactoe--form"
+          className="modal__startContent"
         >
-          <fieldset className="modal__fieldset">
-            <legend className="modal__legend">Jugadores:</legend>
-            <label className="modal__label" htmlFor="player1">
-              Jugador 1:
-              <input
-                className="modal__input"
-                type="text"
-                name="player1"
-                id="player1"
-                value={player1}
-                onChange={handlePlayer}
-                placeholder="Marina"
-              />
-            </label>
-            <label className="modal__label" htmlFor="player2">
-              Jugador 2:
-              <input
-                className="modal__input"
-                type="text"
-                name="player2"
-                id="player2"
-                value={player2}
-                onChange={handlePlayer}
-                placeholder="Bea"
-              />
-            </label>
+          <fieldset>
+            <legend className="startContent__legend">Jugadores:</legend>
+            <div className='startContent__content--players'>
+              <label className="startContent__label--tictactoe" htmlFor="player1">
+                Jugador 1:
+                <input
+                  className="startContent__input--tictactoe"
+                  type="text"
+                  name="player1"
+                  id="player1"
+                  value={player1}
+                  onChange={handlePlayer}
+                  placeholder="Marina"
+                />
+              </label>
+              <label className="startContent__label--tictactoe" htmlFor="player2">
+                Jugador 2:
+                <input
+                  className="startContent__input--tictactoe"
+                  type="text"
+                  name="player2"
+                  id="player2"
+                  value={player2}
+                  onChange={handlePlayer}
+                  placeholder="Bea"
+                />
+              </label>
+            </div>
           </fieldset>
-          <fieldset className="modal__fielset">
-            <legend className="modal__legend">Elige un tema:</legend>
-            <label htmlFor="ninja" className="modal__label">
-              <input
-                type="radio"
-                name="ninja"
-                id="ninja"
-                onChange={handleTheme}
-                checked={theme === 'ninja'}
-              />{' '}
-              Tortugas Ninja
-            </label>
-            <label htmlFor="power" className="modal__label">
-              <input
-                type="radio"
-                name="power"
-                id="power"
-                onChange={handleTheme}
-                checked={theme === 'power'}
-              />
-              Power Rangers
-            </label>
-            <label htmlFor="future" className="modal__label">
-              <input
-                type="radio"
-                name="future"
-                id="future"
-                onChange={handleTheme}
-                checked={theme === 'future'}
-              />{' '}
-              Regreso al futuro
-            </label>
+          <fieldset>
+            <legend className="startContent__legend">Elige un tema:</legend>
+            <div className="startContent__content--radios">
+              <label htmlFor="ninja" className="startContent__label">
+                <input
+                  type="radio"
+                  name="ninja"
+                  id="ninja"
+                  onChange={handleTheme}
+                  checked={theme === 'ninja'}
+                />{' '}
+                Tortugas Ninja
+              </label>
+              <label htmlFor="power" className="startContent__label">
+                <input
+                  type="radio"
+                  name="power"
+                  id="power"
+                  onChange={handleTheme}
+                  checked={theme === 'power'}
+                /> {' '}
+                Power Rangers
+              </label>
+              <label htmlFor="future" className="startContent__label">
+                <input
+                  type="radio"
+                  name="future"
+                  id="future"
+                  onChange={handleTheme}
+                  checked={theme === 'future'}
+                />{' '}
+                Regreso al futuro
+              </label>
+            </div>
           </fieldset>
         </form>
-        <div className="modal__characters">
-          <div className={`modal__img ${seeCharacter1()}`}></div>
-          <div className={`modal__img ${seeCharacter2()}`}></div>
+        <div className="startContent__characters">
+          <div className={`startContent__characters--img ${seeCharacter1()}`}></div>
+          <div className={`startContent__characters--img ${seeCharacter2()}`}></div>
         </div>
-        <div className="modal__button">
+        <section className="modal__buttons">
+          <Link
+            to="/"
+            className="button__container"
+            title="Botón para volver a la sala de juegos"
+          >
+            <Button
+              classIcon="fa-arrow-left"
+              textButton="Sala de juegos"
+            ></Button>
+          </Link>
           <button
             onClick={handlePlay}
             className="button__container button__play"
@@ -139,9 +154,9 @@ const StartModalTicTacToe = ({
           >
             <Button classIcon="fa-play" textButton="Jugar"></Button>
           </button>
-        </div>
+        </section>
       </section>
-    </div>
+    </section>
   );
 };
 

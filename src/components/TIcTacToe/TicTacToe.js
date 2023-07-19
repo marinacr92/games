@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react';
 import '../../styles/TicTacToe.scss';
 import { Link } from 'react-router-dom';
-import Bic from '../../images/bic.png';
+// import Bic from '../../images/bic.png';
 import StartModalTicTacToe from './StartModalTicTacToe';
-import FinishModalTictactoe from './FinishModalTicTacToe';
 import Button from '../Button';
+import FinalModal from '../FinalModal';
 
-const TicTacToe = ({ viewportHeight }) => {
+const TicTacToe = () => {
   // casillas del tablero
   const [board, setBoard] = useState(Array(9).fill(''));
 
@@ -33,11 +33,16 @@ const TicTacToe = ({ viewportHeight }) => {
 
   //abrir y/o cerrar ventanas modales
   const [isStartModalOpen, setIsStartModalOpen] = useState(true);
+  const [isTieModalOpen, setIsTieModalOpen] = useState(false);
   const [isFinishModalOpen, setIsFinishModalOpen] = useState(false);
 
   // confeti
   const [isExploding, setIsExploding] = useState(false);
+
   // comprueba las jugadas para ver quien gana, guarda el ganador en una variable y abre ventana modal
+
+  let foundwinner = false;
+
   useEffect(() => {
     const winnerLines = [
       [0, 1, 2],
@@ -53,13 +58,20 @@ const TicTacToe = ({ viewportHeight }) => {
       const [a, b, c] = winnerLines[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         setWinnerName(board[a]);
+        foundwinner = true;
         setTimeout(() => {
           setIsFinishModalOpen(true);
           setIsExploding(true);
         }, 700);
       }
     }
+    if (playedSquares.length === 9 && !foundwinner) {
+      setTimeout(() => {
+        setIsTieModalOpen(true)
+      }, 700);
+    }
   }, [board]);
+
 
   // pintar el tablero
   const renderSquare = board.map((square, index) => {
@@ -79,9 +91,10 @@ const TicTacToe = ({ viewportHeight }) => {
 
   // manejadora del tablero, si hay un ganador o esa casilla ya ha sido pulsada no se puede cliclar
   const handleBoard = (ev) => {
-    if (winnerName === '' && !playedSquares.includes(ev.target.id))
+    if (winnerName === '' && !playedSquares.includes(ev.target.id)) {
       whoPlays(ev.target.id);
-  };
+    };
+  }
 
   // pinta el personaje en cada casilla y guarda el index de las casillas jugadas
   const whoPlays = (index) => {
@@ -129,6 +142,7 @@ const TicTacToe = ({ viewportHeight }) => {
   const handleReset = () => {
     setIsStartModalOpen(true);
     setIsFinishModalOpen(false);
+    setIsTieModalOpen(false);
   };
 
   // botón jugar de nuevo con los mismo personajes
@@ -138,6 +152,7 @@ const TicTacToe = ({ viewportHeight }) => {
     setBoard(Array(9).fill(''));
     setPlayedSquares([]);
     setIsFinishModalOpen(false);
+    setIsTieModalOpen(false)
     setIsExploding(false);
   };
 
@@ -155,14 +170,13 @@ const TicTacToe = ({ viewportHeight }) => {
 
   const closeModal = () => {
     setIsFinishModalOpen(false);
+    setIsTieModalOpen(false);
   };
 
   return (
     <>
       <main
-        className="main 
-    main__tictactoe"
-        style={{ height: viewportHeight }}
+        className="main__tictactoe"
       >
         <StartModalTicTacToe
           updatePlayer1={updatePlayer1}
@@ -175,14 +189,14 @@ const TicTacToe = ({ viewportHeight }) => {
           theme={theme}
           isStartModalOpen={isStartModalOpen}
         />
-        <h1 className="tictactoe__title">TicTacToe</h1>
+        <h1 className="tictactoe__title">Tres en raya</h1>
         <section className="tictactoe__box">
           <div
             className="tictactoe__board"
-            // onClick={winnerName === '' ? (ev) => whoPlays(ev.target.id) : () => { }}
             onClick={handleBoard}
           >
             {renderSquare}
+
           </div>
           <div className="tictactoe__players">
             <p className="tictactoe__players--names">
@@ -196,10 +210,16 @@ const TicTacToe = ({ viewportHeight }) => {
               ></div>
               <div className={`tictactoe__players--two ${character2}`}></div>
             </div>
-            <img className="tictactoe__bic" src={Bic} alt="boli bic" />
+            {/* <img className="tictactoe__bic" src={Bic} alt="boli bic" /> */}
           </div>
         </section>
-        <section className={isStartModalOpen || isFinishModalOpen ? 'hidden' : 'section__buttons'}>
+        <section
+          className={
+            isStartModalOpen || isFinishModalOpen || isTieModalOpen
+              ? 'hidden'
+              : 'section__buttons'
+          }
+        >
           <Link
             className="button__container"
             to="/"
@@ -231,17 +251,28 @@ const TicTacToe = ({ viewportHeight }) => {
             ></Button>
           </button>
         </section>
-        <FinishModalTictactoe
-          player1={player1}
-          player2={player2}
-          handleReset={handleReset}
-          winnerName={winnerName}
-          character1={character1}
-          isFinishModalOpen={isFinishModalOpen}
-          handlePlayAgain={handlePlayAgain}
+
+        <FinalModal
+          isOpen={isFinishModalOpen}
           isExploding={isExploding}
           closeModal={closeModal}
-        ></FinishModalTictactoe>
+          winner={`¡Ha ganado
+          ${winnerName === character1
+              ? player1 || 'Jugador 1'
+              : player2 || 'Jugador 2'
+            }!`}
+          handlePlayAgain={handlePlayAgain}
+          handleReset={handleReset}
+          game={'tictactoe'}
+        />
+        <FinalModal
+          isOpen={isTieModalOpen}
+          closeModal={closeModal}
+          winner={`Empate`}
+          handlePlayAgain={handlePlayAgain}
+          handleReset={handleReset}
+          game={'tictactoe'}
+        />
       </main>
     </>
   );
