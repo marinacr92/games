@@ -106,6 +106,11 @@ const Memory = () => {
     setShowStartModal(true);
     setShowFinishModal(false);
     setIsExplodingMem(false);
+    setDifficulty('easy');
+    setThemeOne(friends);
+    setImgOne(Joey);
+    setThemeTwo(street);
+    setImgTwo(RyuDuck);
   };
 
   const selectDifficulty = (id) => {
@@ -196,7 +201,7 @@ const Memory = () => {
           imgTwo={imgTwo}
           theme={theme}
         />
-        <h1 className="memory__title">Memory</h1>
+        <h1 className="memory__title">Juego de memoria</h1>
         <div className='memory__container'>
           <div className={difficulty === 'hard' ? 'memory__board--hard memory__board' : 'memory__board'}>
             <MemoryCards

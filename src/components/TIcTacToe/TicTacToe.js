@@ -81,14 +81,15 @@ const TicTacToe = () => {
 
   // manejadora del tablero, si hay un ganador o esa casilla ya ha sido pulsada no se puede cliclar
   const handleBoard = (ev) => {
+    if (winnerName === '' && !playedSquares.includes(ev.target.id)) {
+      whoPlays(ev.target.id);
+    };
     if (playedSquares.length === 8) {
       setTimeout(() => {
         setIsTieModalOpen(true)
       }, 700);
     }
-    if (winnerName === '' && !playedSquares.includes(ev.target.id))
-      whoPlays(ev.target.id);
-  };
+  }
 
   // pinta el personaje en cada casilla y guarda el index de las casillas jugadas
   const whoPlays = (index) => {
@@ -136,6 +137,7 @@ const TicTacToe = () => {
   const handleReset = () => {
     setIsStartModalOpen(true);
     setIsFinishModalOpen(false);
+    setIsTieModalOpen(false);
   };
 
   // botón jugar de nuevo con los mismo personajes
@@ -182,7 +184,7 @@ const TicTacToe = () => {
           theme={theme}
           isStartModalOpen={isStartModalOpen}
         />
-        <h1 className="tictactoe__title">TicTacToe</h1>
+        <h1 className="tictactoe__title">Tres en raya</h1>
         <section className="tictactoe__box">
           <div
             className="tictactoe__board"

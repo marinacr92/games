@@ -37,7 +37,7 @@
     }
     @media (min-width: 1024px) {
       cursor: pointer;
-      transition: 0.5s;
+      // transition: 0.5s;
     }
   }
 
@@ -57,7 +57,7 @@
     @media (min-width: 768px) {
     }
     @media (min-width: 1024px) {
-      transition: all 0.7s ease;
+      // transition: all 0.7s ease;
     }
   }
 
@@ -65,7 +65,7 @@
     font-size: 15px;
     color: white;
     @media (min-width: 1024px) {
-      transition: all 0.7s ease;
+      // transition: all 0.7s ease;
     }
   }
 
@@ -73,26 +73,26 @@
     font-size: 12px;
     color: black;
     @media (min-width: 1024px) {
-      transition: all 0.7s ease;
-    }
-  }
-
-  &__container:hover .button__back {
-    @media (min-width: 1024px) {
-      width: 200px;
-    }
-  }
-
-  &__container:hover .button__back span {
-    @media (min-width: 1024px) {
-      opacity: 1;
-      font-size: 20px;
-    }
-  }
-
-  &__container:hover .button__i {
-    @media (min-width: 1024px) {
-      transform: rotate(360deg);
+      // transition: all 0.7s ease;
     }
   }
 }
+// &__container:hover .button__back {
+//   @media (min-width: 1024px) {
+//     width: 200px;
+//   }
+// }
+
+// &__container:hover .button__back span {
+//   @media (min-width: 1024px) {
+//     opacity: 1;
+//     font-size: 20px;
+//   }
+// }
+
+//   &__container:hover .button__i {
+//     @media (min-width: 1024px) {
+//       // transform: rotate(360deg);
+//     }
+//   }
+// }

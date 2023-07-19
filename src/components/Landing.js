@@ -23,7 +23,7 @@ const Landing = () => {
                 to="/tictactoe"
                 title="Enlace al juego TicTacToe"
               >
-                <p className="link__title">Tic Tac Toe</p>
+                <p className="link__title">Tres en raya</p>
                 <img className="link__img" src={ImgTicTacToe} alt="" />
               </Link>
             </li>
@@ -34,7 +34,7 @@ const Landing = () => {
                 title="Enlace al juego Memory"
               >
                 <img className="link__img" src={ImgMemory} alt="" />
-                <p className="link__title">Memory</p>
+                <p className="link__title">Juego de memoria</p>
               </Link>
             </li>
             <li className="wall__postit wall__postit--yellow">
