@@ -40,6 +40,9 @@ const TicTacToe = () => {
   const [isExploding, setIsExploding] = useState(false);
 
   // comprueba las jugadas para ver quien gana, guarda el ganador en una variable y abre ventana modal
+
+  let foundwinner = false;
+
   useEffect(() => {
     const winnerLines = [
       [0, 1, 2],
@@ -55,13 +58,20 @@ const TicTacToe = () => {
       const [a, b, c] = winnerLines[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         setWinnerName(board[a]);
+        foundwinner = true;
         setTimeout(() => {
           setIsFinishModalOpen(true);
           setIsExploding(true);
         }, 700);
       }
     }
+    if (playedSquares.length === 9 && !foundwinner) {
+      setTimeout(() => {
+        setIsTieModalOpen(true)
+      }, 700);
+    }
   }, [board]);
+
 
   // pintar el tablero
   const renderSquare = board.map((square, index) => {
@@ -84,11 +94,6 @@ const TicTacToe = () => {
     if (winnerName === '' && !playedSquares.includes(ev.target.id)) {
       whoPlays(ev.target.id);
     };
-    if (playedSquares.length === 8) {
-      setTimeout(() => {
-        setIsTieModalOpen(true)
-      }, 700);
-    }
   }
 
   // pinta el personaje en cada casilla y guarda el index de las casillas jugadas
@@ -246,6 +251,7 @@ const TicTacToe = () => {
             ></Button>
           </button>
         </section>
+
         <FinalModal
           isOpen={isFinishModalOpen}
           isExploding={isExploding}

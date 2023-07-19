@@ -34,8 +34,8 @@ const FinalModal = ({ isOpen, isExploding, closeModal, winner, handlePlayAgain, 
 
         <section className="modal__buttons">
           <button
-            onClick={handleReset}
 
+            onClick={handlePlayAgain}
             className="button__container"
             title="Botón para reiniciar la partida"
           >
@@ -45,7 +45,7 @@ const FinalModal = ({ isOpen, isExploding, closeModal, winner, handlePlayAgain, 
             ></Button>
           </button>
           <button
-            onClick={handlePlayAgain}
+            onClick={handleReset}
             className="button__container"
             title="Botón para cambiar los personajes"
           >
