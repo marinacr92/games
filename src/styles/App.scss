@@ -3,18 +3,10 @@
 #root {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 125px;
+  grid-template-rows: 1fr 100px;
   font-family: $mainFont;
-  @media (min-width: 600px) {
-    // height: 100vh;
+  @media (min-width: 768px) {
+    height: 100vh;
+    // grid-template-rows: 1fr 20%;
   }
 }
-
-// .main {
-//   grid-row: 1/2;
-// }
-
-// .div {
-//   display: grid;
-//   grid-template-rows: 1fr 12%;
-// }

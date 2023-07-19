@@ -7,7 +7,7 @@
     flex-direction: column;
     @media (min-width: 768px) {
       display: grid;
-      grid-template-rows: 130px 1fr 100px;
+      grid-template-rows: 100px 1fr;
     }
   }
   &__title {
@@ -17,41 +17,39 @@
     padding: 25px 0;
 
     &--logo {
-      width: 18%;
+      width: 15%;
       max-width: 90px;
       @media (min-width: 768px) {
         width: 10%;
-        max-width: 130px;
+        max-width: 100px;
       }
     }
 
     &--title {
       width: 80%;
-      max-width: 390px;
+      max-width: 400px;
       @media (min-width: 768px) {
-        width: 60%;
-        max-width: 600px;
+        width: 40%;
+        max-width: 500px;
       }
     }
   }
 
   &__nav {
     margin-bottom: 50px;
-    @media (min-width: 768px) {
-      margin-top: 75px;
-    }
+    margin-top: 50px;
   }
   &__decoration {
     display: none;
-    &--img {
-      width: 100px;
-      height: 100px;
-    }
-    @media (min-width: 1024px) {
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-    }
+    //   &--img {
+    //     width: 100px;
+    //     height: 100px;
+    //   }
+    //   @media (min-width: 1024px) {
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     align-items: flex-end;
+    //   }
   }
 }
 
@@ -61,19 +59,22 @@
   justify-content: center;
   justify-items: center;
   @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 
   &__postit {
     aspect-ratio: 1/1;
-    width: 65%;
+    width: 55%;
     max-width: 300px;
     margin-bottom: 50px;
     padding: 5px;
     background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
+    @media (min-width: 768px) {
+      width: 65%;
+    }
 
     &--yellow {
       background-color: #fbfb52;
@@ -155,7 +156,7 @@
       font-size: 13px;
     }
     @media (min-width: 1024px) {
-      font-size: 19px;
+      font-size: 17px;
     }
   }
 }

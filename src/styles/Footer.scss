@@ -1,7 +1,7 @@
 .footer {
   grid-row: 2/3;
   background-color: #fadf55;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,10 +11,11 @@
   }
 
   &__nav {
-    height: 60%;
+    // height: 60%;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 25px;
     @media (min-width: 768px) {
       flex-direction: column;
@@ -31,16 +32,21 @@
 
   &__name {
     color: #0d82bb;
-    font-size: 18px;
+    font-size: 15px;
   }
 
   &__icon {
     color: #096492;
-    font-size: 25px;
+    font-size: 21px;
   }
 
   &__copy {
+    margin-top: 15px;
     color: #0d82bb;
-    // font-size: 14px;
+    font-size: 15px;
+    white-space: nowrap;
+    @media (min-width: 768px) {
+      margin-top: 0;
+    }
   }
 }
