@@ -11,7 +11,7 @@ import { Street, RyuDuck } from '../Resources/Street';
 import { LOTR, Frodo } from '../Resources/LOTR';
 import { DC, AquaDuck } from '../Resources/DC';
 import { Ghostbuster, StayPuftDuck } from '../Resources/Ghostbusters';
-import { Horror, DraculaDuck } from '../Resources/Horror'
+import { Horror, DraculaDuck } from '../Resources/Horror';
 
 import '../../styles/Memory.scss';
 
@@ -186,9 +186,7 @@ const Memory = () => {
 
   return (
     <>
-      <main
-        className="main__memory"
-      >
+      <main className="main__memory">
         <StartModalMemory
           selectDifficulty={selectDifficulty}
           difficulty={difficulty}
@@ -202,8 +200,14 @@ const Memory = () => {
           theme={theme}
         />
         <h1 className="memory__title">Juego de memoria</h1>
-        <div className='memory__container'>
-          <div className={difficulty === 'hard' ? 'memory__board--hard memory__board' : 'memory__board'}>
+        <div className="memory__container">
+          <div
+            className={
+              difficulty === 'hard'
+                ? 'memory__board--hard memory__board'
+                : 'memory__board'
+            }
+          >
             <MemoryCards
               images={images}
               cardsMatched={cardsMatched}
@@ -262,8 +266,8 @@ const Memory = () => {
           isExploding={isExplodingMem}
           closeModal={closeModalMem}
           winner={`¡Has ganado en ${Math.floor(counter / 2)} movimientos!`}
-          handleReset={handleRestartGame}
-          handlePlayAgain={handleChangeTheme}
+          handleReset={handleChangeTheme}
+          handlePlayAgain={handleRestartGame}
           game={'memory'}
         />
       </main>
